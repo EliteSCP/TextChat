@@ -18,12 +18,12 @@ namespace TextChat
 
 		public static LiteDatabase Database { get; private set; }
 
-		public Dictionary<string, ICommand> ConsoleCommands { get; private set; }
-		public Dictionary<string, ICommand> RemoteAdminCommands { get; private set; }
-		public Dictionary<ReferenceHub, Collections.Chat.Player> ChatPlayers { get; private set; }
-
 		public string DatabaseDirectory => Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Plugins"), getName);
 		public string DatabaseFullPath => Path.Combine(DatabaseDirectory, $"{databaseName}.db");
+
+		public Dictionary<string, ICommand> ConsoleCommands { get; private set; } = new Dictionary<string, ICommand>();
+		public Dictionary<string, ICommand> RemoteAdminCommands { get; private set; } = new Dictionary<string, ICommand>();
+		public Dictionary<ReferenceHub, Collections.Chat.Player> ChatPlayers { get; private set; } = new Dictionary<ReferenceHub, Collections.Chat.Player>();
 		#endregion
 
 		#region Configs
@@ -46,13 +46,6 @@ namespace TextChat
 		#endregion
 
 		public override string getName => "TextChat";
-
-		public TextChat()
-		{
-			ConsoleCommands = new Dictionary<string, ICommand>();
-			RemoteAdminCommands = new Dictionary<string, ICommand>();
-			ChatPlayers = new Dictionary<ReferenceHub, Collections.Chat.Player>();
-		}
 
 		public override void OnEnable()
 		{

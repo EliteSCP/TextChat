@@ -1,19 +1,16 @@
 ﻿using EXILED.Extensions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TextChat.Enums;
 using TextChat.Extensions;
 using TextChat.Interfaces;
-using static TextChat.TextChat;
 
 namespace TextChat.Commands.Console
 {
-	public class PublicChat : ICommand
+	public class PublicChat : Chat, ICommand
 	{
-		private readonly TextChat pluginInstance;
-
-		public PublicChat(TextChat pluginInstance) => this.pluginInstance = pluginInstance;
+		public PublicChat(TextChat pluginInstance) : base(pluginInstance, ChatRoomType.Public, pluginInstance.generalChatColor)
+		{ }
 
 		public string Description => "Sends a chat message to everyone in the server.";
 
@@ -21,13 +18,9 @@ namespace TextChat.Commands.Console
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			if (args.Length == 0) return ("You cannot send an empty message!", "red");
-			else if (sender.IsChatMuted()) return ("You're muted from the chat room!", "red");
-			else if (pluginInstance.ChatPlayers[sender].IsFlooding(pluginInstance.slowModeCooldown)) return ("You're sending messages too fast!", "red");
+			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(), sender);
 
-			string message = string.Join(" ", args);
-
-			if (message.Length > pluginInstance.maxMessageLength) return ($"The message is too long! Maximum length: {pluginInstance.maxMessageLength}", "red");
+			if (!isValid) return (message, "red");
 
 			message = $"[{sender.GetNickname()}][PUBLIC]: {message}";
 
@@ -40,26 +33,9 @@ namespace TextChat.Commands.Console
 
 			if (chatPlayers.Count == 0) return ("There are no available players to chat with!", "red");
 
-			string color = pluginInstance.generalChatColor;
+			SendMessage(message, sender, targets);
 
-			pluginInstance.ChatPlayers[sender].lastMessageSentTimestamp = DateTime.Now;
-
-			if (pluginInstance.saveChatToDatabase)
-			{
-				Database.GetCollection<Collections.Chat.Room>().Insert(new Collections.Chat.Room()
-				{
-					Message = new Collections.Chat.Message()
-					{
-						Sender = pluginInstance.ChatPlayers[sender],
-						Targets = chatPlayers,
-						Content = message,
-						Timestamp = DateTime.Now
-					},
-					Type = ChatRoomType.Public
-				});
-			}
-
-			targets.SendConsoleMessage(message.Sanitize(pluginInstance.badWords, pluginInstance.censorBadWordsChar), color);
+			if (pluginInstance.saveChatToDatabase) SaveMessage(message, pluginInstance.ChatPlayers[sender], chatPlayers);
 
 			return (message, color);
 		}

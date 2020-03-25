@@ -70,6 +70,7 @@
     <Compile Include="Collections\Chat\Room.cs" />
     <Compile Include="Collections\Chat\Mute.cs" />
     <Compile Include="Collections\Chat\Player.cs" />
+    <Compile Include="Commands\Console\Chat.cs" />
     <Compile Include="Commands\Console\PublicChat.cs" />
     <Compile Include="Commands\Console\PrivateChat.cs" />
     <Compile Include="Commands\Console\TeamChat.cs" />
