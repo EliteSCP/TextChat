@@ -31,18 +31,63 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\References\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="EXILED">
+      <HintPath>..\References\EXILED.dll</HintPath>
+    </Reference>
+    <Reference Include="EXILED_Events">
+      <HintPath>..\References\EXILED_Events.dll</HintPath>
+    </Reference>
+    <Reference Include="EXILED_Permissions">
+      <HintPath>..\References\EXILED_Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB, Version=5.0.3.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.5.0.3\lib\net45\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Mirror">
+      <HintPath>..\References\Mirror.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\References\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\References\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\Chat\Message.cs" />
+    <Compile Include="Collections\Chat\Room.cs" />
+    <Compile Include="Collections\Chat\Mute.cs" />
+    <Compile Include="Collections\Chat\Player.cs" />
+    <Compile Include="Commands\Console\PublicChat.cs" />
+    <Compile Include="Commands\Console\PrivateChat.cs" />
+    <Compile Include="Commands\Console\TeamChat.cs" />
+    <Compile Include="Commands\Console\Help.cs" />
+    <Compile Include="Commands\RemoteAdmin\Mute.cs" />
+    <Compile Include="Commands\RemoteAdmin\Unmute.cs" />
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Events\PlayerHandler.cs" />
+    <Compile Include="Events\RoundHandler.cs" />
+    <Compile Include="Extensions\ChatPlayer.cs" />
+    <Compile Include="Extensions\String.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="TextChat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
