@@ -15,7 +15,7 @@ namespace TextChat.Commands.RemoteAdmin
 
 		public string Description => "Mute a player from the chat.";
 
-		public string Usage => "chatmute [PlayerID/UserID/Name] [Duration (Minutes)]";
+		public string Usage => "chatmute [PlayerID/UserID/Name] [Duration (Minutes)] [Reason]";
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{

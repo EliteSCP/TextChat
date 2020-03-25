@@ -8,8 +8,6 @@ namespace TextChat.Commands.Console
 {
 	public class Chat
 	{
-		private readonly int skips;
-
 		protected readonly TextChat pluginInstance;
 		protected readonly ChatRoomType type;
 		protected string color;
@@ -24,7 +22,7 @@ namespace TextChat.Commands.Console
 
 		protected (string message, bool isValid) CheckMessageValidity(string message, ReferenceHub sender)
 		{
-			if (string.IsNullOrEmpty(message)) return ("The message cannot be empty!", false);
+			if (string.IsNullOrEmpty(message.Trim())) return ("The message cannot be empty!", false);
 			else if (sender.IsChatMuted()) return ("You're muted from the chat room!", false);
 			else if (pluginInstance.ChatPlayers[sender].IsFlooding(pluginInstance.slowModeCooldown)) return ("You're sending messages too fast!", false);
 			else if (message.Length > pluginInstance.maxMessageLength) return ($"The message is too long! Maximum length: {pluginInstance.maxMessageLength}", false);
@@ -36,7 +34,7 @@ namespace TextChat.Commands.Console
 		{
 			pluginInstance.ChatPlayers[sender].lastMessageSentTimestamp = DateTime.Now;
 
-			targets.SendConsoleMessage(pluginInstance.censorBadWords ? message.Sanitize(pluginInstance.badWords, pluginInstance.censorBadWordsChar) : message, "");
+			targets.SendConsoleMessage(pluginInstance.censorBadWords ? message.Sanitize(pluginInstance.badWords, pluginInstance.censorBadWordsChar) : message, color);
 		}
 
 		protected void SaveMessage(string message, Collections.Chat.Player sender, List<Collections.Chat.Player> targets)
