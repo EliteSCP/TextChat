@@ -13,7 +13,7 @@ Put **EXILED_Permissions.dll** inside `%appdata%\Plugins` if you're on **Windows
 
 Put **LiteDB.dll** inside `%appdata%\Plugins\dependencies` folder if you're using **Windows** or `~/.config/Plugins/dependencies` if you're on **Linux**.
 
-## How to use it in-game
+## How to use it
 Press **ò** or ` on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
 
 ### Player Commands
