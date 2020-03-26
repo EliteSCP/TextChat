@@ -11,7 +11,9 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 | -------------- | ---------------------------------- | ------------------------ | -------------------- |
 | .chat | Sends a chat message to everyone in the server. | | **.chat Hi all!** |
 | .chat_team | Sends a chat message to your team. | | **.chat_team I love being SCP!** |
-| .chat_private | Sends a private chat message to a player. | **[Nickname/UserID/PlayerID]** | **.chat_private iopietro Hello!** |
+| .chat_private | Sends a private chat message to a player. | **[Nickname/UserID/PlayerID]** | **.chat_private iopietro Hello!** | 
+| .help | Gets the list of commands or the description of a single command. | **[Command Name (optional)]** | **.help/.help chat_team** |
+
 
 ### Administrator Commands
 
