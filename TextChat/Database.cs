@@ -43,6 +43,7 @@ namespace TextChat
 		{
 			try
 			{
+				LiteDatabase.Checkpoint();
 				LiteDatabase.Dispose();
 				LiteDatabase = null;
 

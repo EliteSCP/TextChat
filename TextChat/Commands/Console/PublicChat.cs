@@ -34,9 +34,9 @@ namespace TextChat.Commands.Console
 
 			if (chatPlayers.Count == 0) return ("There are no available players to chat with!", "red");
 
-			SendMessage(message, ChatPlayers[sender], targets);
-
 			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], chatPlayers, type);
+
+			SendMessage(ref message, ChatPlayers[sender], targets);			
 
 			return (message, color);
 		}

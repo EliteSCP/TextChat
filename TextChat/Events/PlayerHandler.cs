@@ -18,6 +18,14 @@ namespace TextChat.Events
 		{
 			if (ev.Player == null) return;
 
+			if (ev.Player.gameObject == PlayerManager.localPlayer)
+			{
+				ev.ReturnMessage = "You're not allowed to run this command from the server console!";
+				ev.Color = "red";
+
+				return;
+			}
+
 			(string commandName, string[] commandArguments) = ExtractCommand(ev.Command);
 
 			if (!pluginInstance.ConsoleCommands.TryGetValue(commandName, out ICommand command)) return;

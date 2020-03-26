@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace TextChat.Extensions
 {
@@ -7,7 +8,10 @@ namespace TextChat.Extensions
 	{
 		public static string Sanitize(this string stringToSanitize, IEnumerable<string> badWords, char badWordsChar)
 		{
-			foreach (string badWord in badWords) stringToSanitize.Replace(badWord, new string(badWordsChar, badWord.Length));
+			foreach (string badWord in badWords)
+			{
+				stringToSanitize = Regex.Replace(stringToSanitize, badWord, new string(badWordsChar, badWord.Length), RegexOptions.IgnoreCase);
+			}
 
 			return stringToSanitize;
 		}

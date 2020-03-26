@@ -45,7 +45,12 @@ namespace TextChat
 			Log.Info($"{getName} has been Disabled!");
 		}
 
-		public override void OnReload() => Log.Info($"{getName} has been Reloaded!");
+		public override void OnReload()
+		{
+			Config.Reload();
+
+			Log.Info($"{getName} has been Reloaded!");
+		}
 
 		#region Events
 		private void RegisterEvents()
@@ -53,7 +58,6 @@ namespace TextChat
 			RoundHandler = new RoundHandler();
 			PlayerHandler = new PlayerHandler(this);
 
-			EXILED.Events.WaitingForPlayersEvent += RoundHandler.OnWaitingForPlayers;
 			EXILED.Events.RoundRestartEvent += RoundHandler.OnRoundRestart;
 
 			EXILED.Events.ConsoleCommandEvent += PlayerHandler.OnConsoleCommand;
@@ -64,7 +68,6 @@ namespace TextChat
 
 		private void UnregisterEvents()
 		{
-			EXILED.Events.WaitingForPlayersEvent -= RoundHandler.OnWaitingForPlayers;
 			EXILED.Events.RoundRestartEvent -= RoundHandler.OnRoundRestart;
 
 			EXILED.Events.ConsoleCommandEvent -= PlayerHandler.OnConsoleCommand;

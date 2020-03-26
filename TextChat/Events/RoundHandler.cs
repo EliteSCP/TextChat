@@ -4,8 +4,6 @@ namespace TextChat.Events
 {
 	public class RoundHandler
 	{
-		public void OnWaitingForPlayers() => Configs.Reload();
-
-		public void OnRoundRestart() => LiteDatabase.Dispose();
+		public void OnRoundRestart() => LiteDatabase.Checkpoint();
 	}
 }

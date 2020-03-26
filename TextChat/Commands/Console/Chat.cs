@@ -25,9 +25,9 @@ namespace TextChat.Commands.Console
 			return (message, true);
 		}
 
-		protected void SendMessage(string message, Player sender, IEnumerable<ReferenceHub> targets)
+		protected void SendMessage(ref string message, Player sender, IEnumerable<ReferenceHub> targets)
 		{
-			targets.SendConsoleMessage(Configs.censorBadWords ? message.Sanitize(Configs.badWords, Configs.censorBadWordsChar) : message, color);
+			targets.SendConsoleMessage(message = Configs.censorBadWords ? message.Sanitize(Configs.badWords, Configs.censorBadWordsChar) : message, color);
 
 			sender.lastMessageSentTimestamp = DateTime.Now;
 		}

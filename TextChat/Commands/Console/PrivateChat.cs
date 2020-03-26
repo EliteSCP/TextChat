@@ -33,9 +33,9 @@ namespace TextChat.Commands.Console
 				return ("You cannot send messages to alive players!", "red");
 			}
 
-			SendMessage(message, ChatPlayers[sender], new List<ReferenceHub>() { target });
-
 			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], new List<Collections.Chat.Player>() { ChatPlayers[sender] }, type);
+
+			SendMessage(ref message, ChatPlayers[sender], new List<ReferenceHub>() { target });
 
 			if (Configs.showPrivateMessageNotificationBroadcast)
 			{
