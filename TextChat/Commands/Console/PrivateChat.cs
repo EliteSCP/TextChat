@@ -40,7 +40,7 @@ namespace TextChat.Commands.Console
 			if (Configs.showPrivateMessageNotificationBroadcast)
 			{
 				target.ClearBroadcasts();
-				target.Broadcast(Configs.privateMessageNotificationBroadcastDuration, "You received a private chat message!", false);
+				target.Broadcast(Configs.privateMessageNotificationBroadcastDuration, Configs.privateMessageNotificationBroadcast, false);
 			}
 
 			return (message, color);

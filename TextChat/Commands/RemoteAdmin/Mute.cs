@@ -43,7 +43,7 @@ namespace TextChat.Commands.RemoteAdmin
 			if (Configs.showChatMutedBroadcast)
 			{
 				target.ClearBroadcasts();
-				target.Broadcast(Configs.chatMutedBroadcastDuration, $"You have been muted from the chat for {duration} minute{(duration != 1 ? "s" : "")}! Reason: {reason}", false);
+				target.Broadcast(Configs.chatMutedBroadcastDuration, string.Format(Configs.chatMutedBroadcast, duration, reason), false);
 			}
 
 			target.SendConsoleMessage($"You have been muted from the chat for {duration} minute{(duration != 1 ? "s" : "")}! Reason: {reason}", "red");

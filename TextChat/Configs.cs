@@ -18,8 +18,10 @@ namespace TextChat
 		public static bool canSpectatorSendMessagesToAlive;
 		public static bool showChatMutedBroadcast;
 		public static uint chatMutedBroadcastDuration;
+		public static string chatMutedBroadcast;
 		public static bool showPrivateMessageNotificationBroadcast;
 		public static uint privateMessageNotificationBroadcastDuration;
+		public static string privateMessageNotificationBroadcast;
 		public static bool isSlowModeEnabled;
 		public static TimeSpan slowModeCooldown;
 
@@ -37,8 +39,10 @@ namespace TextChat
 			canSpectatorSendMessagesToAlive = Plugin.Config.GetBool("tc_can_spectator_send_messages_to_alive");
 			showChatMutedBroadcast = Plugin.Config.GetBool("tc_show_chat_muted_broadcast", true);
 			chatMutedBroadcastDuration = Plugin.Config.GetUInt("tc_chat_muted_broadcast_duration", 10);
+			chatMutedBroadcast = Plugin.Config.GetString("tc_chat_muted_broadcast", "You have been muted from the chat for {0} minutes, reason: {1}");
 			showPrivateMessageNotificationBroadcast = Plugin.Config.GetBool("tc_show_private_message_notification_broadcast");
 			privateMessageNotificationBroadcastDuration = Plugin.Config.GetUInt("tc_private_message_notification_broadcast_duration", 6);
+			privateMessageNotificationBroadcast = Plugin.Config.GetString("tc_private_message_notification_broadcast", "You received a private message!");
 			isSlowModeEnabled = Plugin.Config.GetBool("tc_is_slow_mode_enabled", true);
 			slowModeCooldown = new TimeSpan(0, 0, 0, 0, (int)(Plugin.Config.GetFloat("tc_slow_mode_interval", 1f) * 1000));
 		}
