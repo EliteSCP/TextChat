@@ -17,10 +17,10 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 
 ### Administrator Commands
 
-| Command | Description | Arguments | Example |
-| --- | --- | --- | --- |
-| chat_mute | Mute a player from the chat. | **[PlayerID/UserID/Name] [Duration (Minutes)] [Reason]** | **chat_mute iopietro 600 Spamming** |
-| chat_unmute | Unmute a player from the chat. | **[PlayerID/UserID/Name]** | **chat_unmute iopietro** |
+| Command | Description | Arguments | Permission | Example |
+| --- | --- | --- | --- | --- |
+| chat_mute | Mute a player from the chat. | **[PlayerID/UserID/Name] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
+| chat_unmute | Unmute a player from the chat. | **[PlayerID/UserID/Name]** | tc.unmute | **chat_unmute iopietro** |
 
 ### Configs
 
