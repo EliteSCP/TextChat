@@ -10,7 +10,7 @@ namespace TextChat.Commands.RemoteAdmin
 	{
 		public string Description => "Unmute a player from the chat.";
 
-		public string Usage => ".chatunmute [PlayerID/UserID/Name]";
+		public string Usage => ".chat_unmute [PlayerID/UserID/Name]";
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{

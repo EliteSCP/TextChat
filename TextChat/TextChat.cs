@@ -85,8 +85,8 @@ namespace TextChat
 			ConsoleCommands.Add("chat_private", new PrivateChat());
 			ConsoleCommands.Add("help", new Help(this));
 
-			RemoteAdminCommands.Add("chatmute", new Mute());
-			RemoteAdminCommands.Add("chatunmute", new Unmute());
+			RemoteAdminCommands.Add("chat_mute", new Mute());
+			RemoteAdminCommands.Add("chat_unmute", new Unmute());
 		}
 
 		private void UnregisterCommands()
