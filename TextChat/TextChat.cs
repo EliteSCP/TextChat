@@ -50,7 +50,7 @@ namespace TextChat
 		#region Events
 		private void RegisterEvents()
 		{
-			RoundHandler = new RoundHandler(this);
+			RoundHandler = new RoundHandler();
 			PlayerHandler = new PlayerHandler(this);
 
 			EXILED.Events.WaitingForPlayersEvent += RoundHandler.OnWaitingForPlayers;
