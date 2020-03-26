@@ -1,19 +1,19 @@
 # TextChat
 An in-game TextChat plugin for SCP:SL.
 
-### Minimum requirements
+## Minimum requirements
 [EXILED](https://github.com/galaxy119/EXILED) **1.9.0+**
 
 [LiteDB](https://github.com/mbdavid/LiteDB) **5.0.3+**
 
-### How to install
+## How to install
 Put **TextChat.dll** inside `%appdata%\Plugins` if you're on **Windows** or `~/.config/Plugins` on **Linux**.
 
 Put **EXILED_Permissions.dll** inside `%appdata%\Plugins` if you're on **Windows** or `~/.config/Plugins` on **Linux**.
 
 Put **LiteDB.dll** inside `%appdata%\Plugins\dependencies` folder if you're using **Windows** or `~/.config/Plugins/dependencies` if you're on **Linux**.
 
-### How to use it in-game
+## How to use it in-game
 Press **ò** or ` on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
 
 ### Player Commands
