@@ -1,5 +1,5 @@
 # TextChat
-An in-game TextChat plugin for SCP:SL
+An in-game TextChat plugin for SCP:SL.
 
 ### How can I use it?
 
