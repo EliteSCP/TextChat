@@ -43,8 +43,8 @@
     <Reference Include="EXILED_Permissions">
       <HintPath>..\References\EXILED_Permissions.dll</HintPath>
     </Reference>
-    <Reference Include="LiteDB, Version=5.0.3.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiteDB.5.0.3\lib\net45\LiteDB.dll</HintPath>
+    <Reference Include="LiteDB, Version=5.0.5.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.5.0.5\lib\net45\LiteDB.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
       <HintPath>..\References\Mirror.dll</HintPath>
@@ -91,6 +91,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
