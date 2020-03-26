@@ -4,7 +4,7 @@ An in-game TextChat plugin for SCP:SL.
 ## Minimum requirements
 [EXILED](https://github.com/galaxy119/EXILED) **1.9.0+**
 
-[LiteDB](https://github.com/mbdavid/LiteDB) **5.0.3+**
+[LiteDB](https://github.com/mbdavid/LiteDB) **5.0.5+**
 
 ## How to install
 Put **TextChat.dll** inside `%appdata%\Plugins` if you're on **Windows** or `~/.config/Plugins` on **Linux**.
