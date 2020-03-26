@@ -1,12 +1,22 @@
 # TextChat
 An in-game TextChat plugin for SCP:SL.
 
-### How can I use it?
+## Minimum requirements
+[EXILED](https://github.com/galaxy119/EXILED) **1.9.0+**
 
+[LiteDB](https://github.com/mbdavid/LiteDB) **5.0.3+**
+
+## How to install
+Put **TextChat.dll** inside `%appdata%\Plugins` if you're on **Windows** or `~/.config/Plugins` on **Linux**.
+
+Put **EXILED_Permissions.dll** inside `%appdata%\Plugins` if you're on **Windows** or `~/.config/Plugins` on **Linux**.
+
+Put **LiteDB.dll** inside `%appdata%\Plugins\dependencies` folder if you're using **Windows** or `~/.config/Plugins/dependencies` if you're on **Linux**.
+
+## How to use it in-game
 Press **ò** or ` on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
 
 ### Player Commands
-
 | Command | Description | Arguments | Example |
 | --- | --- | --- | --- |
 | .chat | Sends a chat message to everyone in the server. | **[Message]** | **.chat Hi all!** |
@@ -16,14 +26,12 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 
 
 ### Administrator Commands
-
-| Command | Description | Arguments | Example |
-| --- | --- | --- | --- |
-| chat_mute | Mute a player from the chat. | **[PlayerID/UserID/Name] [Duration (Minutes)] [Reason]** | **chat_mute iopietro 600 Spamming** |
-| chat_unmute | Unmute a player from the chat. | **[PlayerID/UserID/Name]** | **chat_unmute iopietro** |
+| Command | Description | Arguments | Permission | Example |
+| --- | --- | --- | --- | --- |
+| chat_mute | Mute a player from the chat. | **[PlayerID/UserID/Name] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
+| chat_unmute | Unmute a player from the chat. | **[PlayerID/UserID/Name]** | tc.unmute | **chat_unmute iopietro** |
 
 ### Configs
-
 | Name | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | tc_enabled | Boolean | True | Enable/Disable the plugin. |
@@ -46,7 +54,6 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 | tc_slow_mode_interval | Float | 0.75 | The number of seconds that will have to pass before a player can send another message. |
 
 ### List of available colors
-
 | Name |
 | --- |
 | yellow |
