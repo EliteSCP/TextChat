@@ -2,16 +2,12 @@
 using System;
 using TextChat.Extensions;
 using TextChat.Interfaces;
-using static TextChat.TextChat;
+using static TextChat.Database;
 
 namespace TextChat.Commands.RemoteAdmin
 {
 	public class Unmute : ICommand
 	{
-		private readonly TextChat pluginInstance;
-
-		public Unmute(TextChat pluginInstance) => this.pluginInstance = pluginInstance;
-
 		public string Description => "Unmute a player from the chat.";
 
 		public string Usage => ".chatunmute [PlayerID/UserID/Name]";
@@ -26,13 +22,13 @@ namespace TextChat.Commands.RemoteAdmin
 
 			if (target == null) return ($"Player {args[0]} was not found!", "red");
 
-			var mutedPlayer = Database.GetCollection<Collections.Chat.Mute>().FindOne(mute => mute.Target.Id == target.GetRawUserId() && mute.Expire > DateTime.Now);
+			var mutedPlayer = LiteDatabase.GetCollection<Collections.Chat.Mute>().FindOne(mute => mute.Target.Id == target.GetRawUserId() && mute.Expire > DateTime.Now);
 
 			if (mutedPlayer == null) return ($"{target.GetNickname()} is not muted!", "red");
 
 			mutedPlayer.Expire = DateTime.Now;
 
-			Database.GetCollection<Collections.Chat.Mute>().Update(mutedPlayer);
+			LiteDatabase.GetCollection<Collections.Chat.Mute>().Update(mutedPlayer);
 
 			target.SendConsoleMessage("You have been unmuted from the chat!", "green");
 

@@ -3,16 +3,12 @@ using System;
 using System.Linq;
 using TextChat.Extensions;
 using TextChat.Interfaces;
-using static TextChat.TextChat;
+using static TextChat.Database;
 
 namespace TextChat.Commands.RemoteAdmin
 {
 	public class Mute : ICommand
 	{
-		private readonly TextChat pluginInstance;
-
-		public Mute(TextChat pluginInstance) => this.pluginInstance = pluginInstance;
-
 		public string Description => "Mute a player from the chat.";
 
 		public string Usage => "chatmute [PlayerID/UserID/Name] [Duration (Minutes)] [Reason]";
@@ -35,19 +31,19 @@ namespace TextChat.Commands.RemoteAdmin
 
 			if (target.IsChatMuted()) return ($"{target.GetNickname()} is already muted!", "red");
 
-			Database.GetCollection<Collections.Chat.Mute>().Insert(new Collections.Chat.Mute()
+			LiteDatabase.GetCollection<Collections.Chat.Mute>().Insert(new Collections.Chat.Mute()
 			{
-				Target = pluginInstance.ChatPlayers[target],
-				Issuer = pluginInstance.ChatPlayers[sender],
+				Target = ChatPlayers[target],
+				Issuer = ChatPlayers[sender],
 				Reason = reason,
 				Timestamp = DateTime.Now,
 				Expire = DateTime.Now.AddMinutes(duration)
 			});
 
-			if (pluginInstance.showChatMutedBroadcast)
+			if (Configs.showChatMutedBroadcast)
 			{
 				target.ClearBroadcasts();
-				target.Broadcast(pluginInstance.chatMutedBroadcastDuration, $"You have been muted from the chat for {duration} minute{(duration != 1 ? "s" : "")}! Reason: {reason}", false);
+				target.Broadcast(Configs.chatMutedBroadcastDuration, $"You have been muted from the chat for {duration} minute{(duration != 1 ? "s" : "")}! Reason: {reason}", false);
 			}
 
 			target.SendConsoleMessage($"You have been muted from the chat for {duration} minute{(duration != 1 ? "s" : "")}! Reason: {reason}", "red");

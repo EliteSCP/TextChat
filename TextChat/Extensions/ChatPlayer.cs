@@ -1,6 +1,7 @@
 ﻿using EXILED.Extensions;
 using System;
 using System.Collections.Generic;
+using static TextChat.Database;
 
 namespace TextChat.Extensions
 {
@@ -49,7 +50,7 @@ namespace TextChat.Extensions
 
 		public static bool IsChatMuted(this ReferenceHub player)
 		{
-			return TextChat.Database.GetCollection<Collections.Chat.Mute>().Exists(mute => mute.Target.Id == player.GetRawUserId() && mute.Expire > DateTime.Now);
+			return LiteDatabase.GetCollection<Collections.Chat.Mute>().Exists(mute => mute.Target.Id == player.GetRawUserId() && mute.Expire > DateTime.Now);
 		}
 
 		public static List<Collections.Chat.Player> GetChatPlayers(this IEnumerable<ReferenceHub> players, Dictionary<ReferenceHub, Collections.Chat.Player> chatPlayers)

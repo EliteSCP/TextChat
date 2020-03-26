@@ -1,4 +1,4 @@
-﻿using static TextChat.TextChat;
+﻿using static TextChat.Database;
 
 namespace TextChat.Events
 {
@@ -8,8 +8,8 @@ namespace TextChat.Events
 
 		public RoundHandler(TextChat pluginInstance) => this.pluginInstance = pluginInstance;
 
-		public void OnWaitingForPlayers() => pluginInstance.LoadConfigs();
+		public void OnWaitingForPlayers() => Configs.Reload();
 
-		public void OnRoundRestart() => Database.Dispose();
+		public void OnRoundRestart() => LiteDatabase.Dispose();
 	}
 }

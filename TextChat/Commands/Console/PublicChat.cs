@@ -4,12 +4,13 @@ using System.Linq;
 using TextChat.Enums;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using static TextChat.Database;
 
 namespace TextChat.Commands.Console
 {
 	public class PublicChat : Chat, ICommand
 	{
-		public PublicChat(TextChat pluginInstance) : base(pluginInstance, ChatRoomType.Public, pluginInstance.generalChatColor)
+		public PublicChat() : base(ChatRoomType.Public, Configs.generalChatColor)
 		{ }
 
 		public string Description => "Sends a chat message to everyone in the server.";
@@ -18,7 +19,7 @@ namespace TextChat.Commands.Console
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(), sender);
+			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(), ChatPlayers[sender], sender);
 
 			if (!isValid) return (message, "red");
 
@@ -26,16 +27,16 @@ namespace TextChat.Commands.Console
 
 			IEnumerable<ReferenceHub> targets = Player.GetHubs().Where(target =>
 			{
-				return sender != target && (pluginInstance.canSpectatorSendMessagesToAlive || sender.GetTeam() != Team.RIP || target.GetTeam() == Team.RIP);
+				return sender != target && (Configs.canSpectatorSendMessagesToAlive || sender.GetTeam() != Team.RIP || target.GetTeam() == Team.RIP);
 			});
 
-			List<Collections.Chat.Player> chatPlayers = targets.GetChatPlayers(pluginInstance.ChatPlayers);
+			List<Collections.Chat.Player> chatPlayers = targets.GetChatPlayers(ChatPlayers);
 
 			if (chatPlayers.Count == 0) return ("There are no available players to chat with!", "red");
 
-			SendMessage(message, sender, targets);
+			SendMessage(message, ChatPlayers[sender], targets);
 
-			if (pluginInstance.saveChatToDatabase) SaveMessage(message, pluginInstance.ChatPlayers[sender], chatPlayers);
+			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], chatPlayers, type);
 
 			return (message, color);
 		}

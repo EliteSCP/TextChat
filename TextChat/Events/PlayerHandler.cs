@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using static TextChat.Database;
 
 namespace TextChat.Events
 {
@@ -57,7 +58,7 @@ namespace TextChat.Events
 
 		public void OnPlayerJoin(PlayerJoinEvent ev)
 		{
-			pluginInstance.ChatPlayers.Add(ev.Player, new Collections.Chat.Player()
+			ChatPlayers.Add(ev.Player, new Collections.Chat.Player()
 			{
 				Id = ev.Player.GetRawUserId(),
 				Authentication = ev.Player.GetAuthentication(),
@@ -67,7 +68,7 @@ namespace TextChat.Events
 			ev.Player.SendConsoleMessage("Welcome to the chat room!", "green");
 		}
 
-		public void OnPlayerLeave(PlayerLeaveEvent ev) => pluginInstance.ChatPlayers.Remove(ev.Player);
+		public void OnPlayerLeave(PlayerLeaveEvent ev) => ChatPlayers.Remove(ev.Player);
 
 		private (string commandName, string[] arguments) ExtractCommand(string commandLine)
 		{

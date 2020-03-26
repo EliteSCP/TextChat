@@ -1,15 +1,15 @@
 ﻿using EXILED.Extensions;
 using System.Collections.Generic;
-using System.Linq;
 using TextChat.Enums;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using static TextChat.Database;
 
 namespace TextChat.Commands.Console
 {
 	public class PrivateChat : Chat, ICommand
 	{
-		public PrivateChat(TextChat pluginInstance) : base(pluginInstance, ChatRoomType.Private, pluginInstance.privateMessageColor)
+		public PrivateChat() : base(ChatRoomType.Private, Configs.privateMessageColor)
 		{ }
 
 		public string Description => "Sends a private chat message to a player.";
@@ -18,7 +18,7 @@ namespace TextChat.Commands.Console
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(1), sender);
+			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(1), ChatPlayers[sender], sender);
 
 			if (!isValid) return (message, "red");
 
@@ -28,19 +28,19 @@ namespace TextChat.Commands.Console
 
 			if (target == null) return ($"Player {target.GetNickname()} was not found!", "red");
 			else if (sender == target) return ("You cannot send a message to yourself!", "red");
-			else if (!pluginInstance.canSpectatorSendMessagesToAlive && sender.GetTeam() == Team.RIP && target.GetTeam() != Team.RIP)
+			else if (!Configs.canSpectatorSendMessagesToAlive && sender.GetTeam() == Team.RIP && target.GetTeam() != Team.RIP)
 			{
 				return ("You cannot send messages to alive players!", "red");
 			}
 
-			SendMessage(message, sender, new List<ReferenceHub>() { target });
+			SendMessage(message, ChatPlayers[sender], new List<ReferenceHub>() { target });
 
-			if (pluginInstance.saveChatToDatabase) SaveMessage(message, pluginInstance.ChatPlayers[sender], new List<Collections.Chat.Player>() { pluginInstance.ChatPlayers[sender] });
+			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], new List<Collections.Chat.Player>() { ChatPlayers[sender] }, type);
 
-			if (pluginInstance.showPrivateMessageNotificationBroadcast)
+			if (Configs.showPrivateMessageNotificationBroadcast)
 			{
 				target.ClearBroadcasts();
-				target.Broadcast(pluginInstance.privateMessageNotificationBroadcastDuration, "You received a private chat message!", false);
+				target.Broadcast(Configs.privateMessageNotificationBroadcastDuration, "You received a private chat message!", false);
 			}
 
 			return (message, color);

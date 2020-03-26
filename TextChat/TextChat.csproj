@@ -77,6 +77,8 @@
     <Compile Include="Commands\Console\Help.cs" />
     <Compile Include="Commands\RemoteAdmin\Mute.cs" />
     <Compile Include="Commands\RemoteAdmin\Unmute.cs" />
+    <Compile Include="Configs.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Events\PlayerHandler.cs" />
     <Compile Include="Events\RoundHandler.cs" />
