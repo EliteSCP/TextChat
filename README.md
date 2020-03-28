@@ -4,7 +4,7 @@ An in-game TextChat plugin for SCP:SL.
 ## Minimum requirements
 [EXILED](https://github.com/galaxy119/EXILED) **1.9.0+**
 
-[LiteDB](https://github.com/mbdavid/LiteDB) **5.0.3+**
+[LiteDB](https://github.com/mbdavid/LiteDB) **5.0.5+**
 
 ## How to install
 Put **TextChat.dll** inside `%appdata%\Plugins` if you're on **Windows** or `~/.config/Plugins` on **Linux**.
@@ -13,7 +13,7 @@ Put **EXILED_Permissions.dll** inside `%appdata%\Plugins` if you're on **Windows
 
 Put **LiteDB.dll** inside `%appdata%\Plugins\dependencies` folder if you're using **Windows** or `~/.config/Plugins/dependencies` if you're on **Linux**.
 
-## How to use it in-game
+## How to use it
 Press **ò** or ` on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
 
 ### Player Commands
@@ -28,8 +28,8 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 ### Administrator Commands
 | Command | Description | Arguments | Permission | Example |
 | --- | --- | --- | --- | --- |
-| chat_mute | Mute a player from the chat. | **[PlayerID/UserID/Name] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
-| chat_unmute | Unmute a player from the chat. | **[PlayerID/UserID/Name]** | tc.unmute | **chat_unmute iopietro** |
+| chat_mute | Mute a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
+| chat_unmute | Unmute a player from the chat. | **[Nickname/UserID/PlayerID]** | tc.unmute | **chat_unmute iopietro** |
 
 ### Configs
 | Name | Type | Default Value | Description |
