@@ -7,11 +7,6 @@ namespace TextChat.Extensions
 {
 	public static class ChatPlayer
 	{
-		public static void SendConsoleMessage(this ReferenceHub player, string message, string color)
-		{
-			player.characterClassManager.TargetConsolePrint(player.scp079PlayerScript.connectionToClient, message, color);
-		}
-
 		public static void SendConsoleMessage(this IEnumerable<ReferenceHub> targets, string message, string color)
 		{
 			foreach (ReferenceHub target in targets)
