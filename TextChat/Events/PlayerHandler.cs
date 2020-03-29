@@ -78,7 +78,7 @@ namespace TextChat.Events
 
 		public void OnPlayerLeave(PlayerLeaveEvent ev)
 		{
-			ev.Player.SendConsoleMessage($"{ev.Player.GetNickname()} has left the chat!", "red");
+			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage($"{ev.Player.GetNickname()} has left the chat!", "red");
 
 			ChatPlayers.Remove(ev.Player);
 		}
