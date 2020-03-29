@@ -26,7 +26,7 @@ namespace TextChat.Events
 				return;
 			}
 
-			(string commandName, string[] commandArguments) = ExtractCommand(ev.Command);
+			(string commandName, string[] commandArguments) = ev.Command.ExtractCommand();
 
 			if (!pluginInstance.ConsoleCommands.TryGetValue(commandName, out ICommand command)) return;
 
@@ -47,7 +47,7 @@ namespace TextChat.Events
 
 		public void OnRemoteAdminCommand(ref RACommandEvent ev)
 		{
-			(string commandName, string[] commandArguments) = ExtractCommand(ev.Command);
+			(string commandName, string[] commandArguments) = ev.Command.ExtractCommand();
 
 			if (!pluginInstance.RemoteAdminCommands.TryGetValue(commandName, out ICommand command)) return;
 
@@ -73,16 +73,14 @@ namespace TextChat.Events
 				Name = ev.Player.GetNickname()
 			});
 
-			ev.Player.SendConsoleMessage("Welcome to the chat room!", "green");
+			ev.Player.SendConsoleMessage("Welcome to the chat!", "green");
 		}
 
-		public void OnPlayerLeave(PlayerLeaveEvent ev) => ChatPlayers.Remove(ev.Player);
-
-		private (string commandName, string[] arguments) ExtractCommand(string commandLine)
+		public void OnPlayerLeave(PlayerLeaveEvent ev)
 		{
-			var extractedCommandArguments = commandLine.Split(' ');
+			ev.Player.SendConsoleMessage($"{ev.Player.GetNickname()} has left the chat!", "red");
 
-			return (extractedCommandArguments[0].ToLower(), extractedCommandArguments.Skip(1).ToArray());
+			ChatPlayers.Remove(ev.Player);
 		}
 	}
 }

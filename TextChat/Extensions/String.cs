@@ -20,5 +20,12 @@ namespace TextChat.Extensions
 		{
 			return string.Join(separator, skips == 0 ? args : args.Skip(skips).Take(args.Length - skips));
 		}
+
+		public static (string commandName, string[] arguments) ExtractCommand(this string commandLine)
+		{
+			var extractedCommandArguments = commandLine.Split(' ');
+
+			return (extractedCommandArguments[0].ToLower(), extractedCommandArguments.Skip(1).ToArray());
+		}
 	}
 }
