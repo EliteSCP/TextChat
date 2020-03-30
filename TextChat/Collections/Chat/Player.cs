@@ -11,5 +11,7 @@ namespace TextChat.Collections.Chat
 		public DateTime lastMessageSentTimestamp;
 
 		public bool IsFlooding(TimeSpan cooldown) => lastMessageSentTimestamp.Add(cooldown) > DateTime.Now;
+
+		public void SentAMessage() => lastMessageSentTimestamp = DateTime.Now;
 	}
 }

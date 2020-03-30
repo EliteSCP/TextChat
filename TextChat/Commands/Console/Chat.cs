@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TextChat.Collections.Chat;
 using TextChat.Enums;
 using TextChat.Extensions;
@@ -29,7 +28,7 @@ namespace TextChat.Commands.Console
 		{
 			targets.SendConsoleMessage(message = Configs.censorBadWords ? message.Sanitize(Configs.badWords, Configs.censorBadWordsChar) : message, color);
 
-			sender.lastMessageSentTimestamp = DateTime.Now;
+			sender.SentAMessage();
 		}
 	}
 }

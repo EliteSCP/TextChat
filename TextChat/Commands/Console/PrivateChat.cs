@@ -26,7 +26,7 @@ namespace TextChat.Commands.Console
 
 			ReferenceHub target = Player.GetPlayer(args[0]);
 
-			if (target == null) return ($"Player {target.GetNickname()} was not found!", "red");
+			if (target == null) return ($"Player {args[0]} was not found!", "red");
 			else if (sender == target) return ("You cannot send a message to yourself!", "red");
 			else if (!Configs.canSpectatorSendMessagesToAlive && sender.GetTeam() == Team.RIP && target.GetTeam() != Team.RIP)
 			{
