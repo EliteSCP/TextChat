@@ -30,7 +30,7 @@ namespace TextChat.Commands.Console
 			}
 			else if (args.Length == 1)
 			{
-				if (!pluginInstance.ConsoleCommands.TryGetValue(args[0].Replace(".", ""), out ICommand command)) return ($"Command {args[0]} was not found!", "red");
+				if (!pluginInstance.ConsoleCommands.TryGetValue(args[0].Replace(".", ""), out ICommand command)) return ($"Command \"{args[0]}\" was not found!", "red");
 
 				return ($"\n\n{command.Usage}\n\n{command.Description}", "green");
 			}

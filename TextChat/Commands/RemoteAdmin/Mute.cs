@@ -21,7 +21,7 @@ namespace TextChat.Commands.RemoteAdmin
 
 			ReferenceHub target = Player.GetPlayer(args[0]);
 
-			if (target == null) return ($"Player {args[0]} was not found!", "red");
+			if (target == null) return ($"Player \"{args[0]}\" was not found!", "red");
 
 			if (!double.TryParse(args[1], out double duration) || duration < 1) return ($"{args[1]} is an invalid duration!", "red");
 

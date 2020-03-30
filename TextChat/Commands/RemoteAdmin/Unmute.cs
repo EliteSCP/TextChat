@@ -20,7 +20,7 @@ namespace TextChat.Commands.RemoteAdmin
 
 			ReferenceHub target = Player.GetPlayer(args[0]);
 
-			if (target == null) return ($"Player {args[0]} was not found!", "red");
+			if (target == null) return ($"Player \"{args[0]}\" was not found!", "red");
 
 			var mutedPlayer = LiteDatabase.GetCollection<Collections.Chat.Mute>().FindOne(mute => mute.Target.Id == target.GetRawUserId() && mute.Expire > DateTime.Now);
 
