@@ -47,6 +47,7 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | Name | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | tc_enabled | Boolean | True | Enable/Disable the plugin. |
+| tc_language | String | en | The language of the plugin, available languages: **it, en** |
 | tc_database_name | String | TextChat | The name of the Database. |
 | tc_general_chat_color | String | cyan | The color of the general chat. |
 | tc_private_message_color | String | magenta | The color of private messages. |
