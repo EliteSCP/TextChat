@@ -14,7 +14,19 @@ Put **EXILED_Permissions.dll** inside `%appdata%\Plugins` if you're on **Windows
 Put **LiteDB.dll** inside `%appdata%\Plugins\dependencies` folder if you're using **Windows** or `~/.config/Plugins/dependencies` if you're on **Linux**.
 
 ## How to use it
-Press **ò** or ` on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
+Press **ò** or **\`** on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
+
+## How to submit a new language
+
+**First method**
+- Fork my repository.
+- Copy `Localizations\Language.resx` into the `Localization` folder and rename it to `Localizations\Language.XX.resx` where XX are the [language code letters](https://lonewolfonline.net/list-net-culture-country-codes/).
+- For example: I want to add the french language into the game, then I'll have to rename the file to `Language.fr.resx`.
+- Translate the file with any text editor or C# IDE and push it into your forked repository.
+- Open a pull request on my repository with the language you added, if everything is correct, I'll accept it and add it into the plugin.
+
+**Second method**
+- Download `Localizations\Language.resx`, translate it in your language and send it to me on Discord: iopietro#1717, if everything is correct, I'll add it into te plugin.
 
 ### Player Commands
 | Command | Description | Arguments | Example |
@@ -65,4 +77,3 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 | white |
 | blue |
 | grey |
-
