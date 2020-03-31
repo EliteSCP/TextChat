@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using TextChat.Localizations;
 using static TextChat.Database;
 
 namespace TextChat.Events
@@ -20,7 +21,7 @@ namespace TextChat.Events
 
 			if (ev.Player.gameObject == PlayerManager.localPlayer)
 			{
-				ev.ReturnMessage = "You're not allowed to run this command from the server console!";
+				ev.ReturnMessage = Language.CommandNotAllowedForConsoleError;
 				ev.Color = "red";
 
 				return;
@@ -39,8 +40,8 @@ namespace TextChat.Events
 			}
 			catch (Exception exception)
 			{
-				Log.Error($"{commandName} command error: {exception}");
-				ev.ReturnMessage = "An error has occurred while executing the command!";
+				Log.Error(string.Format(Language.CommandException, commandName, exception));
+				ev.ReturnMessage = Language.CommandError;
 				ev.Color = "red";
 			}
 		}
@@ -59,8 +60,8 @@ namespace TextChat.Events
 			}
 			catch (Exception exception)
 			{
-				Log.Error($"{commandName} command error: {exception}");
-				ev.Sender.RAMessage("An error has occurred while executing the command!", false);
+				Log.Error(string.Format(Language.CommandException, commandName, exception));
+				ev.Sender.RAMessage(Language.CommandError, false);
 			}
 		}
 
@@ -73,12 +74,12 @@ namespace TextChat.Events
 				Name = ev.Player.GetNickname()
 			});
 
-			ev.Player.SendConsoleMessage("Welcome to the chat!", "green");
+			ev.Player.SendConsoleMessage(Language.ChatWelcome, "green");
 		}
 
 		public void OnPlayerLeave(PlayerLeaveEvent ev)
 		{
-			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage($"{ev.Player.GetNickname()} has left the chat!", "red");
+			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerLeftTheChat, ev.Player.GetNickname()), "red");
 
 			ChatPlayers.Remove(ev.Player);
 		}

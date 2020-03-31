@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TextChat.Enums;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using TextChat.Localizations;
 using static TextChat.Database;
 
 namespace TextChat.Commands.Console
@@ -12,9 +13,9 @@ namespace TextChat.Commands.Console
 		public PrivateChat() : base(ChatRoomType.Private, Configs.privateMessageColor)
 		{ }
 
-		public string Description => "Sends a private chat message to a player.";
+		public string Description => Language.PrivateChatDescription;
 
-		public string Usage => ".chat_private [Nickname/UserID/PlayerID] [Message]";
+		public string Usage => Language.PrivateChatUsage;
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
@@ -22,15 +23,15 @@ namespace TextChat.Commands.Console
 
 			if (!isValid) return (message, "red");
 
-			message = $"[{sender.GetNickname()}][PRIVATE]: {message}";
+			message = $"[{sender.GetNickname()}][{Language.Private}]: {message}";
 
 			ReferenceHub target = Player.GetPlayer(args[0]);
 
-			if (target == null) return ($"Player \"{args[0]}\" was not found!", "red");
-			else if (sender == target) return ("You cannot send a message to yourself!", "red");
+			if (target == null) return (string.Format(Language.PlayerNotFoundError, args[0]), "red");
+			else if (sender == target) return (Language.CannotSendMessageToThemselvesError, "red");
 			else if (!Configs.canSpectatorSendMessagesToAlive && sender.GetTeam() == Team.RIP && target.GetTeam() != Team.RIP)
 			{
-				return ("You cannot send messages to alive players!", "red");
+				return (Language.CannotSendMessageToAlivePlayersError, "red");
 			}
 
 			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], new List<Collections.Chat.Player>() { ChatPlayers[sender] }, type);

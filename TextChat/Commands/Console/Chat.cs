@@ -2,6 +2,7 @@
 using TextChat.Collections.Chat;
 using TextChat.Enums;
 using TextChat.Extensions;
+using TextChat.Localizations;
 
 namespace TextChat.Commands.Console
 {
@@ -16,10 +17,10 @@ namespace TextChat.Commands.Console
 
 		protected (string message, bool isValid) CheckMessageValidity(string message, Player messageSender, ReferenceHub sender)
 		{
-			if (string.IsNullOrEmpty(message.Trim())) return ("The message cannot be empty!", false);
-			else if (sender.IsChatMuted()) return ("You're muted from the chat room!", false);
-			else if (messageSender.IsFlooding(Configs.slowModeCooldown)) return ("You're sending messages too fast!", false);
-			else if (message.Length > Configs.maxMessageLength) return ($"The message is too long! Maximum length: {Configs.maxMessageLength}", false);
+			if (string.IsNullOrEmpty(message.Trim())) return (Language.ChatMessageCannotBeEmptyError, false);
+			else if (sender.IsChatMuted()) return (Language.PlayerIsMutedError, false);
+			else if (messageSender.IsFlooding(Configs.slowModeCooldown)) return (Language.PlayerIsFloodingError, false);
+			else if (message.Length > Configs.maxMessageLength) return (string.Format(Language.ChatMessageTooLongError, Configs.maxMessageLength), false);
 
 			return (message, true);
 		}

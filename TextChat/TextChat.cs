@@ -4,6 +4,7 @@ using TextChat.Commands.Console;
 using TextChat.Commands.RemoteAdmin;
 using TextChat.Events;
 using TextChat.Interfaces;
+using TextChat.Localizations;
 
 namespace TextChat
 {
@@ -30,7 +31,7 @@ namespace TextChat
 
 			Database.Open();
 
-			Log.Info($"{getName} has been Enabled!");
+			Log.Info(string.Format(Language.PluginEnabled, getName));
 		}
 
 		public override void OnDisable()
@@ -42,14 +43,14 @@ namespace TextChat
 
 			Database.Close();
 
-			Log.Info($"{getName} has been Disabled!");
+			Log.Info(string.Format(Language.PluginDisabled, getName));
 		}
 
 		public override void OnReload()
 		{
 			Config.Reload();
 
-			Log.Info($"{getName} has been Reloaded!");
+			Log.Info(string.Format(Language.PluginReloaded, getName));
 		}
 
 		#region Events

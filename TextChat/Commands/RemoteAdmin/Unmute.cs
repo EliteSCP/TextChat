@@ -2,37 +2,38 @@
 using System;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using TextChat.Localizations;
 using static TextChat.Database;
 
 namespace TextChat.Commands.RemoteAdmin
 {
 	public class Unmute : ICommand
 	{
-		public string Description => "Unmute a player from the chat.";
+		public string Description => Language.UnmuteCommandDescription;
 
-		public string Usage => ".chat_unmute [PlayerID/UserID/Name]";
+		public string Usage => Language.UnmuteCommandUsage;
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			if (!sender.CheckPermission("tc.unmute")) return ("You don't have enough permissions to run this command!", "red");
+			if (!sender.CheckPermission("tc.unmute")) return (Language.CommandNotEnoughPermissionsError, "red");
 
-			if (args.Length != 1) return ($"You have to provide one parameter! {Usage}", "red");
+			if (args.Length != 1) return (string.Format(Language.CommandNotEnoughParametersError, 1, Usage), "red");
 
 			ReferenceHub target = Player.GetPlayer(args[0]);
 
-			if (target == null) return ($"Player \"{args[0]}\" was not found!", "red");
+			if (target == null) return (string.Format(Language.PlayerNotFoundError, args[0]), "red");
 
 			var mutedPlayer = LiteDatabase.GetCollection<Collections.Chat.Mute>().FindOne(mute => mute.Target.Id == target.GetRawUserId() && mute.Expire > DateTime.Now);
 
-			if (mutedPlayer == null) return ($"{target.GetNickname()} is not muted!", "red");
+			if (mutedPlayer == null) return (string.Format(Language.PlayerIsNotMutedError, target.GetNickname()), "red");
 
 			mutedPlayer.Expire = DateTime.Now;
 
 			LiteDatabase.GetCollection<Collections.Chat.Mute>().Update(mutedPlayer);
 
-			target.SendConsoleMessage("You have been unmuted from the chat!", "green");
+			target.SendConsoleMessage(Language.UnmuteCommandSuccessPlayer, "green");
 
-			return ($"{target.GetNickname()} has been unmuted from the chat", "green");
+			return (string.Format(Language.UnmuteCommandSuccessModerator, target.GetNickname()), "green");
 		}
 	}
 }

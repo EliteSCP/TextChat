@@ -4,6 +4,7 @@ using System.Linq;
 using TextChat.Enums;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using TextChat.Localizations;
 using static TextChat.Database;
 
 namespace TextChat.Commands.Console
@@ -13,9 +14,9 @@ namespace TextChat.Commands.Console
 		public PublicChat() : base(ChatRoomType.Public, Configs.generalChatColor)
 		{ }
 
-		public string Description => "Sends a chat message to everyone in the server.";
+		public string Description => Language.PublicChatDescription;
 
-		public string Usage => ".chat [Message]";
+		public string Usage => Language.PublicChatUsage;
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
@@ -23,7 +24,7 @@ namespace TextChat.Commands.Console
 
 			if (!isValid) return (message, "red");
 
-			message = $"[{sender.GetNickname()}][PUBLIC]: {message}";
+			message = $"[{sender.GetNickname()}][{Language.Public}]: {message}";
 
 			IEnumerable<ReferenceHub> targets = Player.GetHubs().Where(target =>
 			{
@@ -32,7 +33,7 @@ namespace TextChat.Commands.Console
 
 			List<Collections.Chat.Player> chatPlayers = targets.GetChatPlayers(ChatPlayers);
 
-			if (chatPlayers.Count == 0) return ("There are no available players to chat with!", "red");
+			if (chatPlayers.Count == 0) return (Language.NoAvailablePlayersToChatWithError, "red");
 
 			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], chatPlayers, type);
 

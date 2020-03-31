@@ -3,33 +3,34 @@ using System;
 using System.Linq;
 using TextChat.Extensions;
 using TextChat.Interfaces;
+using TextChat.Localizations;
 using static TextChat.Database;
 
 namespace TextChat.Commands.RemoteAdmin
 {
 	public class Mute : ICommand
 	{
-		public string Description => "Mute a player from the chat.";
+		public string Description => Language.MuteCommandDescription;
 
-		public string Usage => "chat_mute [PlayerID/UserID/Name] [Duration (Minutes)] [Reason]";
+		public string Usage => Language.MuteCommandUsage;
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			if (!sender.CheckPermission("tc.mute")) return ("You don't have enough permissions to run this command!", "red");
+			if (!sender.CheckPermission("tc.mute")) return (Language.CommandNotEnoughPermissionsError, "red");
 
-			if (args.Length < 2) return ($"You have to provide two parameter! {Usage}", "red");
+			if (args.Length < 2) return (string.Format(Language.CommandNotEnoughParametersError, 2, Usage), "red");
 
 			ReferenceHub target = Player.GetPlayer(args[0]);
 
-			if (target == null) return ($"Player \"{args[0]}\" was not found!", "red");
+			if (target == null) return (string.Format(Language.PlayerNotFoundError, args[0]), "red");
 
-			if (!double.TryParse(args[1], out double duration) || duration < 1) return ($"{args[1]} is an invalid duration!", "red");
+			if (!double.TryParse(args[1], out double duration) || duration < 1) return (string.Format(Language.InvalidDurationError, args[1]), "red");
 
 			string reason = string.Join(" ", args.Skip(2).Take(args.Length - 2));
 
-			if (string.IsNullOrEmpty(reason)) return ("The reason cannot be empty!", "red");
+			if (string.IsNullOrEmpty(reason)) return (Language.ReasonCannotBeEmptyError, "red");
 
-			if (target.IsChatMuted()) return ($"{target.GetNickname()} is already muted!", "red");
+			if (target.IsChatMuted()) return (string.Format(Language.PlayerIsAlreadyMutedError, target.GetNickname()), "red");
 
 			LiteDatabase.GetCollection<Collections.Chat.Mute>().Insert(new Collections.Chat.Mute()
 			{
@@ -46,9 +47,9 @@ namespace TextChat.Commands.RemoteAdmin
 				target.Broadcast(Configs.chatMutedBroadcastDuration, string.Format(Configs.chatMutedBroadcast, duration, reason), false);
 			}
 
-			target.SendConsoleMessage($"You have been muted from the chat for {duration} minute{(duration != 1 ? "s" : "")}! Reason: {reason}", "red");
+			target.SendConsoleMessage(string.Format(Language.MuteCommandSuccessPlayer, duration, reason), "red");
 
-			return ($"{target.GetNickname()} has been muted from the chat for {duration} minute{(duration != 1 ? "s" : "")}, reason: {reason}", "green");
+			return (string.Format(Language.MuteCommandSuccessModerator, target.GetNickname(), duration, reason), "green");
 		}
 	}
 }

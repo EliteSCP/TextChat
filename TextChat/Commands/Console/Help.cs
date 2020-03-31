@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using TextChat.Interfaces;
+using TextChat.Localizations;
 
 namespace TextChat.Commands.Console
 {
@@ -9,17 +10,17 @@ namespace TextChat.Commands.Console
 
 		public Help(TextChat pluginInstance) => this.pluginInstance = pluginInstance;
 
-		public string Description => "Gets a list of commands or the description of a single command.";
+		public string Description => Language.HelpCommandDescription;
 
-		public string Usage => ".help/.help [Command Name]";
+		public string Usage => Language.HelpCommandUsage;
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			if (pluginInstance.ConsoleCommands.Count == 0) return ("There are no commands to show!", "red");
+			if (pluginInstance.ConsoleCommands.Count == 0) return (Language.NoCommandsToShowError, "red");
 
 			if (args.Length == 0)
 			{
-				StringBuilder commands = new StringBuilder($"\n\n[LIST OF COMMANDS ({pluginInstance.ConsoleCommands.Count})]");
+				StringBuilder commands = new StringBuilder($"\n\n[{string.Format(Language.ListOfCommands, pluginInstance.ConsoleCommands.Count)}]");
 
 				foreach (ICommand command in pluginInstance.ConsoleCommands.Values)
 				{
@@ -30,12 +31,12 @@ namespace TextChat.Commands.Console
 			}
 			else if (args.Length == 1)
 			{
-				if (!pluginInstance.ConsoleCommands.TryGetValue(args[0].Replace(".", ""), out ICommand command)) return ($"Command \"{args[0]}\" was not found!", "red");
+				if (!pluginInstance.ConsoleCommands.TryGetValue(args[0].Replace(".", ""), out ICommand command)) return (string.Format(Language.CommandNotFoundError, args[0]), "red");
 
 				return ($"\n\n{command.Usage}\n\n{command.Description}", "green");
 			}
 
-			return ("Too many arguments!", "red");
+			return (Language.CommandTooManyArgumentsError, "red");
 		}
 	}
 }

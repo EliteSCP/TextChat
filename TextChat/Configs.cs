@@ -1,6 +1,9 @@
 ﻿using EXILED;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
+using TextChat.Localizations;
 
 namespace TextChat
 {
@@ -45,6 +48,7 @@ namespace TextChat
 			privateMessageNotificationBroadcast = Plugin.Config.GetString("tc_private_message_notification_broadcast", "You received a private message!");
 			isSlowModeEnabled = Plugin.Config.GetBool("tc_is_slow_mode_enabled", true);
 			slowModeCooldown = new TimeSpan(0, 0, 0, 0, (int)(Plugin.Config.GetFloat("tc_slow_mode_interval", 1f) * 1000));
+			Language.Culture = CultureInfo.GetCultureInfo(Plugin.Config.GetString("tc_language", "")) ?? CultureInfo.GetCultureInfo("");
 		}
 	}
 }

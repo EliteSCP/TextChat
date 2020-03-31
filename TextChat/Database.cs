@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using TextChat.Collections.Chat;
 using TextChat.Enums;
+using TextChat.Localizations;
 
 namespace TextChat
 {
@@ -31,11 +32,11 @@ namespace TextChat
 				LiteDatabase.GetCollection<Room>().EnsureIndex(room => room.Type);
 				LiteDatabase.GetCollection<Room>().EnsureIndex(room => room.Message.Sender.Id);
 
-				Log.Info("The database has been loaded successfully!");
+				Log.Info(Language.DatabaseLoaded);
 			}
 			catch (Exception exception)
 			{
-				Log.Error($"An error has occurred while opening the database: {exception}");
+				Log.Error(string.Format(Language.DatabaseLoadError, exception));
 			}
 		}
 
@@ -47,11 +48,11 @@ namespace TextChat
 				LiteDatabase.Dispose();
 				LiteDatabase = null;
 
-				Log.Info("The database has been closed successfully!");
+				Log.Info(Language.DatabaseClosed);
 			}
 			catch (Exception exception)
 			{
-				Log.Error($"An error has occurred while closing the database: {exception}");
+				Log.Error(string.Format(Language.DatabaseCloseError, exception));
 			}
 		}
 
