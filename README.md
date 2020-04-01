@@ -43,7 +43,7 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | chat_mute | Mutes a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
 | chat_unmute | Unmutes a player from the chat. | **[Nickname/UserID/PlayerID]** | tc.unmute | **chat_unmute iopietro** |
 | chat_show_mutes | Shows all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.showmutes | **chat_show_mutes/chat_show_mutes iopietro** |
-| chat_show_mutes | Deletes all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.deletemutes | **chat_delete_mutes/chat_delete_mutes iopietro** |
+| chat_delete_mutes | Deletes all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.deletemutes | **chat_delete_mutes/chat_delete_mutes iopietro** |
 
 ### Configs
 | Name | Type | Default Value | Description |
