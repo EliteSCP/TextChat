@@ -49,7 +49,7 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | Name | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | tc_enabled | Boolean | True | Enable/Disable the plugin. |
-| tc_language | String | en | The language of the plugin, available languages: **it, en** |
+| tc_language | String | en | The language of the plugin. |
 | tc_database_name | String | TextChat | The name of the Database. |
 | tc_general_chat_color | String | cyan | The color of the general chat. |
 | tc_private_message_color | String | magenta | The color of private messages. |
@@ -67,6 +67,14 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | tc_private_message_notification_broadcast | String | You received a private message! | The broadcast message that will be shown to the notified player. |
 | tc_is_slow_mode_enabled | Boolean | True | If enabled, a player will be able to send another message, only after a certain amount of time. |
 | tc_slow_mode_interval | Float | 0.75 | The number of seconds that will have to pass before a player can send another message. |
+
+### List of available languages
+| Name | Config Value |
+| --- | --- |
+| English | en |
+| Italian | it |
+| Portuguese | pt |
+| Korean | ko |
 
 ### List of available colors
 | Name |
