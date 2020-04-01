@@ -26,7 +26,7 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 - Open a pull request on my repository with the language you added, if everything is correct, I'll accept it and add it into the plugin.
 
 **Second method**
-- Download `Localizations\Language.resx`, translate it in your language and send it to me on Discord: iopietro#1717, if everything is correct, I'll add it into te plugin.
+- Download [Language.resx](https://github.com/iopietro/TextChat/blob/master/TextChat/Localizations/Language.resx), translate it in your language and send it to me on Discord: iopietro#1717, if everything is correct, I'll add it into te plugin.
 
 ### Player Commands
 | Command | Description | Arguments | Example |
