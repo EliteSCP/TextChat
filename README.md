@@ -2,7 +2,7 @@
 An in-game TextChat plugin for SCP:SL.
 
 ## Minimum requirements
-[EXILED](https://github.com/galaxy119/EXILED) **1.9.0+**
+[EXILED](https://github.com/galaxy119/EXILED) **1.9.8+**
 
 [LiteDB](https://github.com/mbdavid/LiteDB) **5.0.5+**
 
@@ -14,7 +14,19 @@ Put **EXILED_Permissions.dll** inside `%appdata%\Plugins` if you're on **Windows
 Put **LiteDB.dll** inside `%appdata%\Plugins\dependencies` folder if you're using **Windows** or `~/.config/Plugins/dependencies` if you're on **Linux**.
 
 ## How to use it
-Press **ò** or ` on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
+Press **ò** or **\`** on your keyboard to open the in-game console, with that, you'll be able to execute commands to chat with other players.
+
+## How to submit a new language
+
+**First method**
+- Fork my repository.
+- Copy `Localizations\Language.resx` into the `Localization` folder and rename it to `Localizations\Language.XX.resx` where XX are the [language code letters](https://lonewolfonline.net/list-net-culture-country-codes/).
+- For example: I want to add the french language into the game, then I'll have to rename the file to `Language.fr.resx`.
+- Translate the file with any text editor or C# IDE and push it into your forked repository.
+- Open a pull request on my repository with the language you added, if everything is correct, I'll accept it and add it into the plugin.
+
+**Second method**
+- Download [Language.resx](https://github.com/iopietro/TextChat/blob/master/TextChat/Localizations/Language.resx), translate it in your language and send it to me on Discord: iopietro#1717, if everything is correct, I'll add it into te plugin.
 
 ### Player Commands
 | Command | Description | Arguments | Example |
@@ -35,6 +47,7 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 | Name | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | tc_enabled | Boolean | True | Enable/Disable the plugin. |
+| tc_language | String | en | The language of the plugin, available languages: **it, en** |
 | tc_database_name | String | TextChat | The name of the Database. |
 | tc_general_chat_color | String | cyan | The color of the general chat. |
 | tc_private_message_color | String | magenta | The color of private messages. |
@@ -65,4 +78,3 @@ Press **ò** or ` on your keyboard to open the in-game console, with that, you'l
 | white |
 | blue |
 | grey |
-
