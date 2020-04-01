@@ -20,7 +20,7 @@ namespace TextChat.Commands.Console
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(), ChatPlayers[sender], sender);
+			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(), sender);
 
 			if (!isValid) return (message, "red");
 
@@ -31,13 +31,13 @@ namespace TextChat.Commands.Console
 				return sender != target && (Configs.canSpectatorSendMessagesToAlive || sender.GetTeam() != Team.RIP || target.GetTeam() == Team.RIP);
 			});
 
-			List<Collections.Chat.Player> chatPlayers = targets.GetChatPlayers(ChatPlayers);
+			List<Collections.Chat.Player> chatPlayers = targets.GetChatPlayers();
 
 			if (chatPlayers.Count == 0) return (Language.NoAvailablePlayersToChatWithError, "red");
 
-			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], chatPlayers, type);
+			if (Configs.saveChatToDatabase) SaveMessage(message, sender.GetChatPlayer(), chatPlayers, type);
 
-			SendMessage(ref message, ChatPlayers[sender], targets);
+			SendMessage(ref message, sender, targets);
 
 			return (message, color);
 		}

@@ -67,7 +67,7 @@ namespace TextChat.Events
 
 		public void OnPlayerJoin(PlayerJoinEvent ev)
 		{
-			ChatPlayers.Add(ev.Player, new Collections.Chat.Player()
+			ChatPlayers.Add(ev.Player, ev.Player.GetChatPlayer() ?? new Collections.Chat.Player()
 			{
 				Id = ev.Player.GetRawUserId(),
 				Authentication = ev.Player.GetAuthentication(),
@@ -75,11 +75,17 @@ namespace TextChat.Events
 			});
 
 			ev.Player.SendConsoleMessage(Language.ChatWelcome, "green");
+
+			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasJoinedTheChat, ev.Player.GetNickname()), "green");
 		}
 
 		public void OnPlayerLeave(PlayerLeaveEvent ev)
 		{
-			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerLeftTheChat, ev.Player.GetNickname()), "red");
+			if (string.IsNullOrEmpty(ev.Player?.GetUserId())) return;
+
+			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasLeftTheChat, ev.Player.GetNickname()), "red");
+
+			LiteDatabase.GetCollection<Collections.Chat.Player>().Upsert(ev.Player.GetChatPlayer());
 
 			ChatPlayers.Remove(ev.Player);
 		}

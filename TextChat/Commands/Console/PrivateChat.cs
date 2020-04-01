@@ -19,7 +19,7 @@ namespace TextChat.Commands.Console
 
 		public (string response, string color) OnCall(ReferenceHub sender, string[] args)
 		{
-			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(1), ChatPlayers[sender], sender);
+			(string message, bool isValid) = CheckMessageValidity(args.GetMessage(1), sender);
 
 			if (!isValid) return (message, "red");
 
@@ -34,9 +34,9 @@ namespace TextChat.Commands.Console
 				return (Language.CannotSendMessageToAlivePlayersError, "red");
 			}
 
-			if (Configs.saveChatToDatabase) SaveMessage(message, ChatPlayers[sender], new List<Collections.Chat.Player>() { ChatPlayers[sender] }, type);
+			if (Configs.saveChatToDatabase) SaveMessage(message, sender.GetChatPlayer(), new List<Collections.Chat.Player>() { sender.GetChatPlayer() }, type);
 
-			SendMessage(ref message, ChatPlayers[sender], new List<ReferenceHub>() { target });
+			SendMessage(ref message, sender, new List<ReferenceHub>() { target });
 
 			if (Configs.showPrivateMessageNotificationBroadcast)
 			{

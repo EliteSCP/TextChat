@@ -141,7 +141,7 @@
   <data name="DatabaseLoadError" xml:space="preserve">
     <value>An error has occurred while opening the database: {0}</value>
   </data>
-  <data name="PlayerLeftTheChat" xml:space="preserve">
+  <data name="PlayerHasLeftTheChat" xml:space="preserve">
     <value>{0} has left the chat!</value>
   </data>
   <data name="PluginDisabled" xml:space="preserve">
@@ -181,7 +181,7 @@
     <value>Gets a list of commands or the description of a single command.</value>
   </data>
   <data name="HelpCommandUsage" xml:space="preserve">
-    <value>.help/.help [Command Name]</value>
+    <value>.chat_help/.chat_help [Command Name]</value>
   </data>
   <data name="InvalidDurationError" xml:space="preserve">
     <value>{0} is an invalid duration!</value>
@@ -196,7 +196,7 @@
     <value>"{0}" has been muted from the chat for {1} minute(s), reason: {2}</value>
   </data>
   <data name="MuteCommandSuccessPlayer" xml:space="preserve">
-    <value>You have been muted from the chat for {0} minute(s)! Reason: {1}"</value>
+    <value>You have been muted from the chat for {0} minute(s)! Reason: {1}</value>
   </data>
   <data name="MuteCommandUsage" xml:space="preserve">
     <value>chat_mute [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]</value>
@@ -223,7 +223,7 @@
     <value>Player "{0}" was not found!</value>
   </data>
   <data name="Private" xml:space="preserve">
-    <value>Private</value>
+    <value>PRIVATE</value>
   </data>
   <data name="PrivateChatDescription" xml:space="preserve">
     <value>Sends a private chat message to a player.</value>
@@ -232,7 +232,7 @@
     <value>.chat_private [Nickname/UserID/PlayerID] [Message]</value>
   </data>
   <data name="Public" xml:space="preserve">
-    <value>Public</value>
+    <value>PUBLIC</value>
   </data>
   <data name="PublicChatDescription" xml:space="preserve">
     <value>Sends a chat message to everyone in the server.</value>
@@ -244,7 +244,7 @@
     <value>The reason cannot be empty!</value>
   </data>
   <data name="Team" xml:space="preserve">
-    <value>Team</value>
+    <value>TEAM</value>
   </data>
   <data name="TeamChatDescription" xml:space="preserve">
     <value>Sends a chat message to your team.</value>
@@ -263,5 +263,53 @@
   </data>
   <data name="UnmuteCommandUsage" xml:space="preserve">
     <value>chat_unmute [Nickname/UserID/PlayerID]</value>
+  </data>
+  <data name="PlayerHasBeenChatMuted" xml:space="preserve">
+    <value>You have been muted from the chat for {0} minutes, reason: {1}</value>
+  </data>
+  <data name="PlayerReceivedPrivateMessage" xml:space="preserve">
+    <value>You received a private message!</value>
+  </data>
+  <data name="DeleteAllMutesSuccess" xml:space="preserve">
+    <value>{0} mutes have been sucessfully deleted!</value>
+  </data>
+  <data name="DeleteMutesCommandDescription" xml:space="preserve">
+    <value>Deletes all mutes in the database, or mutes of a specified player.</value>
+  </data>
+  <data name="DeleteMutesCommandUsage" xml:space="preserve">
+    <value>chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID]</value>
+  </data>
+  <data name="DeleteMutesSuccess" xml:space="preserve">
+    <value>{0} mutes of "{1}" have been sucessfully deleted!</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="Expire" xml:space="preserve">
+    <value>Expire</value>
+  </data>
+  <data name="Issuer" xml:space="preserve">
+    <value>Issuer</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minute(s)</value>
+  </data>
+  <data name="MutesList" xml:space="preserve">
+    <value>MUTES LIST</value>
+  </data>
+  <data name="PlayerHasJoinedTheChat" xml:space="preserve">
+    <value>{0} has joined the chat!</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ShowMutesCommandDescription" xml:space="preserve">
+    <value>Shows all mutes in the database, or mutes of a specified player.</value>
+  </data>
+  <data name="ShowMutesCommandUsage" xml:space="preserve">
+    <value>chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID]</value>
+  </data>
+  <data name="Timestamp" xml:space="preserve">
+    <value>Timestamp</value>
   </data>
 </root>

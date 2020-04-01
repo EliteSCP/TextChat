@@ -87,10 +87,12 @@ namespace TextChat
 			ConsoleCommands.Add("chat", new PublicChat());
 			ConsoleCommands.Add("chat_team", new TeamChat());
 			ConsoleCommands.Add("chat_private", new PrivateChat());
-			ConsoleCommands.Add("help", new Help(this));
+			ConsoleCommands.Add("chat_help", new Help(this));
 
 			RemoteAdminCommands.Add("chat_mute", new Mute());
 			RemoteAdminCommands.Add("chat_unmute", new Unmute());
+			RemoteAdminCommands.Add("chat_delete_mutes", new DeleteMutes());
+			RemoteAdminCommands.Add("chat_show_mutes", new ShowMutes());
 		}
 
 		private void UnregisterCommands()

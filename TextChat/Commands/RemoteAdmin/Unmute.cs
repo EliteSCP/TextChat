@@ -19,21 +19,21 @@ namespace TextChat.Commands.RemoteAdmin
 
 			if (args.Length != 1) return (string.Format(Language.CommandNotEnoughParametersError, 1, Usage), "red");
 
-			ReferenceHub target = Player.GetPlayer(args[0]);
+			Collections.Chat.Player chatPlayer = args[0].GetChatPlayer();
 
-			if (target == null) return (string.Format(Language.PlayerNotFoundError, args[0]), "red");
+			if (chatPlayer == null) return (string.Format(Language.PlayerNotFoundError, args[0]), "red");
 
-			var mutedPlayer = LiteDatabase.GetCollection<Collections.Chat.Mute>().FindOne(mute => mute.Target.Id == target.GetRawUserId() && mute.Expire > DateTime.Now);
+			var mute = LiteDatabase.GetCollection<Collections.Chat.Mute>().FindOne(queryMute => queryMute.Target.Id == chatPlayer.Id && queryMute.Expire > DateTime.Now);
 
-			if (mutedPlayer == null) return (string.Format(Language.PlayerIsNotMutedError, target.GetNickname()), "red");
+			if (mute == null) return (string.Format(Language.PlayerIsNotMutedError, chatPlayer.Name), "red");
 
-			mutedPlayer.Expire = DateTime.Now;
+			mute.Expire = DateTime.Now;
 
-			LiteDatabase.GetCollection<Collections.Chat.Mute>().Update(mutedPlayer);
+			LiteDatabase.GetCollection<Collections.Chat.Mute>().Update(mute);
 
-			target.SendConsoleMessage(Language.UnmuteCommandSuccessPlayer, "green");
+			Player.GetPlayer(args[0])?.SendConsoleMessage(Language.UnmuteCommandSuccessPlayer, "green");
 
-			return (string.Format(Language.UnmuteCommandSuccessModerator, target.GetNickname()), "green");
+			return (string.Format(Language.UnmuteCommandSuccessModerator, chatPlayer.Name), "green");
 		}
 	}
 }

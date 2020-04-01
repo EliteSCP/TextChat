@@ -25,6 +25,7 @@ namespace TextChat
 
 				LiteDatabase = new LiteDatabase(FullPath);
 
+				LiteDatabase.GetCollection<Player>().EnsureIndex(player => player.Id, true);
 				LiteDatabase.GetCollection<Mute>().EnsureIndex(mute => mute.Target.Id);
 				LiteDatabase.GetCollection<Mute>().EnsureIndex(mute => mute.Issuer.Id);
 				LiteDatabase.GetCollection<Mute>().EnsureIndex(mute => mute.Timestamp);

@@ -7,11 +7,8 @@ namespace TextChat.Collections.Chat
 		public string Id { get; set; }
 		public string Authentication { get; set; }
 		public string Name { get; set; }
+		public DateTime LastMessageSentTimestamp { get; set; }
 
-		public DateTime lastMessageSentTimestamp;
-
-		public bool IsFlooding(TimeSpan cooldown) => lastMessageSentTimestamp.Add(cooldown) > DateTime.Now;
-
-		public void SentAMessage() => lastMessageSentTimestamp = DateTime.Now;
+		public bool IsFlooding(TimeSpan cooldown) => LastMessageSentTimestamp.Add(cooldown) > DateTime.Now;
 	}
 }

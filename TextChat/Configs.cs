@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Threading;
 using TextChat.Localizations;
 
 namespace TextChat
@@ -31,6 +30,7 @@ namespace TextChat
 		public static void Reload()
 		{
 			isEnabled = Plugin.Config.GetBool("tc_enabled", true);
+			Language.Culture = CultureInfo.GetCultureInfo(Plugin.Config.GetString("tc_language", "")) ?? CultureInfo.GetCultureInfo("");
 			databaseName = Plugin.Config.GetString("tc_database_name", "TextChat");
 			generalChatColor = Plugin.Config.GetString("tc_general_chat_color", "cyan");
 			privateMessageColor = Plugin.Config.GetString("tc_private_message_color", "magenta");
@@ -42,13 +42,12 @@ namespace TextChat
 			canSpectatorSendMessagesToAlive = Plugin.Config.GetBool("tc_can_spectator_send_messages_to_alive");
 			showChatMutedBroadcast = Plugin.Config.GetBool("tc_show_chat_muted_broadcast", true);
 			chatMutedBroadcastDuration = Plugin.Config.GetUInt("tc_chat_muted_broadcast_duration", 10);
-			chatMutedBroadcast = Plugin.Config.GetString("tc_chat_muted_broadcast", "You have been muted from the chat for {0} minutes, reason: {1}");
+			chatMutedBroadcast = Plugin.Config.GetString("tc_chat_muted_broadcast", Language.PlayerHasBeenChatMuted);
 			showPrivateMessageNotificationBroadcast = Plugin.Config.GetBool("tc_show_private_message_notification_broadcast");
 			privateMessageNotificationBroadcastDuration = Plugin.Config.GetUInt("tc_private_message_notification_broadcast_duration", 6);
-			privateMessageNotificationBroadcast = Plugin.Config.GetString("tc_private_message_notification_broadcast", "You received a private message!");
+			privateMessageNotificationBroadcast = Plugin.Config.GetString("tc_private_message_notification_broadcast", Language.PlayerReceivedPrivateMessage);
 			isSlowModeEnabled = Plugin.Config.GetBool("tc_is_slow_mode_enabled", true);
 			slowModeCooldown = new TimeSpan(0, 0, 0, 0, (int)(Plugin.Config.GetFloat("tc_slow_mode_interval", 1f) * 1000));
-			Language.Culture = CultureInfo.GetCultureInfo(Plugin.Config.GetString("tc_language", "")) ?? CultureInfo.GetCultureInfo("");
 		}
 	}
 }

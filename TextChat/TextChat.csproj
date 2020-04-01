@@ -80,6 +80,8 @@
     <Compile Include="Commands\Console\PrivateChat.cs" />
     <Compile Include="Commands\Console\TeamChat.cs" />
     <Compile Include="Commands\Console\Help.cs" />
+    <Compile Include="Commands\RemoteAdmin\ShowMutes.cs" />
+    <Compile Include="Commands\RemoteAdmin\DeleteMutes.cs" />
     <Compile Include="Commands\RemoteAdmin\Mute.cs" />
     <Compile Include="Commands\RemoteAdmin\Unmute.cs" />
     <Compile Include="Configs.cs" />
@@ -103,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localizations\Language.it.resx" />
+    <EmbeddedResource Include="Localizations\Language.ko.resx" />
+    <EmbeddedResource Include="Localizations\Language.pt.resx" />
     <EmbeddedResource Include="Localizations\Language.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Language.Designer.cs</LastGenOutput>

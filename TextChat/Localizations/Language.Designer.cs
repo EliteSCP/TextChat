@@ -205,6 +205,60 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} mutes have been sucessfully deleted!.
+        /// </summary>
+        internal static string DeleteAllMutesSuccess {
+            get {
+                return ResourceManager.GetString("DeleteAllMutesSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Deletes all mutes in the database, or mutes of a specified player..
+        /// </summary>
+        internal static string DeleteMutesCommandDescription {
+            get {
+                return ResourceManager.GetString("DeleteMutesCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID].
+        /// </summary>
+        internal static string DeleteMutesCommandUsage {
+            get {
+                return ResourceManager.GetString("DeleteMutesCommandUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} mutes of &quot;{1}&quot; have been sucessfully deleted!.
+        /// </summary>
+        internal static string DeleteMutesSuccess {
+            get {
+                return ResourceManager.GetString("DeleteMutesSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Duration.
+        /// </summary>
+        internal static string Duration {
+            get {
+                return ResourceManager.GetString("Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Expire.
+        /// </summary>
+        internal static string Expire {
+            get {
+                return ResourceManager.GetString("Expire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Gets a list of commands or the description of a single command..
         /// </summary>
         internal static string HelpCommandDescription {
@@ -214,7 +268,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a .help/.help [Command Name].
+        ///   Cerca una stringa localizzata simile a .chat_help/.chat_help [Command Name].
         /// </summary>
         internal static string HelpCommandUsage {
             get {
@@ -232,11 +286,29 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Issuer.
+        /// </summary>
+        internal static string Issuer {
+            get {
+                return ResourceManager.GetString("Issuer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a LIST OF COMMANDS ({0}).
         /// </summary>
         internal static string ListOfCommands {
             get {
                 return ResourceManager.GetString("ListOfCommands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Minute(s).
+        /// </summary>
+        internal static string Minutes {
+            get {
+                return ResourceManager.GetString("Minutes", resourceCulture);
             }
         }
         
@@ -259,7 +331,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a You have been muted from the chat for {0} minute(s)! Reason: {1}&quot;.
+        ///   Cerca una stringa localizzata simile a You have been muted from the chat for {0} minute(s)! Reason: {1}.
         /// </summary>
         internal static string MuteCommandSuccessPlayer {
             get {
@@ -273,6 +345,15 @@ namespace TextChat.Localizations {
         internal static string MuteCommandUsage {
             get {
                 return ResourceManager.GetString("MuteCommandUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a MUTES LIST.
+        /// </summary>
+        internal static string MutesList {
+            get {
+                return ResourceManager.GetString("MutesList", resourceCulture);
             }
         }
         
@@ -291,6 +372,33 @@ namespace TextChat.Localizations {
         internal static string NoCommandsToShowError {
             get {
                 return ResourceManager.GetString("NoCommandsToShowError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a You have been muted from the chat for {0} minutes, reason: {1}.
+        /// </summary>
+        internal static string PlayerHasBeenChatMuted {
+            get {
+                return ResourceManager.GetString("PlayerHasBeenChatMuted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} has joined the chat!.
+        /// </summary>
+        internal static string PlayerHasJoinedTheChat {
+            get {
+                return ResourceManager.GetString("PlayerHasJoinedTheChat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} has left the chat!.
+        /// </summary>
+        internal static string PlayerHasLeftTheChat {
+            get {
+                return ResourceManager.GetString("PlayerHasLeftTheChat", resourceCulture);
             }
         }
         
@@ -331,20 +439,20 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a {0} has left the chat!.
-        /// </summary>
-        internal static string PlayerLeftTheChat {
-            get {
-                return ResourceManager.GetString("PlayerLeftTheChat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Cerca una stringa localizzata simile a Player &quot;{0}&quot; was not found!.
         /// </summary>
         internal static string PlayerNotFoundError {
             get {
                 return ResourceManager.GetString("PlayerNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a You received a private message!.
+        /// </summary>
+        internal static string PlayerReceivedPrivateMessage {
+            get {
+                return ResourceManager.GetString("PlayerReceivedPrivateMessage", resourceCulture);
             }
         }
         
@@ -376,7 +484,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Private.
+        ///   Cerca una stringa localizzata simile a PRIVATE.
         /// </summary>
         internal static string Private {
             get {
@@ -403,7 +511,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Public.
+        ///   Cerca una stringa localizzata simile a PUBLIC.
         /// </summary>
         internal static string Public {
             get {
@@ -430,6 +538,15 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Reason.
+        /// </summary>
+        internal static string Reason {
+            get {
+                return ResourceManager.GetString("Reason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a The reason cannot be empty!.
         /// </summary>
         internal static string ReasonCannotBeEmptyError {
@@ -439,7 +556,25 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Team.
+        ///   Cerca una stringa localizzata simile a Shows all mutes in the database, or mutes of a specified player..
+        /// </summary>
+        internal static string ShowMutesCommandDescription {
+            get {
+                return ResourceManager.GetString("ShowMutesCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID].
+        /// </summary>
+        internal static string ShowMutesCommandUsage {
+            get {
+                return ResourceManager.GetString("ShowMutesCommandUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a TEAM.
         /// </summary>
         internal static string Team {
             get {
@@ -462,6 +597,15 @@ namespace TextChat.Localizations {
         internal static string TeamChatUsage {
             get {
                 return ResourceManager.GetString("TeamChatUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Timestamp.
+        /// </summary>
+        internal static string Timestamp {
+            get {
+                return ResourceManager.GetString("Timestamp", resourceCulture);
             }
         }
         

@@ -21,8 +21,9 @@ namespace TextChat.Commands.RemoteAdmin
 			if (args.Length < 2) return (string.Format(Language.CommandNotEnoughParametersError, 2, Usage), "red");
 
 			ReferenceHub target = Player.GetPlayer(args[0]);
+			Collections.Chat.Player chatPlayer = args[0].GetChatPlayer();
 
-			if (target == null) return (string.Format(Language.PlayerNotFoundError, args[0]), "red");
+			if (chatPlayer == null) return (string.Format(Language.PlayerNotFoundError, args[0]), "red");
 
 			if (!double.TryParse(args[1], out double duration) || duration < 1) return (string.Format(Language.InvalidDurationError, args[1]), "red");
 
@@ -30,26 +31,27 @@ namespace TextChat.Commands.RemoteAdmin
 
 			if (string.IsNullOrEmpty(reason)) return (Language.ReasonCannotBeEmptyError, "red");
 
-			if (target.IsChatMuted()) return (string.Format(Language.PlayerIsAlreadyMutedError, target.GetNickname()), "red");
+			if (chatPlayer.IsChatMuted()) return (string.Format(Language.PlayerIsAlreadyMutedError, chatPlayer.Name), "red");
 
 			LiteDatabase.GetCollection<Collections.Chat.Mute>().Insert(new Collections.Chat.Mute()
 			{
-				Target = ChatPlayers[target],
-				Issuer = ChatPlayers[sender],
+				Target = chatPlayer,
+				Issuer = sender.GetChatPlayer(),
 				Reason = reason,
+				Duration = duration,
 				Timestamp = DateTime.Now,
 				Expire = DateTime.Now.AddMinutes(duration)
 			});
 
 			if (Configs.showChatMutedBroadcast)
 			{
-				target.ClearBroadcasts();
-				target.Broadcast(Configs.chatMutedBroadcastDuration, string.Format(Configs.chatMutedBroadcast, duration, reason), false);
+				target?.ClearBroadcasts();
+				target?.Broadcast(Configs.chatMutedBroadcastDuration, string.Format(Configs.chatMutedBroadcast, duration, reason), false);
 			}
 
-			target.SendConsoleMessage(string.Format(Language.MuteCommandSuccessPlayer, duration, reason), "red");
+			target?.SendConsoleMessage(string.Format(Language.MuteCommandSuccessPlayer, duration, reason), "red");
 
-			return (string.Format(Language.MuteCommandSuccessModerator, target.GetNickname(), duration, reason), "green");
+			return (string.Format(Language.MuteCommandSuccessModerator, chatPlayer.Name, duration, reason), "green");
 		}
 	}
 }

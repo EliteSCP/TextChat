@@ -118,198 +118,198 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChatWelcome" xml:space="preserve">
-    <value>Benvenuto nella chat!</value>
+    <value>채팅에 오신것을 환영합니다!</value>
   </data>
   <data name="CommandError" xml:space="preserve">
-    <value>Si è verificato un errore durante l'esecuzione del comando!</value>
+    <value>명령어를 사용하는 도중에 오류가 발생했습니다!</value>
   </data>
   <data name="CommandException" xml:space="preserve">
-    <value>Errore del comando {0}: {1}</value>
+    <value>{0} 명령어를 사용하는 도중에 오류가 발생했습니다. 오류: {1}</value>
   </data>
   <data name="CommandNotAllowedForConsoleError" xml:space="preserve">
-    <value>Non puoi eseguire questo comando dalla console del server!</value>
+    <value>이 명령어를 사용할 권한이 없습니다!</value>
   </data>
   <data name="DatabaseClosed" xml:space="preserve">
-    <value>Il database è stato chiuso con successo!</value>
+    <value>데이터베이스가 정상적으로 닫혔습니다.!</value>
   </data>
   <data name="DatabaseCloseError" xml:space="preserve">
-    <value>Si è verificato un errore durante la chiusura del database: {0}</value>
+    <value>데이터베이스를 끄는 도중에 오류가 발생했습니다. 오류: {0}</value>
   </data>
   <data name="DatabaseLoaded" xml:space="preserve">
-    <value>Il database è stato caricato con successo!</value>
+    <value>데이터베이스가 정상적으로 로딩되었습니다!</value>
   </data>
   <data name="DatabaseLoadError" xml:space="preserve">
-    <value>Si è verificato un errore durante la chiusura del database: {0}</value>
+    <value>데이터베이스를 여는 도중에 오류가 발생했습니다. 오류 {0}</value>
   </data>
   <data name="PlayerHasLeftTheChat" xml:space="preserve">
-    <value>{0} è uscito dalla chat!</value>
+    <value>{0} 님이 채팅을 나가셨습니다!</value>
   </data>
   <data name="PluginDisabled" xml:space="preserve">
-    <value>{0} è stato Disabilitato!</value>
+    <value>{0} 가 꺼졌습니다!</value>
   </data>
   <data name="PluginEnabled" xml:space="preserve">
-    <value>{0} è stato Abilitato!</value>
+    <value>{0} 가 켜졌습니다!</value>
   </data>
   <data name="PluginReloaded" xml:space="preserve">
-    <value>{0} è stato Ricaricato!</value>
+    <value>{0} 가 새로고침 되었습니다.</value>
   </data>
   <data name="CannotSendMessageToAlivePlayersError" xml:space="preserve">
-    <value>Non puoi inviare un messaggio ai giocatori in vita!</value>
+    <value>살아있는 사람한테 메세지를 보낼 수 없습니다!</value>
   </data>
   <data name="CannotSendMessageToThemselvesError" xml:space="preserve">
-    <value>Non puoi inviare un messaggio a te stesso!</value>
+    <value>자신한테 메세지를 보낼 수 없습니다!</value>
   </data>
   <data name="ChatMessageCannotBeEmptyError" xml:space="preserve">
-    <value>Non puoi inviare un messaggio vuoto!</value>
+    <value>메세지란이 비어 있을 수 없습니다!</value>
   </data>
   <data name="ChatMessageTooLongError" xml:space="preserve">
-    <value>Il messaggio è troppo lungo! Lunghezza massima: {0}</value>
+    <value>메세지가 너무 깁니다! 최대 메세지 수: {0}</value>
   </data>
   <data name="CommandNotEnoughParametersError" xml:space="preserve">
-    <value>Devi fornire {0} parametri/o! {1}</value>
+    <value>명령어를 칠때 명령어 뒤에 {0} 개의 글자가 필요합니다(s)! {1}</value>
   </data>
   <data name="CommandNotEnoughPermissionsError" xml:space="preserve">
-    <value>Non hai il permesso di eseguire questo comando!</value>
+    <value>이 명령어를 칠 권한이 없습니다!</value>
   </data>
   <data name="CommandNotFoundError" xml:space="preserve">
-    <value>Il comando "{0}" non è stato trovato!</value>
+    <value>명령어 "{0}" 는 없는 명령어입니다!</value>
   </data>
   <data name="CommandTooManyArgumentsError" xml:space="preserve">
-    <value>Hai fornito troppi argomenti!</value>
+    <value>명령어 뒤에 글자가 너무 많습니다!</value>
   </data>
   <data name="HelpCommandDescription" xml:space="preserve">
-    <value>Ottieni la lista dei comandi o la descrizione di un singolo comando.</value>
+    <value>한 명령어의 사용법을 불러옵니다.</value>
   </data>
   <data name="HelpCommandUsage" xml:space="preserve">
-    <value>.chat_help/.chat_help [Nome del comando]</value>
+    <value>.chat_help/.chat_help [명령어 이름]</value>
   </data>
   <data name="InvalidDurationError" xml:space="preserve">
-    <value>"{0}" non è una durata valida!</value>
+    <value>{0} 는 사용가능한 시간이 아닙니다!</value>
   </data>
   <data name="ListOfCommands" xml:space="preserve">
-    <value>LISTA DEI COMANDI ({0})</value>
+    <value>커맨드 리스트: ({0})</value>
   </data>
   <data name="MuteCommandDescription" xml:space="preserve">
-    <value>Muta un player dalla chat.</value>
+    <value>플레이어를 채팅에서 음소거시킵니다.</value>
   </data>
   <data name="MuteCommandSuccessModerator" xml:space="preserve">
-    <value>"{0}" è stato mutato dalla chat per {1} minuti/o, motivazione: {2}</value>
+    <value>"{0}" 님이 채팅에서 {1} 분 동안 채팅에서 음소거되었습니다! 이유: {2}</value>
   </data>
   <data name="MuteCommandSuccessPlayer" xml:space="preserve">
-    <value>Sei stato mutato dalla chat per {0} minuti/o! Motivazione: {1}</value>
+    <value>당신은 {0} 분동안 채팅에서 음소거 되었습니다! 이유: {1}"</value>
   </data>
   <data name="MuteCommandUsage" xml:space="preserve">
-    <value>chat_mute [Nickname/UserID/PlayerID] [Durata (Minuti)] [Motivazione]</value>
+    <value>chat_mute [닉네임/유저ID] [시간 (분)] [이유]</value>
   </data>
   <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
-    <value>Non ci sono giocatori disponibili con cui chattare!</value>
+    <value>같이 채팅할 사람이 없습니다!</value>
   </data>
   <data name="NoCommandsToShowError" xml:space="preserve">
-    <value>Non è presente alcun comando!</value>
+    <value>보여줄 커맨드가 없습니다!</value>
   </data>
   <data name="PlayerIsAlreadyMutedError" xml:space="preserve">
-    <value>"{0}" è già mutato!</value>
+    <value>"{0}" 는 이미 음소거 되어있습니다!</value>
   </data>
   <data name="PlayerIsFloodingError" xml:space="preserve">
-    <value>Stai mandando messaggi troppo velocemente!</value>
+    <value>메세지를 너무 빨리 보내고 있습니다!</value>
   </data>
   <data name="PlayerIsMutedError" xml:space="preserve">
-    <value>Sei mutato dalla chat room!</value>
+    <value>당신은 채팅에서 음소거 당했습니다!</value>
   </data>
   <data name="PlayerIsNotMutedError" xml:space="preserve">
-    <value>"{0}" non è mutato!</value>
+    <value>"{0}" 는 뮤트가 안되있습니다!</value>
   </data>
   <data name="PlayerNotFoundError" xml:space="preserve">
-    <value>Il giocatore "{0}" non è stato trovato!</value>
+    <value>플레이어 "{0}" 를 찾지 못했습니다!</value>
   </data>
   <data name="Private" xml:space="preserve">
-    <value>PRIVATA</value>
+    <value>개인</value>
   </data>
   <data name="PrivateChatDescription" xml:space="preserve">
-    <value>Invia un messaggio privato ad un altro giocatore.</value>
+    <value>플레이어에게 개인 메세지를 보냅니다.</value>
   </data>
   <data name="PrivateChatUsage" xml:space="preserve">
-    <value>.chat_private [Nickname/UserID/PlayerID] [Messaggio]</value>
+    <value>.chat_private [닉네임] [메세지]</value>
   </data>
   <data name="Public" xml:space="preserve">
-    <value>PUBBLICA</value>
+    <value>공개</value>
   </data>
   <data name="PublicChatDescription" xml:space="preserve">
-    <value>Invia un messaggio a tutti i giocatori presenti nel server.</value>
+    <value>서버에 있는 모든 사람한테 채팅을 보냅니다.</value>
   </data>
   <data name="PublicChatUsage" xml:space="preserve">
-    <value>.chat [Messaggio]</value>
+    <value>.chat [메세지]</value>
   </data>
   <data name="ReasonCannotBeEmptyError" xml:space="preserve">
-    <value>Devi fornire una motivazione!</value>
+    <value>이유란은 비어 있을수 없습니다!</value>
   </data>
   <data name="Team" xml:space="preserve">
-    <value>SQUADRA</value>
+    <value>팀</value>
   </data>
   <data name="TeamChatDescription" xml:space="preserve">
-    <value>Invia un messaggio alla tua squadra.</value>
+    <value>팀한테 메세지를 보냅니다.</value>
   </data>
   <data name="TeamChatUsage" xml:space="preserve">
-    <value>.chat_team [Messaggio]</value>
+    <value>.chat_team [메세지]</value>
   </data>
   <data name="UnmuteCommandDescription" xml:space="preserve">
-    <value>Smuta un player dalla chat.</value>
+    <value>플레이어를 채팅에서 음소거 해제합니다.</value>
   </data>
   <data name="UnmuteCommandSuccessModerator" xml:space="preserve">
-    <value>"{0}" è stato smutato dalla chat!</value>
+    <value>"{0}" 님이 채팅에서 음소거가 풀렸습니다.</value>
   </data>
   <data name="UnmuteCommandSuccessPlayer" xml:space="preserve">
-    <value>Sei stato smutato dalla chat!</value>
+    <value>당신은 음소거가 풀렸습니다!</value>
   </data>
   <data name="UnmuteCommandUsage" xml:space="preserve">
-    <value>chat_unmute [Nickname/UserID/PlayerID]</value>
+    <value>chat_unmute [닉네임/유저ID]</value>
   </data>
   <data name="PlayerHasBeenChatMuted" xml:space="preserve">
-    <value>Sei stato mutato dalla chat per {0} minuti/o, motivazione: {1}</value>
+    <value>당신은 개인 메세지를 받으셨습니다!</value>
   </data>
   <data name="PlayerReceivedPrivateMessage" xml:space="preserve">
-    <value>Hai ricevuto un messaggio privato!</value>
+    <value>당신은 채팅에서 {0} 분동안 음소거 당하셨습니다. 이유: {1}</value>
   </data>
   <data name="DeleteAllMutesSuccess" xml:space="preserve">
-    <value>Sono stati eliminati con successo {0} mute!</value>
+    <value>{0} mutes have been sucessfully deleted!</value>
   </data>
   <data name="DeleteMutesCommandDescription" xml:space="preserve">
-    <value>Elimina tutti i mute presenti nel database, oppure quelli di un giocatore specifico.</value>
+    <value>Deletes all mutes in the database, or mutes of a specified player.</value>
   </data>
   <data name="DeleteMutesCommandUsage" xml:space="preserve">
     <value>chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="DeleteMutesSuccess" xml:space="preserve">
-    <value>Sono stati eliminati con successo {0} mute di "{1}"!</value>
+    <value>{0} mutes of "{1}" have been sucessfully deleted!</value>
   </data>
   <data name="Duration" xml:space="preserve">
-    <value>Durata</value>
+    <value>Duration</value>
   </data>
   <data name="Expire" xml:space="preserve">
-    <value>Scadenza</value>
+    <value>Expire</value>
   </data>
   <data name="Issuer" xml:space="preserve">
-    <value>Emittente</value>
+    <value>Issuer</value>
   </data>
   <data name="Minutes" xml:space="preserve">
-    <value>Minuti/o</value>
+    <value>Minute(s)</value>
   </data>
   <data name="MutesList" xml:space="preserve">
-    <value>LISTA DEI MUTE</value>
+    <value>MUTES LIST</value>
   </data>
   <data name="PlayerHasJoinedTheChat" xml:space="preserve">
-    <value>{0} è entrato in chat!</value>
+    <value>{0} has joined the chat!</value>
   </data>
   <data name="Reason" xml:space="preserve">
-    <value>Motivazione</value>
+    <value>Reason</value>
   </data>
   <data name="ShowMutesCommandDescription" xml:space="preserve">
-    <value>Mostra tutti i mute presenti nel database, oppure quelli di un giocatore specifico.</value>
+    <value>Shows all mutes in the database, or mutes of a specified player.</value>
   </data>
   <data name="ShowMutesCommandUsage" xml:space="preserve">
     <value>chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="Timestamp" xml:space="preserve">
-    <value>Data</value>
+    <value>Timestamp</value>
   </data>
 </root>
