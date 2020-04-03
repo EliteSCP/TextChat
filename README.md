@@ -40,14 +40,16 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 ### Administrator Commands
 | Command | Description | Arguments | Permission | Example |
 | --- | --- | --- | --- | --- |
-| chat_mute | Mute a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
-| chat_unmute | Unmute a player from the chat. | **[Nickname/UserID/PlayerID]** | tc.unmute | **chat_unmute iopietro** |
+| chat_mute | Mutes a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
+| chat_unmute | Unmutes a player from the chat. | **[Nickname/UserID/PlayerID]** | tc.unmute | **chat_unmute iopietro** |
+| chat_show_mutes | Shows all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.showmutes | **chat_show_mutes/chat_show_mutes iopietro** |
+| chat_delete_mutes | Deletes all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.deletemutes | **chat_delete_mutes/chat_delete_mutes iopietro** |
 
 ### Configs
 | Name | Type | Default Value | Description |
 | --- | --- | --- | --- |
 | tc_enabled | Boolean | True | Enable/Disable the plugin. |
-| tc_language | String | en | The language of the plugin, available languages: **it, en** |
+| tc_language | String | en | The language of the plugin. |
 | tc_database_name | String | TextChat | The name of the Database. |
 | tc_general_chat_color | String | cyan | The color of the general chat. |
 | tc_private_message_color | String | magenta | The color of private messages. |
@@ -65,6 +67,14 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | tc_private_message_notification_broadcast | String | You received a private message! | The broadcast message that will be shown to the notified player. |
 | tc_is_slow_mode_enabled | Boolean | True | If enabled, a player will be able to send another message, only after a certain amount of time. |
 | tc_slow_mode_interval | Float | 0.75 | The number of seconds that will have to pass before a player can send another message. |
+
+### List of available languages
+| Name | Config Value |
+| --- | --- |
+| English | en |
+| Italian | it |
+| Portuguese | pt |
+| Korean | ko |
 
 ### List of available colors
 | Name |
