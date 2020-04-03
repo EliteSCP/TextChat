@@ -17,7 +17,7 @@ namespace TextChat.Extensions
 		{
 			foreach (ReferenceHub target in targets)
 			{
-				if (target != null) target.SendConsoleMessage(message, color);
+				if (target != null && !string.IsNullOrEmpty(target?.GetUserId())) target.SendConsoleMessage(message, color);
 			}
 		}
 
@@ -114,9 +114,9 @@ namespace TextChat.Extensions
 		/// <returns></returns>
 		public static Collections.Chat.Player GetChatPlayer(this ReferenceHub player)
 		{
-			if (string.IsNullOrEmpty(player?.GetUserId())) return null;
-
-			if (ChatPlayers.TryGetValue(player, out Collections.Chat.Player chatPlayer)) return chatPlayer;
+			if (player?.GetNickname() == "Dedicated Server") return ServerChatPlayer;
+			else if (string.IsNullOrEmpty(player?.GetUserId())) return null;
+			else if (ChatPlayers.TryGetValue(player, out Collections.Chat.Player chatPlayer)) return chatPlayer;
 			else return LiteDatabase.GetCollection<Collections.Chat.Player>().FindOne(queryPlayer => queryPlayer.Id == player.GetRawUserId());
 		}
 

@@ -376,6 +376,15 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a You&apos;re running an older version of EXILED ({0}), the plugin may not be compatible with it! Recommended version: {1}.
+        /// </summary>
+        internal static string OutdatedVersionError {
+            get {
+                return ResourceManager.GetString("OutdatedVersionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a You have been muted from the chat for {0} minutes, reason: {1}.
         /// </summary>
         internal static string PlayerHasBeenChatMuted {

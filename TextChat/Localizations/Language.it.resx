@@ -312,4 +312,7 @@
   <data name="Timestamp" xml:space="preserve">
     <value>Data</value>
   </data>
+  <data name="OutdatedVersionError" xml:space="preserve">
+    <value>Stai utilizzando una vecchia versione di EXILED ({0}), il plugin potrebbe non essere compatibile con essa! Versione raccomandata: {1}</value>
+  </data>
 </root>

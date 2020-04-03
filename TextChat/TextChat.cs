@@ -1,5 +1,7 @@
 ﻿using EXILED;
+using System;
 using System.Collections.Generic;
+using System.Reflection;
 using TextChat.Commands.Console;
 using TextChat.Commands.RemoteAdmin;
 using TextChat.Events;
@@ -13,16 +15,23 @@ namespace TextChat
 		#region Properties
 		internal RoundHandler RoundHandler { get; private set; }
 		internal PlayerHandler PlayerHandler { get; private set; }
+		internal ExiledVersion ExiledVersion { get; private set; } = new ExiledVersion() { Major = 1, Minor = 9, Patch = 8 };
+		internal Version Version { get; private set; } = Assembly.GetExecutingAssembly().GetName().Version;
 
 		public Dictionary<string, ICommand> ConsoleCommands { get; private set; } = new Dictionary<string, ICommand>();
 		public Dictionary<string, ICommand> RemoteAdminCommands { get; private set; } = new Dictionary<string, ICommand>();
 		#endregion
 
-		public override string getName => "TextChat";
+		public override string getName => $"TextChat {Version.Major}.{Version.Minor}.{Version.Build}";
 
 		public override void OnEnable()
 		{
 			Configs.Reload();
+
+			if (Version.Parse($"{EventPlugin.Version.Major}.{EventPlugin.Version.Minor}.{EventPlugin.Version.Patch}") < Version.Parse($"{ExiledVersion.Major}.{ExiledVersion.Minor}.{ExiledVersion.Patch}"))
+			{
+				Log.Warn(string.Format(Language.OutdatedVersionError, $"{EventPlugin.Version.Major}.{EventPlugin.Version.Minor}.{EventPlugin.Version.Patch}", $"{ExiledVersion.Major}.{ExiledVersion.Minor}.{ExiledVersion.Patch}"));
+			}
 
 			if (!Configs.isEnabled) return;
 

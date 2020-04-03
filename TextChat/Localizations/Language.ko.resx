@@ -145,13 +145,13 @@
     <value>{0} 님이 채팅을 나가셨습니다!</value>
   </data>
   <data name="PluginDisabled" xml:space="preserve">
-    <value>{0} 가 꺼졌습니다!</value>
+    <value>{0}  가 꺼졌습니다!</value>
   </data>
   <data name="PluginEnabled" xml:space="preserve">
-    <value>{0} 가 켜졌습니다!</value>
+    <value>{0}  가 켜졌습니다!</value>
   </data>
   <data name="PluginReloaded" xml:space="preserve">
-    <value>{0} 가 새로고침 되었습니다.</value>
+    <value>{0}  가 새로고침 되었습니다.</value>
   </data>
   <data name="CannotSendMessageToAlivePlayersError" xml:space="preserve">
     <value>살아있는 사람한테 메세지를 보낼 수 없습니다!</value>
@@ -311,5 +311,8 @@
   </data>
   <data name="Timestamp" xml:space="preserve">
     <value>Timestamp</value>
+  </data>
+  <data name="OutdatedVersionError" xml:space="preserve">
+    <value>You're running an older version of EXILED ({0}), the plugin may not be compatible with it! Recommended version: {1}</value>
   </data>
 </root>

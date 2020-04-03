@@ -13,6 +13,12 @@ namespace TextChat
 	{
 		public static LiteDatabase LiteDatabase { get; private set; }
 		public static Dictionary<ReferenceHub, Player> ChatPlayers { get; private set; } = new Dictionary<ReferenceHub, Player>();
+		public static Player ServerChatPlayer = new Player()
+		{
+			Id = "Server",
+			Authentication = "Server",
+			Name = "Server"
+		};
 
 		public static string Folder => Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Plugins"), Configs.databaseName);
 		public static string FullPath => Path.Combine(Folder, $"{Configs.databaseName}.db");

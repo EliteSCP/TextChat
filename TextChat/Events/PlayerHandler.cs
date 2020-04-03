@@ -54,7 +54,15 @@ namespace TextChat.Events
 
 			try
 			{
-				(string response, string color) = command.OnCall(Player.GetPlayer(ev.Sender.SenderId), commandArguments);
+				ReferenceHub sender;
+
+				if (ev.Sender.SenderId == "GAME CONSOLE") ReferenceHub.Hubs.TryGetValue(PlayerManager.localPlayer, out sender);
+				else sender = Player.GetPlayer(ev.Sender.SenderId);
+
+				if (sender == null) return;
+
+				(string response, string color) = command.OnCall(sender, commandArguments);
+
 				ev.Sender.RAMessage($"<color={color}>{response}</color>", color == "green");
 				ev.Allow = false;
 			}
@@ -62,6 +70,7 @@ namespace TextChat.Events
 			{
 				Log.Error(string.Format(Language.CommandException, commandName, exception));
 				ev.Sender.RAMessage(Language.CommandError, false);
+				ev.Allow = false;
 			}
 		}
 
