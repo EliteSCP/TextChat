@@ -169,7 +169,7 @@
     <value>You have to provide {0} parameter(s)! {1}</value>
   </data>
   <data name="CommandNotEnoughPermissionsError" xml:space="preserve">
-    <value>You don't have enough permissions to run this command</value>
+    <value>You don't have enough permissions to run this command!</value>
   </data>
   <data name="CommandNotFoundError" xml:space="preserve">
     <value>Command "{0}" was not found!</value>

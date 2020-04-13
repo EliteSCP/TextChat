@@ -118,201 +118,201 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChatWelcome" xml:space="preserve">
-    <value>Benvenuto nella chat!</value>
+    <value>Wilkommen im Chat!</value>
   </data>
   <data name="CommandError" xml:space="preserve">
-    <value>Si è verificato un errore durante l'esecuzione del comando!</value>
+    <value>Ein Fehler ist aufgetreten, bei diesem Befehl!</value>
   </data>
   <data name="CommandException" xml:space="preserve">
-    <value>Errore del comando {0}: {1}</value>
+    <value>{0} command error: {1}</value>
   </data>
   <data name="CommandNotAllowedForConsoleError" xml:space="preserve">
-    <value>Non puoi eseguire questo comando dalla console del server!</value>
+    <value>Dir ist es nicht erlaubt diesen Befehl auszufuehren, von der Serverkonsole!</value>
   </data>
   <data name="DatabaseClosed" xml:space="preserve">
-    <value>Il database è stato chiuso con successo!</value>
+    <value>Die Datenbank wurde erfolgreich geschlossen!</value>
   </data>
   <data name="DatabaseCloseError" xml:space="preserve">
-    <value>Si è verificato un errore durante la chiusura del database: {0}</value>
+    <value>Ein Fehler ist aufgetreten, waehrend probiert wurde die Datenbank zu schliesse : {0}</value>
   </data>
   <data name="DatabaseLoaded" xml:space="preserve">
-    <value>Il database è stato caricato con successo!</value>
+    <value>Die Datenbank wurde erfolgreich geschlossen!</value>
   </data>
   <data name="DatabaseLoadError" xml:space="preserve">
-    <value>Si è verificato un errore durante l'apertura del database: {0}</value>
+    <value>Es ist ein Fehler aufgetreten, beim oeffnen der Datenbank: {0}</value>
   </data>
   <data name="PlayerHasLeftTheChat" xml:space="preserve">
-    <value>{0} è uscito dalla chat!</value>
+    <value>{0} hat den Chat verlassen!</value>
   </data>
   <data name="PluginDisabled" xml:space="preserve">
-    <value>{0} è stato Disabilitato!</value>
+    <value>{0} wurde deaktiviert!</value>
   </data>
   <data name="PluginEnabled" xml:space="preserve">
-    <value>{0} è stato Abilitato!</value>
+    <value>{0} wurde aktiviert!</value>
   </data>
   <data name="PluginReloaded" xml:space="preserve">
-    <value>{0} è stato Ricaricato!</value>
+    <value>{0} wurde neugeladen!</value>
   </data>
   <data name="CannotSendMessageToAlivePlayersError" xml:space="preserve">
-    <value>Non puoi inviare un messaggio ai giocatori in vita!</value>
+    <value>Du kannst keine Nachrichten senden, zu Spielern die am Leben sind!</value>
   </data>
   <data name="CannotSendMessageToThemselvesError" xml:space="preserve">
-    <value>Non puoi inviare un messaggio a te stesso!</value>
+    <value>Du kannst dir selbst keine Nachricht schreiben!</value>
   </data>
   <data name="ChatMessageCannotBeEmptyError" xml:space="preserve">
-    <value>Non puoi inviare un messaggio vuoto!</value>
+    <value>Die Nachricht darf nicht leer sein!</value>
   </data>
   <data name="ChatMessageTooLongError" xml:space="preserve">
-    <value>Il messaggio è troppo lungo! Lunghezza massima: {0}</value>
+    <value>Die Nachricht ist zu lang! Maximale länge: {0}</value>
   </data>
   <data name="CommandNotEnoughParametersError" xml:space="preserve">
-    <value>Devi fornire {0} parametri/o! {1}</value>
+    <value>Du brauchst {0} Parameter! {1}</value>
   </data>
   <data name="CommandNotEnoughPermissionsError" xml:space="preserve">
-    <value>Non hai il permesso di eseguire questo comando!</value>
+    <value>Du darfst diesen Befehl nicht ausführen</value>
   </data>
   <data name="CommandNotFoundError" xml:space="preserve">
-    <value>Il comando "{0}" non è stato trovato!</value>
+    <value>Befehl "{0}" wurde nicht gefunden!</value>
   </data>
   <data name="CommandTooManyArgumentsError" xml:space="preserve">
-    <value>Hai fornito troppi argomenti!</value>
+    <value>Zu viele Argumente!</value>
   </data>
   <data name="HelpCommandDescription" xml:space="preserve">
-    <value>Ottieni la lista dei comandi o la descrizione di un singolo comando.</value>
+    <value>Bekomme die Liste von allen Befehl oder die Beschreibung von einen einzelnen Befehl</value>
   </data>
   <data name="HelpCommandUsage" xml:space="preserve">
-    <value>.chat_help/.chat_help [Nome del comando]</value>
+    <value>.chat_help/.chat_help [Command Name]</value>
   </data>
   <data name="InvalidDurationError" xml:space="preserve">
-    <value>"{0}" non è una durata valida!</value>
+    <value>{0} ist eine ungültige Dauer!</value>
   </data>
   <data name="ListOfCommands" xml:space="preserve">
-    <value>LISTA DEI COMANDI ({0})</value>
+    <value>LISTE VON ALLEN BEFEHLEN ({0})</value>
   </data>
   <data name="MuteCommandDescription" xml:space="preserve">
-    <value>Muta un player dalla chat.</value>
+    <value>Mute einen Spieler vom Chat.</value>
   </data>
   <data name="MuteCommandSuccessModerator" xml:space="preserve">
-    <value>"{0}" è stato mutato dalla chat per {1} minuti/o, motivazione: {2}</value>
+    <value>"{0}" wurde vom Chat gemutet für {1} Minute(n), Grund: {2}</value>
   </data>
   <data name="MuteCommandSuccessPlayer" xml:space="preserve">
-    <value>Sei stato mutato dalla chat per {0} minuti/o! Motivazione: {1}</value>
+    <value>Du wurdest vom Chat gemutet für {0} Minute(n)! Grund: {1}</value>
   </data>
   <data name="MuteCommandUsage" xml:space="preserve">
-    <value>chat_mute [Nickname/UserID/PlayerID] [Durata (Minuti)] [Motivazione]</value>
+    <value>chat_mute [Nickname/UserID/PlayerID] [Dauer (Minutes)] [Grund]</value>
   </data>
   <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
-    <value>Non ci sono giocatori disponibili con cui chattare!</value>
+    <value>Es gibt keine verfügbare Spieler zum Chatten!</value>
   </data>
   <data name="NoCommandsToShowError" xml:space="preserve">
-    <value>Non è presente alcun comando!</value>
+    <value>Es gibt keine Befehle zum zeigen!</value>
   </data>
   <data name="PlayerIsAlreadyMutedError" xml:space="preserve">
-    <value>"{0}" è già mutato!</value>
+    <value>"{0}" ist bereits gemutet!</value>
   </data>
   <data name="PlayerIsFloodingError" xml:space="preserve">
-    <value>Stai mandando messaggi troppo velocemente!</value>
+    <value>Du sendest die Nachrichten zu schnell!</value>
   </data>
   <data name="PlayerIsMutedError" xml:space="preserve">
-    <value>Sei mutato dalla chat room!</value>
+    <value>Du bist gemutet vom Chat-Raum!</value>
   </data>
   <data name="PlayerIsNotMutedError" xml:space="preserve">
-    <value>"{0}" non è mutato!</value>
+    <value>"{0}" ist nicht gemuted!</value>
   </data>
   <data name="PlayerNotFoundError" xml:space="preserve">
-    <value>Il giocatore "{0}" non è stato trovato!</value>
+    <value>Player "{0}" wurde nicht gefunden!</value>
   </data>
   <data name="Private" xml:space="preserve">
-    <value>PRIVATA</value>
+    <value>PRIVAT</value>
   </data>
   <data name="PrivateChatDescription" xml:space="preserve">
-    <value>Invia un messaggio privato ad un altro giocatore.</value>
+    <value>Sende eine private Nachricht zu einem Spieler.</value>
   </data>
   <data name="PrivateChatUsage" xml:space="preserve">
-    <value>.chat_private [Nickname/UserID/PlayerID] [Messaggio]</value>
+    <value>.chat_private [Nickname/UserID/PlayerID] [Nachricht]</value>
   </data>
   <data name="Public" xml:space="preserve">
-    <value>PUBBLICA</value>
+    <value>OEFFENTLICH</value>
   </data>
   <data name="PublicChatDescription" xml:space="preserve">
-    <value>Invia un messaggio a tutti i giocatori presenti nel server.</value>
+    <value>Sende eine Nachricht zu jedem auf diesem Server.</value>
   </data>
   <data name="PublicChatUsage" xml:space="preserve">
-    <value>.chat [Messaggio]</value>
+    <value>.chat [Nachricht]</value>
   </data>
   <data name="ReasonCannotBeEmptyError" xml:space="preserve">
-    <value>Devi fornire una motivazione!</value>
+    <value>Der Grund darf nicht leer sein!</value>
   </data>
   <data name="Team" xml:space="preserve">
-    <value>SQUADRA</value>
+    <value>TEAM</value>
   </data>
   <data name="TeamChatDescription" xml:space="preserve">
-    <value>Invia un messaggio alla tua squadra.</value>
+    <value>Sende eine Nachricht zu deinem Team.</value>
   </data>
   <data name="TeamChatUsage" xml:space="preserve">
-    <value>.chat_team [Messaggio]</value>
+    <value>.chat_team [Nachricht]</value>
   </data>
   <data name="UnmuteCommandDescription" xml:space="preserve">
-    <value>Smuta un player dalla chat.</value>
+    <value>entmuted einen Spieler vom Chat.</value>
   </data>
   <data name="UnmuteCommandSuccessModerator" xml:space="preserve">
-    <value>"{0}" è stato smutato dalla chat!</value>
+    <value>"{0}" wurde entmuted vom Chat</value>
   </data>
   <data name="UnmuteCommandSuccessPlayer" xml:space="preserve">
-    <value>Sei stato smutato dalla chat!</value>
+    <value>Du wurdest vom Chat entmuted!</value>
   </data>
   <data name="UnmuteCommandUsage" xml:space="preserve">
     <value>chat_unmute [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="PlayerHasBeenChatMuted" xml:space="preserve">
-    <value>Sei stato mutato dalla chat per {0} minuti/o, motivazione: {1}</value>
+    <value>Du wurdest vom Chat gemuted für {0} Minute(n), Grund: {1}</value>
   </data>
   <data name="PlayerReceivedPrivateMessage" xml:space="preserve">
-    <value>Hai ricevuto un messaggio privato!</value>
+    <value>Du hast eine Private Nachricht erhalten!</value>
   </data>
   <data name="DeleteAllMutesSuccess" xml:space="preserve">
-    <value>Sono stati eliminati con successo {0} mute!</value>
+    <value>{0} mutes wurden erfolgreich geloescht!</value>
   </data>
   <data name="DeleteMutesCommandDescription" xml:space="preserve">
-    <value>Elimina tutti i mute presenti nel database, oppure quelli di un giocatore specifico.</value>
+    <value>Loescht alle Mutes in der Datenbank oder von einen Spieler.</value>
   </data>
   <data name="DeleteMutesCommandUsage" xml:space="preserve">
     <value>chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="DeleteMutesSuccess" xml:space="preserve">
-    <value>Sono stati eliminati con successo {0} mute di "{1}"!</value>
+    <value>{0} mutes von "{1}" wurden erfolgreich geloescht!</value>
   </data>
   <data name="Duration" xml:space="preserve">
-    <value>Durata</value>
+    <value>Dauer</value>
   </data>
   <data name="Expire" xml:space="preserve">
-    <value>Scadenza</value>
+    <value>Verfallen</value>
   </data>
   <data name="Issuer" xml:space="preserve">
-    <value>Emittente</value>
+    <value>Aussteller</value>
   </data>
   <data name="Minutes" xml:space="preserve">
-    <value>Minuti/o</value>
+    <value>Minute(n)</value>
   </data>
   <data name="MutesList" xml:space="preserve">
-    <value>LISTA DEI MUTE</value>
+    <value>MUTES LISTE</value>
   </data>
   <data name="PlayerHasJoinedTheChat" xml:space="preserve">
-    <value>{0} è entrato in chat!</value>
+    <value>{0} ist dem Chat beigetreten!</value>
   </data>
   <data name="Reason" xml:space="preserve">
-    <value>Motivazione</value>
+    <value>Grund</value>
   </data>
   <data name="ShowMutesCommandDescription" xml:space="preserve">
-    <value>Mostra tutti i mute presenti nel database, oppure quelli di un giocatore specifico.</value>
+    <value>Zeige alle mutes aus der Datenbank oder von einen Spieler.</value>
   </data>
   <data name="ShowMutesCommandUsage" xml:space="preserve">
     <value>chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="Timestamp" xml:space="preserve">
-    <value>Data</value>
+    <value>Zeitstempel</value>
   </data>
   <data name="OutdatedVersionError" xml:space="preserve">
-    <value>Stai utilizzando una vecchia versione di EXILED ({0}), il plugin potrebbe non essere compatibile con essa! Versione raccomandata: {1}</value>
+    <value>Du benutzt eine ältere Version von EXILED ({0}), Das Plugin ist moeglicherweise nicht damit kompatibel! Empfohlene Version: {1}</value>
   </data>
 </root>

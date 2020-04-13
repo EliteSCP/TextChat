@@ -142,7 +142,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a You don&apos;t have enough permissions to run this command.
+        ///   Cerca una stringa localizzata simile a You don&apos;t have enough permissions to run this command!.
         /// </summary>
         internal static string CommandNotEnoughPermissionsError {
             get {

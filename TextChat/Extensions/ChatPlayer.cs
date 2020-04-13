@@ -70,7 +70,7 @@ namespace TextChat.Extensions
 		public static string GetRawUserId(this ReferenceHub player) => player.GetUserId().GetRawUserId();
 
 		/// <summary>
-		/// Gets the numer ID from a <see cref="string"/>
+		/// Gets the numeric ID from a <see cref="string"/>
 		/// </summary>
 		/// <param name="player"></param>
 		/// <returns></returns>
@@ -114,8 +114,8 @@ namespace TextChat.Extensions
 		/// <returns></returns>
 		public static Collections.Chat.Player GetChatPlayer(this ReferenceHub player)
 		{
-			if (player?.GetNickname() == "Dedicated Server") return ServerChatPlayer;
-			else if (string.IsNullOrEmpty(player?.GetUserId())) return null;
+			if (player == null) return null;
+			else if (player.IsHost()) return ServerChatPlayer;
 			else if (ChatPlayers.TryGetValue(player, out Collections.Chat.Player chatPlayer)) return chatPlayer;
 			else return LiteDatabase.GetCollection<Collections.Chat.Player>().FindOne(queryPlayer => queryPlayer.Id == player.GetRawUserId());
 		}
