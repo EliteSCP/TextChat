@@ -75,6 +75,7 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | Italian | it |
 | Portuguese | pt |
 | Korean | ko |
+| German | de |
 
 ### List of available colors
 | Name |
