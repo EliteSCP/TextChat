@@ -114,7 +114,7 @@ namespace TextChat.Extensions
 		/// <returns></returns>
 		public static Collections.Chat.Player GetChatPlayer(this ReferenceHub player)
 		{
-			if (player == null) return null;
+			if (player == null || (string.IsNullOrEmpty(player.GetUserId()) && !player.IsHost())) return null;
 			else if (player.IsHost()) return ServerChatPlayer;
 			else if (ChatPlayers.TryGetValue(player, out Collections.Chat.Player chatPlayer)) return chatPlayer;
 			else return LiteDatabase.GetCollection<Collections.Chat.Player>().FindOne(queryPlayer => queryPlayer.Id == player.GetRawUserId());
