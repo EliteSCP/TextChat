@@ -178,141 +178,141 @@
     <value>Слишком много аргументов!</value>
   </data>
   <data name="HelpCommandDescription" xml:space="preserve">
-    <value>Gets a list of commands or the description of a single command.</value>
+    <value>Выведение списка команд или описания конкретной команды.</value>
   </data>
   <data name="HelpCommandUsage" xml:space="preserve">
-    <value>.chat_help/.chat_help [Command Name]</value>
+    <value>.chat_help/.chat_help [Название команды]</value>
   </data>
   <data name="InvalidDurationError" xml:space="preserve">
-    <value>{0} is an invalid duration!</value>
+    <value>{0} недопустимая продолжительность!</value>
   </data>
   <data name="ListOfCommands" xml:space="preserve">
-    <value>LIST OF COMMANDS ({0})</value>
+    <value>СПИСОК КОМАНД ({0})</value>
   </data>
   <data name="MuteCommandDescription" xml:space="preserve">
-    <value>Mute a player from the chat.</value>
+    <value>Заглушить игрока в чате.</value>
   </data>
   <data name="MuteCommandSuccessModerator" xml:space="preserve">
-    <value>"{0}" has been muted from the chat for {1} minute(s), reason: {2}</value>
+    <value>"{0}" был заглушен на {1} минут(у)(ы), причина: {2}</value>
   </data>
   <data name="MuteCommandSuccessPlayer" xml:space="preserve">
-    <value>You have been muted from the chat for {0} minute(s)! Reason: {1}</value>
+    <value>Вы были заглушены в чате на {0} минут(у)(ы)! Причина: {1}</value>
   </data>
   <data name="MuteCommandUsage" xml:space="preserve">
-    <value>chat_mute [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]</value>
+    <value>chat_mute [Ник/UserID/PlayerID] [Продолжительность (Минуты)] [Причина]</value>
   </data>
   <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
-    <value>There are no available players to chat with!</value>
+    <value>Нет доступных игроков для чата!</value>
   </data>
   <data name="NoCommandsToShowError" xml:space="preserve">
-    <value>There are no commands to show!</value>
+    <value>Нет команд для выведения!</value>
   </data>
   <data name="PlayerIsAlreadyMutedError" xml:space="preserve">
-    <value>"{0}" is already muted!</value>
+    <value>"{0}" уже заглушен!</value>
   </data>
   <data name="PlayerIsFloodingError" xml:space="preserve">
-    <value>You're sending messages too fast!</value>
+    <value>Вы отправляете сообщения слишком часто!</value>
   </data>
   <data name="PlayerIsMutedError" xml:space="preserve">
-    <value>You're muted from the chat room!</value>
+    <value>Вы заглушены в чате!</value>
   </data>
   <data name="PlayerIsNotMutedError" xml:space="preserve">
-    <value>"{0}" is not muted!</value>
+    <value>"{0}" не заглушен!</value>
   </data>
   <data name="PlayerNotFoundError" xml:space="preserve">
-    <value>Player "{0}" was not found!</value>
+    <value>Игрок "{0}" не найден!</value>
   </data>
   <data name="Private" xml:space="preserve">
-    <value>PRIVATE</value>
+    <value>ЛИЧНОЕ</value>
   </data>
   <data name="PrivateChatDescription" xml:space="preserve">
-    <value>Sends a private chat message to a player.</value>
+    <value>Отправляет личное сообщение в чат игроку.</value>
   </data>
   <data name="PrivateChatUsage" xml:space="preserve">
-    <value>.chat_private [Nickname/UserID/PlayerID] [Message]</value>
+    <value>.chat_private [Ник/UserID/PlayerID] [Сообщение]</value>
   </data>
   <data name="Public" xml:space="preserve">
-    <value>PUBLIC</value>
+    <value>ПУБЛИЧНЫЙ</value>
   </data>
   <data name="PublicChatDescription" xml:space="preserve">
-    <value>Sends a chat message to everyone in the server.</value>
+    <value>Отправляет сообщение в чат всем на сервере.</value>
   </data>
   <data name="PublicChatUsage" xml:space="preserve">
-    <value>.chat [Message]</value>
+    <value>.chat [Сообщение]</value>
   </data>
   <data name="ReasonCannotBeEmptyError" xml:space="preserve">
-    <value>The reason cannot be empty!</value>
+    <value>Причина не может быть пустой!</value>
   </data>
   <data name="Team" xml:space="preserve">
-    <value>TEAM</value>
+    <value>КОМАНДА</value>
   </data>
   <data name="TeamChatDescription" xml:space="preserve">
-    <value>Sends a chat message to your team.</value>
+    <value>Отправляет сообщение в чат команды.</value>
   </data>
   <data name="TeamChatUsage" xml:space="preserve">
-    <value>.chat_team [Message]</value>
+    <value>.chat_team [Сообщение]</value>
   </data>
   <data name="UnmuteCommandDescription" xml:space="preserve">
-    <value>Unmute a player from the chat.</value>
+    <value>Снять заглушку с игрока в чате.</value>
   </data>
   <data name="UnmuteCommandSuccessModerator" xml:space="preserve">
-    <value>"{0}" has been unmuted from the chat</value>
+    <value>"{0}" был разглушен в чате</value>
   </data>
   <data name="UnmuteCommandSuccessPlayer" xml:space="preserve">
-    <value>You have been unmuted from the chat!</value>
+    <value>С вас сняли заглушку в чате!</value>
   </data>
   <data name="UnmuteCommandUsage" xml:space="preserve">
-    <value>chat_unmute [Nickname/UserID/PlayerID]</value>
+    <value>chat_unmute [Ник/UserID/PlayerID]</value>
   </data>
   <data name="PlayerHasBeenChatMuted" xml:space="preserve">
-    <value>You have been muted from the chat for {0} minutes, reason: {1}</value>
+    <value>Вы были заглушены в чате на {0} минут, причина: {1}</value>
   </data>
   <data name="PlayerReceivedPrivateMessage" xml:space="preserve">
-    <value>You received a private message!</value>
+    <value>Вы получили личное сообщение!</value>
   </data>
   <data name="DeleteAllMutesSuccess" xml:space="preserve">
-    <value>{0} mutes have been sucessfully deleted!</value>
+    <value>{0} заглушек было удалено!</value>
   </data>
   <data name="DeleteMutesCommandDescription" xml:space="preserve">
-    <value>Deletes all mutes in the database, or mutes of a specified player.</value>
+    <value>Удаляет все заглушки из базы данных или заглушки указанного игрока.</value>
   </data>
   <data name="DeleteMutesCommandUsage" xml:space="preserve">
-    <value>chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID]</value>
+    <value>chat_delete_mutes/chat_delete_mutes [Ник/UserID/PlayerID]</value>
   </data>
   <data name="DeleteMutesSuccess" xml:space="preserve">
-    <value>{0} mutes of "{1}" have been sucessfully deleted!</value>
+    <value>{0} заглушек из "{1}" было успешно удалено!</value>
   </data>
   <data name="Duration" xml:space="preserve">
-    <value>Duration</value>
+    <value>Длительность</value>
   </data>
   <data name="Expire" xml:space="preserve">
-    <value>Expire</value>
+    <value>Истечение</value>
   </data>
   <data name="Issuer" xml:space="preserve">
-    <value>Issuer</value>
+    <value>Админ</value>
   </data>
   <data name="Minutes" xml:space="preserve">
-    <value>Minute(s)</value>
+    <value>Минут(ы)(у)</value>
   </data>
   <data name="MutesList" xml:space="preserve">
-    <value>MUTES LIST</value>
+    <value>СПИСОК ЗАГЛУШЕННЫХ</value>
   </data>
   <data name="PlayerHasJoinedTheChat" xml:space="preserve">
-    <value>{0} has joined the chat!</value>
+    <value>{0} вошёл в чат!</value>
   </data>
   <data name="Reason" xml:space="preserve">
-    <value>Reason</value>
+    <value>Причина</value>
   </data>
   <data name="ShowMutesCommandDescription" xml:space="preserve">
-    <value>Shows all mutes in the database, or mutes of a specified player.</value>
+    <value>Показывает все заглушки из базы данных или заглушки указанного игрока.</value>
   </data>
   <data name="ShowMutesCommandUsage" xml:space="preserve">
-    <value>chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID]</value>
+    <value>chat_show_mutes/chat_show_mutes [Ник/UserID/PlayerID]</value>
   </data>
   <data name="Timestamp" xml:space="preserve">
-    <value>Timestamp</value>
+    <value>Отметка времени</value>
   </data>
   <data name="OutdatedVersionError" xml:space="preserve">
-    <value>You're running an older version of EXILED ({0}), the plugin may not be compatible with it! Recommended version: {1}</value>
+    <value>Вы используете старую версию EXILED ({0}), плагин может не работать корректно с этой версией! Рекомендуемая версия: {1}</value>
   </data>
 </root>
