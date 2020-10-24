@@ -315,4 +315,7 @@
   <data name="OutdatedVersionError" xml:space="preserve">
     <value>Вы используете старую версию EXILED ({0}), плагин может не работать корректно с этой версией! Рекомендуемая версия: {1}</value>
   </data>
+  <data name="CommandSpecifySubCommand" xml:space="preserve">
+    <value>Please, specify a subcommand! Available: {0}</value>
+  </data>
 </root>

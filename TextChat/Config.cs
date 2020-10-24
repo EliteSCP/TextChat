@@ -50,8 +50,8 @@
 		[Description("Indicates whether the slow mode is enabled or not")]
 		public bool IsSlowModeEnabled { get; private set; } = true;
 
-		[Description("The slowmode cooldown")]
-		public TimeSpan SlowModeCooldown { get; private set; }
+		[Description("The slowmode cooldown, in seconds")]
+		public ushort SlowModeCooldown { get; private set; }
 
 		[Description("The plugin language")]
 		public string Language
