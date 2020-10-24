@@ -30,7 +30,7 @@
 
 			response = $"[{player.Nickname}][{Language.Team} ({player.Role.ToString().ToUpper()})]: {response}";
 
-			IEnumerable<Player> targets = Player.List.Where(chatPlayer => chatPlayer != sender && chatPlayer.Team == player.Team);
+			IEnumerable<Player> targets = Player.List.Where(chatPlayer => chatPlayer != player && chatPlayer.Team == player.Team);
 			List<Collections.Chat.Player> chatTargets = targets.GetChatPlayers().ToList();
 
 			if (chatTargets.Count == 0)
@@ -45,6 +45,7 @@
 
 			Send(ref response, player, targets);
 
+			response = $"<color={player?.Team.GetColor()}>{response}</color>";
 			return true;
 		}
 	}

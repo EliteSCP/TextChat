@@ -16,11 +16,11 @@
 		[Description("The database name")]
 		public string DatabaseName { get; private set; } = "TextChat";
 
-		[Description("The general chat color")]
-		public string GeneralChatColor { get; private set; } = "cyan";
+		[Description("The public chat color")]
+		public string PublicChatColor { get; private set; } = "cyan";
 
-		[Description("The private message color")]
-		public string PrivateMessageColor { get; private set; } = "magenta";
+		[Description("The private chat color")]
+		public string PrivateChatColor { get; private set; } = "magenta";
 
 		[Description("The maximum length of a single message")]
 		public ushort MaxMessageLength { get; private set; } = 75;

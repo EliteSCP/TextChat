@@ -13,7 +13,7 @@
 
     public class Public : Message, ICommand
 	{
-		public Public() : base(ChatRoomType.Public, Instance.Config.GeneralChatColor)
+		public Public() : base(ChatRoomType.Public, Instance.Config.PublicChatColor)
 		{ }
 
 		public string Description => Language.PublicChatDescription;
@@ -34,7 +34,7 @@
 
 			IEnumerable<Player> targets = Player.List.Where(target =>
 			{
-				return sender != target && (Instance.Config.CanSpectatorSendMessagesToAlive || player.Team != global::Team.RIP || target.Team == global::Team.RIP);
+				return player != target && (Instance.Config.CanSpectatorSendMessagesToAlive || player.Team != global::Team.RIP || target.Team == global::Team.RIP);
 			});
 
 			List<Collections.Chat.Player> chatPlayers = targets.GetChatPlayers().ToList();
@@ -49,6 +49,7 @@
 
 			Send(ref response, player, targets);
 
+			response = $"<color={color}>{response}</color>";
 			return true;
 		}
 	}

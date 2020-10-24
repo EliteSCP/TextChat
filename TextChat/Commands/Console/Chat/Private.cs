@@ -12,7 +12,7 @@
 
 	public class Private : Message, ICommand
 	{
-		public Private() : base(ChatRoomType.Private, Instance.Config.PrivateMessageColor)
+		public Private() : base(ChatRoomType.Private, Instance.Config.PrivateChatColor)
 		{ }
 
 		public string Description => Language.PrivateChatDescription;
@@ -27,7 +27,7 @@
         {
 			Player player = Player.Get(((CommandSender)sender).SenderId);
 
-			if (!CheckValidity(arguments.GetMessage(), player, out response)) return false;
+			if (!CheckValidity(arguments.GetMessage(1), player, out response)) return false;
 
 			response = $"[{player.Nickname}][{Language.Private}]: {response}";
 
@@ -38,7 +38,7 @@
 				response = string.Format(Language.PlayerNotFoundError, arguments.At(0));
 				return false;
 			}
-			else if (sender == target)
+			else if (player == target)
 			{
 				response = Language.CannotSendMessageToThemselvesError;
 				return false;
@@ -55,10 +55,11 @@
 
 			if (Instance.Config.PrivateMessageNotificationBroadcast.Show)
 			{
-				target.ClearBroadcasts();
-				target.Broadcast(Instance.Config.PrivateMessageNotificationBroadcast.Duration, Instance.Config.PrivateMessageNotificationBroadcast.Content, Instance.Config.PrivateMessageNotificationBroadcast.Type);
+				target?.ClearBroadcasts();
+				target?.Broadcast(Instance.Config.PrivateMessageNotificationBroadcast.Duration, Instance.Config.PrivateMessageNotificationBroadcast.Content, Instance.Config.PrivateMessageNotificationBroadcast.Type);
 			}
 
+			response = $"<color={color}>{response}</color>";
 			return true;
 		}
 	}
