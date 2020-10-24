@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Resource.Embedder.2.0.1\build\Resource.Embedder.props" Condition="Exists('..\packages\Resource.Embedder.2.0.1\build\Resource.Embedder.props')" />
+  <Import Project="..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props" Condition="Exists('..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -36,64 +36,69 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\References\Assembly-CSharp.dll</HintPath>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="EXILED">
-      <HintPath>..\References\EXILED.dll</HintPath>
+    <Reference Include="CommandSystem.Core">
+      <HintPath>..\..\References\CommandSystem.Core.dll</HintPath>
     </Reference>
-    <Reference Include="EXILED_Events">
-      <HintPath>..\References\EXILED_Events.dll</HintPath>
+    <Reference Include="Exiled.API, Version=2.1.8.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\EXILED.2.1.8.1\lib\net472\Exiled.API.dll</HintPath>
     </Reference>
-    <Reference Include="EXILED_Permissions">
-      <HintPath>..\References\EXILED_Permissions.dll</HintPath>
+    <Reference Include="Exiled.Bootstrap, Version=2.1.8.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\EXILED.2.1.8.1\lib\net472\Exiled.Bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="LiteDB, Version=5.0.5.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiteDB.5.0.5\lib\net45\LiteDB.dll</HintPath>
+    <Reference Include="Exiled.Events, Version=2.1.8.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\EXILED.2.1.8.1\lib\net472\Exiled.Events.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Utilities.v4.0" />
-    <Reference Include="Mirror">
-      <HintPath>..\References\Mirror.dll</HintPath>
+    <Reference Include="Exiled.Loader, Version=2.1.8.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\EXILED.2.1.8.1\lib\net472\Exiled.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Permissions, Version=2.1.8.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\EXILED.2.1.8.1\lib\net472\Exiled.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Updater, Version=3.0.3.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\EXILED.2.1.8.1\lib\net472\Exiled.Updater.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB, Version=5.0.9.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.5.0.9\lib\net45\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="Mirror, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\Mirror.dll</HintPath>
+    </Reference>
+    <Reference Include="NorthwoodLib">
+      <HintPath>..\..\References\NorthwoodLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\References\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\References\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Console\Chat\Chat.cs" />
     <Compile Include="Collections\Chat\Message.cs" />
     <Compile Include="Collections\Chat\Room.cs" />
     <Compile Include="Collections\Chat\Mute.cs" />
     <Compile Include="Collections\Chat\Player.cs" />
-    <Compile Include="Commands\Console\Chat.cs" />
-    <Compile Include="Commands\Console\PublicChat.cs" />
-    <Compile Include="Commands\Console\PrivateChat.cs" />
-    <Compile Include="Commands\Console\TeamChat.cs" />
-    <Compile Include="Commands\Console\Help.cs" />
-    <Compile Include="Commands\RemoteAdmin\ShowMutes.cs" />
-    <Compile Include="Commands\RemoteAdmin\DeleteMutes.cs" />
-    <Compile Include="Commands\RemoteAdmin\Mute.cs" />
-    <Compile Include="Commands\RemoteAdmin\Unmute.cs" />
-    <Compile Include="Configs.cs" />
+    <Compile Include="Commands\Console\Chat\Message.cs" />
+    <Compile Include="Commands\Console\Chat\Public.cs" />
+    <Compile Include="Commands\Console\Chat\Private.cs" />
+    <Compile Include="Commands\Console\Chat\Team.cs" />
+    <Compile Include="Commands\RemoteAdmin\Mute\Add.cs" />
+    <Compile Include="Commands\RemoteAdmin\Mute\Show.cs" />
+    <Compile Include="Commands\RemoteAdmin\Mute\Remove.cs" />
+    <Compile Include="Commands\RemoteAdmin\Mute\Mute.cs" />
+    <Compile Include="Commands\RemoteAdmin\Chat.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Enums\ChatRoomType.cs" />
     <Compile Include="Events\PlayerHandler.cs" />
     <Compile Include="Events\RoundHandler.cs" />
     <Compile Include="Extensions\ChatPlayer.cs" />
     <Compile Include="Extensions\String.cs" />
-    <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Localizations\Language.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +125,6 @@
     <PropertyGroup>
       <ErrorText>Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer. Usare lo strumento di ripristino dei pacchetti NuGet per scaricarli. Per altre informazioni, vedere http://go.microsoft.com/fwlink/?LinkID=322105. Il file mancante è {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Resource.Embedder.2.0.1\build\Resource.Embedder.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Resource.Embedder.2.0.1\build\Resource.Embedder.props'))" />
+    <Error Condition="!Exists('..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props'))" />
   </Target>
 </Project>

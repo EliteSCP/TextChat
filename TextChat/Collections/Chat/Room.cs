@@ -1,8 +1,7 @@
-﻿using LiteDB;
-using TextChat.Enums;
-
-namespace TextChat.Collections.Chat
+﻿namespace TextChat.Collections.Chat
 {
+	using LiteDB;
+	using Enums;
 	public class Room
 	{
 		public ObjectId Id { get; set; }

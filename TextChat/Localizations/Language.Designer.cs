@@ -19,7 +19,7 @@ namespace TextChat.Localizations {
     // tramite uno strumento quale ResGen o Visual Studio.
     // Per aggiungere o rimuovere un membro, modificare il file con estensione ResX ed eseguire nuovamente ResGen
     // con l'opzione /str oppure ricompilare il progetto VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Language {
@@ -57,6 +57,42 @@ namespace TextChat.Localizations {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Mute a player from the chat..
+        /// </summary>
+        internal static string AddMuteCommandDescription {
+            get {
+                return ResourceManager.GetString("AddMuteCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a &quot;{0}&quot; has been muted from the chat for {1} minute(s), reason: {2}.
+        /// </summary>
+        internal static string AddMuteCommandSuccessModerator {
+            get {
+                return ResourceManager.GetString("AddMuteCommandSuccessModerator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a You have been muted from the chat for {0} minute(s)! Reason: {1}.
+        /// </summary>
+        internal static string AddMuteCommandSuccessPlayer {
+            get {
+                return ResourceManager.GetString("AddMuteCommandSuccessPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a chat_mute [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason].
+        /// </summary>
+        internal static string AddMuteCommandUsage {
+            get {
+                return ResourceManager.GetString("AddMuteCommandUsage", resourceCulture);
             }
         }
         
@@ -160,6 +196,15 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Please, specify a subcommand! Available: {0}.
+        /// </summary>
+        internal static string CommandSpecifySubCommand {
+            get {
+                return ResourceManager.GetString("CommandSpecifySubCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Too many arguments!.
         /// </summary>
         internal static string CommandTooManyArgumentsError {
@@ -201,42 +246,6 @@ namespace TextChat.Localizations {
         internal static string DatabaseLoadError {
             get {
                 return ResourceManager.GetString("DatabaseLoadError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a {0} mutes have been sucessfully deleted!.
-        /// </summary>
-        internal static string DeleteAllMutesSuccess {
-            get {
-                return ResourceManager.GetString("DeleteAllMutesSuccess", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a Deletes all mutes in the database, or mutes of a specified player..
-        /// </summary>
-        internal static string DeleteMutesCommandDescription {
-            get {
-                return ResourceManager.GetString("DeleteMutesCommandDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID].
-        /// </summary>
-        internal static string DeleteMutesCommandUsage {
-            get {
-                return ResourceManager.GetString("DeleteMutesCommandUsage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a {0} mutes of &quot;{1}&quot; have been sucessfully deleted!.
-        /// </summary>
-        internal static string DeleteMutesSuccess {
-            get {
-                return ResourceManager.GetString("DeleteMutesSuccess", resourceCulture);
             }
         }
         
@@ -309,42 +318,6 @@ namespace TextChat.Localizations {
         internal static string Minutes {
             get {
                 return ResourceManager.GetString("Minutes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a Mute a player from the chat..
-        /// </summary>
-        internal static string MuteCommandDescription {
-            get {
-                return ResourceManager.GetString("MuteCommandDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a &quot;{0}&quot; has been muted from the chat for {1} minute(s), reason: {2}.
-        /// </summary>
-        internal static string MuteCommandSuccessModerator {
-            get {
-                return ResourceManager.GetString("MuteCommandSuccessModerator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a You have been muted from the chat for {0} minute(s)! Reason: {1}.
-        /// </summary>
-        internal static string MuteCommandSuccessPlayer {
-            get {
-                return ResourceManager.GetString("MuteCommandSuccessPlayer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a chat_mute [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason].
-        /// </summary>
-        internal static string MuteCommandUsage {
-            get {
-                return ResourceManager.GetString("MuteCommandUsage", resourceCulture);
             }
         }
         
@@ -561,6 +534,42 @@ namespace TextChat.Localizations {
         internal static string ReasonCannotBeEmptyError {
             get {
                 return ResourceManager.GetString("ReasonCannotBeEmptyError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} mutes have been sucessfully deleted!.
+        /// </summary>
+        internal static string RemoveAllMutesSuccess {
+            get {
+                return ResourceManager.GetString("RemoveAllMutesSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Deletes all mutes in the database, or mutes of a specified player..
+        /// </summary>
+        internal static string RemoveMutesCommandDescription {
+            get {
+                return ResourceManager.GetString("RemoveMutesCommandDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID].
+        /// </summary>
+        internal static string RemoveMutesCommandUsage {
+            get {
+                return ResourceManager.GetString("RemoveMutesCommandUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} mutes of &quot;{1}&quot; have been sucessfully deleted!.
+        /// </summary>
+        internal static string RemoveMutesSuccess {
+            get {
+                return ResourceManager.GetString("RemoveMutesSuccess", resourceCulture);
             }
         }
         

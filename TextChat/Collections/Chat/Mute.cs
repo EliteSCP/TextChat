@@ -1,8 +1,8 @@
-﻿using LiteDB;
-using System;
-
-namespace TextChat.Collections.Chat
+﻿namespace TextChat.Collections.Chat
 {
+	using LiteDB;
+	using System;
+
 	public class Mute
 	{
 		public ObjectId Id { get; set; }

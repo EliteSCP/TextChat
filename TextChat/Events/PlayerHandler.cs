@@ -1,98 +1,31 @@
-﻿using EXILED;
-using EXILED.Extensions;
-using System;
-using System.Linq;
-using TextChat.Extensions;
-using TextChat.Interfaces;
-using TextChat.Localizations;
-using static TextChat.Database;
-
-namespace TextChat.Events
+﻿namespace TextChat.Events
 {
-	public class PlayerHandler
+    using Exiled.API.Features;
+    using Exiled.Events.EventArgs;
+    using Extensions;
+    using Localizations;
+    using System.Linq;
+    using static Database;
+
+	internal class PlayerHandler
 	{
-		private readonly TextChat pluginInstance;
-
-		public PlayerHandler(TextChat pluginInstance) => this.pluginInstance = pluginInstance;
-
-		public void OnConsoleCommand(ConsoleCommandEvent ev)
-		{
-			if (ev.Player == null) return;
-
-			if (ev.Player.gameObject == PlayerManager.localPlayer)
-			{
-				ev.ReturnMessage = Language.CommandNotAllowedForConsoleError;
-				ev.Color = "red";
-
-				return;
-			}
-
-			(string commandName, string[] commandArguments) = ev.Command.ExtractCommand();
-
-			if (!pluginInstance.ConsoleCommands.TryGetValue(commandName, out ICommand command)) return;
-
-			try
-			{
-				(string response, string color) = command.OnCall(ev.Player, commandArguments);
-
-				ev.ReturnMessage = response;
-				ev.Color = color;
-			}
-			catch (Exception exception)
-			{
-				Log.Error(string.Format(Language.CommandException, commandName, exception));
-				ev.ReturnMessage = Language.CommandError;
-				ev.Color = "red";
-			}
-		}
-
-		public void OnRemoteAdminCommand(ref RACommandEvent ev)
-		{
-			(string commandName, string[] commandArguments) = ev.Command.ExtractCommand();
-
-			if (!pluginInstance.RemoteAdminCommands.TryGetValue(commandName, out ICommand command)) return;
-
-			try
-			{
-				ReferenceHub sender;
-
-				if (ev.Sender.SenderId == "GAME CONSOLE") ReferenceHub.Hubs.TryGetValue(PlayerManager.localPlayer, out sender);
-				else sender = Player.GetPlayer(ev.Sender.SenderId);
-
-				if (sender == null) return;
-
-				(string response, string color) = command.OnCall(sender, commandArguments);
-
-				ev.Sender.RAMessage($"<color={color}>{response}</color>", color == "green");
-				ev.Allow = false;
-			}
-			catch (Exception exception)
-			{
-				Log.Error(string.Format(Language.CommandException, commandName, exception));
-				ev.Sender.RAMessage(Language.CommandError, false);
-				ev.Allow = false;
-			}
-		}
-
-		public void OnPlayerJoin(PlayerJoinEvent ev)
+		public void OnJoined(JoinedEventArgs ev)
 		{
 			ChatPlayers.Add(ev.Player, ev.Player.GetChatPlayer() ?? new Collections.Chat.Player()
 			{
-				Id = ev.Player.GetRawUserId(),
-				Authentication = ev.Player.GetAuthentication(),
-				Name = ev.Player.GetNickname()
+				Id = ev.Player.RawUserId,
+				Authentication = ev.Player.AuthenticationType.ToString().ToLower(),
+				Name = ev.Player.Nickname
 			});
 
 			ev.Player.SendConsoleMessage(Language.ChatWelcome, "green");
 
-			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasJoinedTheChat, ev.Player.GetNickname()), "green");
+			Player.List.Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasJoinedTheChat, ev.Player.Nickname), "green");
 		}
 
-		public void OnPlayerLeave(PlayerLeaveEvent ev)
+		public void OnLeft(LeftEventArgs ev)
 		{
-			if (string.IsNullOrEmpty(ev.Player?.GetUserId())) return;
-
-			Player.GetHubs().Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasLeftTheChat, ev.Player.GetNickname()), "red");
+			Player.List.Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasLeftTheChat, ev.Player.Nickname), "red");
 
 			LiteDatabase.GetCollection<Collections.Chat.Player>().Upsert(ev.Player.GetChatPlayer());
 

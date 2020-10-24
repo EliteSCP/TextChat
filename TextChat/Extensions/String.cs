@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace TextChat.Extensions
+﻿namespace TextChat.Extensions
 {
+    using System;
+    using System.Collections.Generic;
+	using System.Linq;
+	using System.Text.RegularExpressions;
+
 	public static class String
 	{
 		public static string Sanitize(this string stringToSanitize, IEnumerable<string> badWords, char badWordsChar)
@@ -16,16 +17,9 @@ namespace TextChat.Extensions
 			return stringToSanitize;
 		}
 
-		public static string GetMessage(this string[] args, int skips = 0, string separator = " ")
+		public static string GetMessage(this ArraySegment<string> args, int skips = 0, string separator = " ")
 		{
-			return string.Join(separator, skips == 0 ? args : args.Skip(skips).Take(args.Length - skips));
-		}
-
-		public static (string commandName, string[] arguments) ExtractCommand(this string commandLine)
-		{
-			var extractedCommandArguments = commandLine.Split(' ');
-
-			return (extractedCommandArguments[0].ToLower(), extractedCommandArguments.Skip(1).ToArray());
+			return string.Join(separator, skips == 0 ? args : args.Skip(skips).Take(args.Count - skips));
 		}
 	}
 }

@@ -1,32 +1,33 @@
-﻿using EXILED.Extensions;
-using System;
-using System.Collections.Generic;
-using static TextChat.Database;
-
-namespace TextChat.Extensions
+﻿namespace TextChat.Extensions
 {
+    using Exiled.API.Features;
+    using System;
+	using System.Collections.Generic;
+    using System.Linq;
+    using static Database;
+
 	public static class ChatPlayer
 	{
 		/// <summary>
-		/// Sends a console message to a List of <see cref="ReferenceHub"/>
+		/// Sends a console message to a List of <see cref="Player"/>
 		/// </summary>
 		/// <param name="targets"></param>
 		/// <param name="message"></param>
 		/// <param name="color"></param>
-		public static void SendConsoleMessage(this IEnumerable<ReferenceHub> targets, string message, string color)
+		public static void SendConsoleMessage(this IEnumerable<Player> targets, string message, string color)
 		{
-			foreach (ReferenceHub target in targets)
+			foreach (Player target in targets)
 			{
-				if (target != null && !string.IsNullOrEmpty(target?.GetUserId())) target.SendConsoleMessage(message, color);
+				if (target != null) target.SendConsoleMessage(message, color);
 			}
 		}
 
 		/// <summary>
-		/// Gets the team color of a <see cref="ReferenceHub"/>
+		/// Gets the team color of a <see cref="Player"/>
 		/// </summary>
 		/// <param name="player"></param>
 		/// <returns></returns>
-		public static string GetColor(this ReferenceHub player) => player.GetTeam().GetColor();
+		public static string GetColor(this Player player) => player.Team.GetColor();
 
 		/// <summary>
 		/// Gets the team color of a <see cref="Team"/>
@@ -56,34 +57,28 @@ namespace TextChat.Extensions
 		}
 
 		/// <summary>
-		/// Gets the Authentication type of a <see cref="ReferenceHub"/>
-		/// </summary>
-		/// <param name="player"></param>
-		/// <returns></returns>
-		public static string GetAuthentication(this ReferenceHub player) => player.GetUserId().Split('@')[1];
-
-		/// <summary>
-		/// Gets the numeric ID of a <see cref="ReferenceHub"/>
-		/// </summary>
-		/// <param name="player"></param>
-		/// <returns></returns>
-		public static string GetRawUserId(this ReferenceHub player) => player.GetUserId().GetRawUserId();
-
-		/// <summary>
 		/// Gets the numeric ID from a <see cref="string"/>
 		/// </summary>
-		/// <param name="player"></param>
+		/// <param name="userId"></param>
 		/// <returns></returns>
-		public static string GetRawUserId(this string player) => player.Split('@')[0];
+		public static string GetRawUserId(this string userId)
+		{
+			int index = userId.LastIndexOf('@');
+
+			if (index == -1)
+				return userId;
+
+			return userId.Substring(0, index);
+		}
 
 		/// <summary>
-		/// Gets the mute status from the chat of a <see cref="ReferenceHub"/>
+		/// Gets the mute status from the chat of a <see cref="Player"/>
 		/// </summary>
 		/// <param name="player"></param>
 		/// <returns></returns>
-		public static bool IsChatMuted(this ReferenceHub player)
+		public static bool IsChatMuted(this Player player)
 		{
-			return LiteDatabase.GetCollection<Collections.Chat.Mute>().Exists(mute => mute.Target.Id == player.GetRawUserId() && mute.Expire > DateTime.Now);
+			return LiteDatabase.GetCollection<Collections.Chat.Mute>().Exists(mute => mute.Target.Id == player.UserId && mute.Expire > DateTime.Now);
 		}
 
 		/// <summary>
@@ -103,7 +98,7 @@ namespace TextChat.Extensions
 		/// <returns></returns>
 		public static Collections.Chat.Player GetChatPlayer(this string player)
 		{
-			return Player.GetPlayer(player)?.GetChatPlayer() ?? 
+			return Player.Get(player)?.GetChatPlayer() ?? 
 				LiteDatabase.GetCollection<Collections.Chat.Player>().FindOne(queryPlayer => queryPlayer.Id == player.GetRawUserId() || queryPlayer.Name == player);
 		}
 
@@ -112,12 +107,12 @@ namespace TextChat.Extensions
 		/// </summary>
 		/// <param name="player"></param>
 		/// <returns></returns>
-		public static Collections.Chat.Player GetChatPlayer(this ReferenceHub player)
+		public static Collections.Chat.Player GetChatPlayer(this Player player)
 		{
-			if (player == null || (string.IsNullOrEmpty(player.GetUserId()) && !player.IsHost())) return null;
-			else if (player.IsHost()) return ServerChatPlayer;
+			if (player == null || (string.IsNullOrEmpty(player.UserId) && !player.IsHost)) return null;
+			else if (player.IsHost) return ServerChatPlayer;
 			else if (ChatPlayers.TryGetValue(player, out Collections.Chat.Player chatPlayer)) return chatPlayer;
-			else return LiteDatabase.GetCollection<Collections.Chat.Player>().FindOne(queryPlayer => queryPlayer.Id == player.GetRawUserId());
+			else return LiteDatabase.GetCollection<Collections.Chat.Player>().FindOne(queryPlayer => queryPlayer.Id == player.RawUserId);
 		}
 
 		/// <summary>
@@ -125,18 +120,9 @@ namespace TextChat.Extensions
 		/// </summary>
 		/// <param name="players"></param>
 		/// <returns></returns>
-		public static List<Collections.Chat.Player> GetChatPlayers(this IEnumerable<ReferenceHub> players)
+		public static IEnumerable<Collections.Chat.Player> GetChatPlayers(this IEnumerable<Player> players)
 		{
-			List<Collections.Chat.Player> chatPlayersList = new List<Collections.Chat.Player>();
-
-			foreach (ReferenceHub player in players)
-			{
-				Collections.Chat.Player chatPlayer = player.GetChatPlayer();
-
-				if (chatPlayer != null) chatPlayersList.Add(chatPlayer);
-			}
-
-			return chatPlayersList;
+			return players.Select(player => player?.GetChatPlayer()).Where(player => player != null);
 		}
 	}
 }

@@ -1,0 +1,51 @@
+﻿namespace TextChat.Commands.Console.Chat
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using CommandSystem;
+    using Enums;
+    using Exiled.API.Features;
+    using Extensions;
+	using Localizations;
+	using static Database;
+	using static TextChat;
+
+	public class Team : Message, ICommand
+	{
+		public Team() : base(ChatRoomType.Team)
+		{ }
+
+		public string Description => Language.TeamChatDescription;
+
+        public string Command => "t";
+
+		public string[] Aliases => new[] { "team" };
+
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        {
+			Player player = Player.Get(((CommandSender)sender).SenderId);
+
+			if (!CheckValidity(arguments.GetMessage(), player, out response)) return false;
+
+			response = $"[{player.Nickname}][{Language.Team} ({player.Role.ToString().ToUpper()})]: {response}";
+
+			IEnumerable<Player> targets = Player.List.Where(chatPlayer => chatPlayer != sender && chatPlayer.Team == player.Team);
+			List<Collections.Chat.Player> chatTargets = targets.GetChatPlayers().ToList();
+
+			if (chatTargets.Count == 0)
+			{
+				response = Language.NoAvailablePlayersToChatWithError;
+				return false;
+			}
+
+			color = player.GetColor();
+
+			if (Instance.Config.ShouldSaveChatToDatabase) SaveMessage(response, player.GetChatPlayer(), chatTargets, type);
+
+			Send(ref response, player, targets);
+
+			return true;
+		}
+	}
+}

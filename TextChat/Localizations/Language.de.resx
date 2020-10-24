@@ -189,16 +189,16 @@
   <data name="ListOfCommands" xml:space="preserve">
     <value>LISTE VON ALLEN BEFEHLEN ({0})</value>
   </data>
-  <data name="MuteCommandDescription" xml:space="preserve">
+  <data name="AddMuteCommandDescription" xml:space="preserve">
     <value>Mute einen Spieler vom Chat.</value>
   </data>
-  <data name="MuteCommandSuccessModerator" xml:space="preserve">
+  <data name="AddMuteCommandSuccessModerator" xml:space="preserve">
     <value>"{0}" wurde vom Chat gemutet für {1} Minute(n), Grund: {2}</value>
   </data>
-  <data name="MuteCommandSuccessPlayer" xml:space="preserve">
+  <data name="AddMuteCommandSuccessPlayer" xml:space="preserve">
     <value>Du wurdest vom Chat gemutet für {0} Minute(n)! Grund: {1}</value>
   </data>
-  <data name="MuteCommandUsage" xml:space="preserve">
+  <data name="AddMuteCommandUsage" xml:space="preserve">
     <value>chat_mute [Nickname/UserID/PlayerID] [Dauer (Minutes)] [Grund]</value>
   </data>
   <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
@@ -270,16 +270,16 @@
   <data name="PlayerReceivedPrivateMessage" xml:space="preserve">
     <value>Du hast eine Private Nachricht erhalten!</value>
   </data>
-  <data name="DeleteAllMutesSuccess" xml:space="preserve">
+  <data name="RemoveAllMutesSuccess" xml:space="preserve">
     <value>{0} mutes wurden erfolgreich geloescht!</value>
   </data>
-  <data name="DeleteMutesCommandDescription" xml:space="preserve">
+  <data name="RemoveMutesCommandDescription" xml:space="preserve">
     <value>Loescht alle Mutes in der Datenbank oder von einen Spieler.</value>
   </data>
-  <data name="DeleteMutesCommandUsage" xml:space="preserve">
+  <data name="RemoveMutesCommandUsage" xml:space="preserve">
     <value>chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID]</value>
   </data>
-  <data name="DeleteMutesSuccess" xml:space="preserve">
+  <data name="RemoveMutesSuccess" xml:space="preserve">
     <value>{0} mutes von "{1}" wurden erfolgreich geloescht!</value>
   </data>
   <data name="Duration" xml:space="preserve">
@@ -314,5 +314,8 @@
   </data>
   <data name="OutdatedVersionError" xml:space="preserve">
     <value>Du benutzt eine ältere Version von EXILED ({0}), Das Plugin ist moeglicherweise nicht damit kompatibel! Empfohlene Version: {1}</value>
+  </data>
+  <data name="CommandSpecifySubCommand" xml:space="preserve">
+    <value>Please, specify a subcommand! Available: {0}</value>
   </data>
 </root>

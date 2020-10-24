@@ -1,18 +1,19 @@
-﻿using EXILED;
-using LiteDB;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using TextChat.Collections.Chat;
-using TextChat.Enums;
-using TextChat.Localizations;
-
-namespace TextChat
+﻿namespace TextChat
 {
+	using LiteDB;
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using Collections.Chat;
+	using Enums;
+	using Localizations;
+	using static TextChat;
+	using Log = Exiled.API.Features.Log;
+
 	internal static class Database
 	{
 		public static LiteDatabase LiteDatabase { get; private set; }
-		public static Dictionary<ReferenceHub, Player> ChatPlayers { get; private set; } = new Dictionary<ReferenceHub, Player>();
+		public static Dictionary<Exiled.API.Features.Player, Player> ChatPlayers { get; private set; } = new Dictionary<Exiled.API.Features.Player, Player>();
 		public static Player ServerChatPlayer = new Player()
 		{
 			Id = "Server",
@@ -20,8 +21,8 @@ namespace TextChat
 			Name = "Server"
 		};
 
-		public static string Folder => Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Plugins"), Configs.databaseName);
-		public static string FullPath => Path.Combine(Folder, $"{Configs.databaseName}.db");
+		public static string Folder => Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Plugins"), Instance.Config.DatabaseName);
+		public static string FullPath => Path.Combine(Folder, $"{Instance.Config.DatabaseName}.db");
 
 		public static void Open()
 		{
@@ -39,11 +40,11 @@ namespace TextChat
 				LiteDatabase.GetCollection<Room>().EnsureIndex(room => room.Type);
 				LiteDatabase.GetCollection<Room>().EnsureIndex(room => room.Message.Sender.Id);
 
-				Log.Info(Language.DatabaseLoaded);
+                Log.Info(Language.DatabaseLoaded);
 			}
 			catch (Exception exception)
 			{
-				Log.Error(string.Format(Language.DatabaseLoadError, exception));
+                Log.Error(string.Format(Language.DatabaseLoadError, exception));
 			}
 		}
 
@@ -55,11 +56,11 @@ namespace TextChat
 				LiteDatabase.Dispose();
 				LiteDatabase = null;
 
-				Log.Info(Language.DatabaseClosed);
+                Log.Info(Language.DatabaseClosed);
 			}
 			catch (Exception exception)
 			{
-				Log.Error(string.Format(Language.DatabaseCloseError, exception));
+                Log.Error(string.Format(Language.DatabaseCloseError, exception));
 			}
 		}
 

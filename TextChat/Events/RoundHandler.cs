@@ -1,9 +1,9 @@
-﻿using static TextChat.Database;
-
-namespace TextChat.Events
+﻿namespace TextChat.Events
 {
-	public class RoundHandler
+	using static Database;
+
+	internal class RoundHandler
 	{
-		public void OnRoundRestart() => LiteDatabase.Checkpoint();
+		public void OnRestartingRound() => LiteDatabase.Checkpoint();
 	}
 }
