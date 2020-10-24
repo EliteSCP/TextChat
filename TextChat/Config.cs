@@ -2,14 +2,13 @@
 {
     using Exiled.API.Features;
     using Exiled.API.Interfaces;
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
 
     public class Config : IConfig
 	{
-		private string language;
+		private string language = "en";
 
 		[Description("Indicates whether the plugin is enabled or not")]
 		public bool IsEnabled { get; set; } = true;
@@ -45,7 +44,7 @@
 		public Broadcast ChatMutedBroadcast { get; private set; } = new Broadcast();
 
 		[Description("The broadcast which warns you about a new private message")]
-		public Broadcast PrivateMessageNotificationBroadcast { get; private set; } = new Broadcast("", 6);
+		public Broadcast PrivateMessageNotificationBroadcast { get; private set; } = new Broadcast(string.Empty, 6);
 
 		[Description("Indicates whether the slow mode is enabled or not")]
 		public bool IsSlowModeEnabled { get; private set; } = true;
@@ -59,7 +58,7 @@
 			get => language;
 			private set
 			{
-				Localizations.Language.Culture = CultureInfo.GetCultureInfo(value) ?? CultureInfo.GetCultureInfo("");
+				Localizations.Language.Culture = CultureInfo.GetCultureInfo(value) ?? CultureInfo.GetCultureInfo(string.Empty);
 
 				if (string.IsNullOrEmpty(ChatMutedBroadcast?.Content)) ChatMutedBroadcast.Content = Localizations.Language.PlayerHasBeenChatMuted;
 				if (string.IsNullOrEmpty(PrivateMessageNotificationBroadcast?.Content)) PrivateMessageNotificationBroadcast.Content = Localizations.Language.PlayerReceivedPrivateMessage;

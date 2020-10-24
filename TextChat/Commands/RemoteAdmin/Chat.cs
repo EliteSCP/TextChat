@@ -12,7 +12,7 @@
 
         public override string[] Aliases => new[] { "c" };
 
-        public override string Description => "";
+        public override string Description => string.Empty;
 
         public override void LoadGeneratedCommands()
         {
