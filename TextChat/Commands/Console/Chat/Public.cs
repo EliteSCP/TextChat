@@ -22,7 +22,6 @@
 
 		public string Command => "public";
 
-
 		public string[] Aliases => new[] { "p" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

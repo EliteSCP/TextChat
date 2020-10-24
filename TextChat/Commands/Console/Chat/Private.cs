@@ -19,9 +19,9 @@
 
 		public string Usage => Language.PrivateChatUsage;
 
-        public string Command => throw new NotImplementedException();
+		public string Command => "private";
 
-        public string[] Aliases => throw new NotImplementedException();
+		public string[] Aliases => new[] { "pr" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {

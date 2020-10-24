@@ -14,7 +14,7 @@
 
 		public override string Command => "mute";
 
-		public override string[] Aliases => new[] { "m" };
+		public override string[] Aliases => new[] { "mu" };
 
         public override void LoadGeneratedCommands()
         {
