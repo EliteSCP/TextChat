@@ -8,6 +8,6 @@
 		public string Name { get; set; }
 		public DateTime LastMessageSentTimestamp { get; set; }
 
-		public bool IsFlooding(ushort cooldown) => LastMessageSentTimestamp.AddSeconds(cooldown) > DateTime.Now;
+		public bool IsFlooding(float cooldown) => LastMessageSentTimestamp.AddMilliseconds(cooldown) > DateTime.Now;
 	}
 }

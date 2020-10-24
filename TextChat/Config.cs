@@ -51,7 +51,7 @@
 		public bool IsSlowModeEnabled { get; private set; } = true;
 
 		[Description("The slowmode cooldown, in seconds")]
-		public ushort SlowModeCooldown { get; private set; }
+		public float SlowModeCooldown { get; private set; } = 0.75f;
 
 		[Description("The plugin language")]
 		public string Language
