@@ -9,7 +9,7 @@
 
 	internal class PlayerHandler
 	{
-		public void OnJoined(JoinedEventArgs ev)
+		public void OnVerified(VerifiedEventArgs ev)
 		{
 			ChatPlayers.Add(ev.Player, ev.Player.GetChatPlayer() ?? new Collections.Chat.Player()
 			{
@@ -23,7 +23,7 @@
 			Player.List.Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasJoinedTheChat, ev.Player.Nickname), "green");
 		}
 
-		public void OnLeft(LeftEventArgs ev)
+		public void OnDestroying(DestroyingEventArgs ev)
 		{
 			Player.List.Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasLeftTheChat, ev.Player.Nickname), "red");
 

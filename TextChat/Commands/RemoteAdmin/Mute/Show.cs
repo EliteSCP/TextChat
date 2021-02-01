@@ -12,11 +12,11 @@
 
     public class Show : ICommand
 	{
-		public string Description => Language.ShowMutesCommandDescription;
+		public string Description { get; } = Language.ShowMutesCommandDescription;
 
-		public string Command => "show" ;
+		public string Command { get; } = "show" ;
 
-		public string[] Aliases => new[] { "s" };
+		public string[] Aliases { get; } = new[] { "s" };
 
 		public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
@@ -51,21 +51,23 @@
 
 		private string GetPlayerMutes(List<Collections.Chat.Mute> playerMutesList)
 		{
-			var playerMutes = StringBuilderPool.Shared.Rent($"\n[{Language.MutesList} ({playerMutesList.Count})]\n");
+			var message = StringBuilderPool.Shared.Rent();
+
+			message.AppendLine().Append('[').Append(Language.MutesList).Append(" (").Append(playerMutesList.Count).Append(")]").AppendLine();
 
 			foreach (Collections.Chat.Mute playerMute in playerMutesList)
 			{
-				playerMutes.AppendLine($"\n[{playerMute.Target.Name} ({playerMute.Target.Id}@{playerMute.Target.Authentication})]");
-				playerMutes.AppendLine($"{Language.Issuer}: {playerMute.Issuer.Name} ({playerMute.Issuer.Id}@{playerMute.Issuer.Authentication})");
-				playerMutes.AppendLine($"{Language.Reason}: {playerMute.Reason}");
-				playerMutes.AppendLine($"{Language.Duration}: {playerMute.Duration} {Language.Minutes}");
-				playerMutes.AppendLine($"{Language.Timestamp}: {playerMute.Timestamp}");
-				playerMutes.AppendLine($"{Language.Expire}: {playerMute.Expire}");
+				message.AppendLine().Append('[').Append(playerMute.Target.Name).Append(" (").Append(playerMute.Target.Id).Append('@').Append(playerMute.Target.Authentication).Append(")]").AppendLine()
+					.Append(Language.Issuer).Append(": ").Append(playerMute.Issuer.Name).Append(" (").Append(playerMute.Issuer.Id).Append('@').Append(playerMute.Issuer.Authentication).Append(')').AppendLine()
+					.Append(Language.Reason).Append(": ").Append(playerMute.Reason).AppendLine()
+					.Append(Language.Duration).Append(": ").Append(playerMute.Duration).Append(' ').Append(Language.Minutes).AppendLine()
+					.Append(Language.Timestamp).Append(": ").Append(playerMute.Timestamp).AppendLine()
+					.Append(Language.Expire).Append(": ").Append(playerMute.Expire).AppendLine();
 			}
 
-			var playerMutesString = playerMutes.ToString();
+			var playerMutesString = message.ToString();
 
-			StringBuilderPool.Shared.Return(playerMutes);
+			StringBuilderPool.Shared.Return(message);
 
 			return playerMutesString;
 		}

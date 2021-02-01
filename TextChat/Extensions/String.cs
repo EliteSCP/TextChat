@@ -7,12 +7,20 @@
 
 	public static class String
 	{
+		public static string GetRawUserId(this string userId)
+		{
+			int index = userId.LastIndexOf('@');
+
+			if (index == -1)
+				return userId;
+
+			return userId.Substring(0, index);
+		}
+
 		public static string Sanitize(this string stringToSanitize, IEnumerable<string> badWords, char badWordsChar)
 		{
 			foreach (string badWord in badWords)
-			{
 				stringToSanitize = Regex.Replace(stringToSanitize, badWord, new string(badWordsChar, badWord.Length), RegexOptions.IgnoreCase);
-			}
 
 			return stringToSanitize;
 		}

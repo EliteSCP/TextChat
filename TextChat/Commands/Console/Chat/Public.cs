@@ -16,13 +16,13 @@
 		public Public() : base(ChatRoomType.Public, Instance.Config.PublicChatColor)
 		{ }
 
-		public string Description => Language.PublicChatDescription;
+		public string Description { get; } = Language.PublicChatDescription;
 
-		public string Usage => Language.PublicChatUsage;
+		public string Usage { get; } = Language.PublicChatUsage;
 
-		public string Command => "public";
+		public string Command { get; } = "public";
 
-		public string[] Aliases => new[] { "p" };
+		public string[] Aliases { get; } = new[] { "p" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {

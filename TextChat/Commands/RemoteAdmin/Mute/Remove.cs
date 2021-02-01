@@ -9,11 +9,11 @@
 
 	public class Remove : ICommand
 	{
-		public string Description => Language.RemoveMutesCommandDescription;
+		public string Description { get; } = Language.RemoveMutesCommandDescription;
 
-        public string Command => "remove";
+        public string Command { get; } = "remove";
 
-		public string[] Aliases => new[] { "r" };
+		public string[] Aliases { get; } = new[] { "r" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {

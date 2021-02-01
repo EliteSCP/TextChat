@@ -43,16 +43,16 @@
 
 			Exiled.Events.Handlers.Server.RestartingRound += RoundHandler.OnRestartingRound;
 
-			Exiled.Events.Handlers.Player.Joined += PlayerHandler.OnJoined;
-			Exiled.Events.Handlers.Player.Left += PlayerHandler.OnLeft;
+			Exiled.Events.Handlers.Player.Verified += PlayerHandler.OnVerified;
+			Exiled.Events.Handlers.Player.Destroying += PlayerHandler.OnDestroying;
 		}
 
 		private void UnregisterEvents()
 		{
 			Exiled.Events.Handlers.Server.RestartingRound -= RoundHandler.OnRestartingRound;
 
-			Exiled.Events.Handlers.Player.Joined -= PlayerHandler.OnJoined;
-			Exiled.Events.Handlers.Player.Left -= PlayerHandler.OnLeft;
+			Exiled.Events.Handlers.Player.Verified -= PlayerHandler.OnVerified;
+			Exiled.Events.Handlers.Player.Destroying -= PlayerHandler.OnDestroying;
 
 			RoundHandler = null;
 			PlayerHandler = null;

@@ -8,11 +8,11 @@
     {
         public Chat() => LoadGeneratedCommands();
 
-        public override string Command => "chat";
+        public override string Command { get; } = "chat";
 
-        public override string[] Aliases => new[] { "c" };
+        public override string[] Aliases { get; } = new[] { "c" };
 
-        public override string Description => string.Empty;
+        public override string Description { get; } = string.Empty;
 
         public override void LoadGeneratedCommands()
         {

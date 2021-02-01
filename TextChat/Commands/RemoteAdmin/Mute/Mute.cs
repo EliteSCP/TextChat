@@ -10,11 +10,11 @@
 	{
 		public Mute() => LoadGeneratedCommands();
 
-		public override string Description => Language.AddMuteCommandDescription;
+		public override string Description { get; } = Language.AddMuteCommandDescription;
 
-		public override string Command => "mute";
+		public override string Command { get; } = "mute";
 
-		public override string[] Aliases => new[] { "mu" };
+		public override string[] Aliases { get; } = new[] { "mu" };
 
         public override void LoadGeneratedCommands()
         {

@@ -12,11 +12,11 @@
 
     public class Add : ICommand
     {
-        public string Command => "add";
+        public string Command { get; } = "add";
 
-        public string[] Aliases => new[] { "a" };
+        public string[] Aliases { get; } = new[] { "a" };
 
-        public string Description => Language.AddMuteCommandDescription;
+        public string Description { get; } = Language.AddMuteCommandDescription;
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {

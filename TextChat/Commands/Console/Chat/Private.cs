@@ -15,13 +15,13 @@
 		public Private() : base(ChatRoomType.Private, Instance.Config.PrivateChatColor)
 		{ }
 
-		public string Description => Language.PrivateChatDescription;
+		public string Description { get; } = Language.PrivateChatDescription;
 
-		public string Usage => Language.PrivateChatUsage;
+		public string Usage { get; } = Language.PrivateChatUsage;
 
-		public string Command => "private";
+		public string Command { get; } = "private";
 
-		public string[] Aliases => new[] { "pr" };
+		public string[] Aliases { get; } = new[] { "pr" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {

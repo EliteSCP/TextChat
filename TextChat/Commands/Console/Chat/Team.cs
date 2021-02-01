@@ -16,11 +16,11 @@
 		public Team() : base(ChatRoomType.Team)
 		{ }
 
-		public string Description => Language.TeamChatDescription;
+		public string Description { get; } = Language.TeamChatDescription;
 
-        public string Command => "t";
+        public string Command { get; } = "t";
 
-		public string[] Aliases => new[] { "team" };
+		public string[] Aliases { get; } = new[] { "team" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
