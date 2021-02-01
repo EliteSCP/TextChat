@@ -1,8 +1,8 @@
 ﻿namespace TextChat.Commands.RemoteAdmin
 {
     using CommandSystem;
-    using System;
     using Localizations;
+    using System;
 
     public class Chat : ParentCommand
     {

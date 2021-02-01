@@ -1,14 +1,14 @@
 ﻿namespace TextChat.Commands.Console.Chat
 {
-	using System;
-	using System.Collections.Generic;
-	using Enums;
+    using Enums;
     using Exiled.API.Features;
     using Extensions;
-	using Localizations;
-	using static TextChat;
+    using Localizations;
+    using System;
+    using System.Collections.Generic;
+    using static TextChat;
 
-	public class Message
+    public class Message
 	{
 		protected readonly ChatRoomType type;
 		protected string color;

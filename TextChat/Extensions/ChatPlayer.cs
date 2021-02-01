@@ -2,11 +2,11 @@
 {
     using Exiled.API.Features;
     using System;
-	using System.Collections.Generic;
+    using System.Collections.Generic;
     using System.Linq;
     using static Database;
 
-	public static class ChatPlayer
+    public static class ChatPlayer
 	{
 		public static void SendConsoleMessage(this IEnumerable<Player> targets, string message, string color)
 		{

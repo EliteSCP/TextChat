@@ -2,10 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-	using System.Linq;
-	using System.Text.RegularExpressions;
+    using System.Linq;
+    using System.Text.RegularExpressions;
 
-	public static class String
+    public static class String
 	{
 		public static string GetRawUserId(this string userId)
 		{

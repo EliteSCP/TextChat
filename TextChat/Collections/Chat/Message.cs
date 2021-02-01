@@ -1,9 +1,9 @@
 ﻿namespace TextChat.Collections.Chat
 {
-	using System;
-	using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 
-	public class Message
+    public class Message
 	{
 		public Player Sender { get; set; }
 

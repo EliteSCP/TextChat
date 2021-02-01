@@ -1,16 +1,16 @@
 ﻿namespace TextChat
 {
-	using LiteDB;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using Collections.Chat;
-	using Enums;
-	using Localizations;
-	using static TextChat;
-	using Log = Exiled.API.Features.Log;
+    using Collections.Chat;
+    using Enums;
+    using LiteDB;
+    using Localizations;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using static TextChat;
+    using Log = Exiled.API.Features.Log;
 
-	internal static class Database
+    internal static class Database
 	{
 		public static LiteDatabase LiteDatabase { get; private set; }
 		public static Dictionary<Exiled.API.Features.Player, Player> ChatPlayers { get; private set; } = new Dictionary<Exiled.API.Features.Player, Player>();

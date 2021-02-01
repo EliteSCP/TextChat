@@ -1,17 +1,17 @@
 ﻿namespace TextChat.Commands.Console.Chat
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using CommandSystem;
     using Enums;
     using Exiled.API.Features;
     using Extensions;
-	using Localizations;
-	using static Database;
-	using static TextChat;
+    using Localizations;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using static Database;
+    using static TextChat;
 
-	public class Team : Message, ICommand
+    public class Team : Message, ICommand
 	{
 		public Team() : base(ChatRoomType.Team)
 		{ }

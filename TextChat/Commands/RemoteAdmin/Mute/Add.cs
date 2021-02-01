@@ -8,7 +8,7 @@
     using System;
     using System.Linq;
     using static Database;
-	using static TextChat;
+    using static TextChat;
 
     public class Add : ICommand
     {

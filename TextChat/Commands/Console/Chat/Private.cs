@@ -1,16 +1,16 @@
 ﻿namespace TextChat.Commands.Console.Chat
 {
-    using System;
-    using System.Collections.Generic;
     using CommandSystem;
     using Enums;
     using Exiled.API.Features;
     using Extensions;
     using Localizations;
+    using System;
+    using System.Collections.Generic;
     using static Database;
-	using static TextChat;
+    using static TextChat;
 
-	public class Private : Message, ICommand
+    public class Private : Message, ICommand
 	{
 		public Private() : base(ChatRoomType.Private, Instance.Config.PrivateChatColor)
 		{ }

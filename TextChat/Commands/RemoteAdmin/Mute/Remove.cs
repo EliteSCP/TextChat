@@ -3,11 +3,11 @@
     using CommandSystem;
     using Exiled.Permissions.Extensions;
     using Extensions;
-	using Localizations;
+    using Localizations;
     using System;
     using static Database;
 
-	public class Remove : ICommand
+    public class Remove : ICommand
 	{
 		public string Description { get; } = Language.RemoveMutesCommandDescription;
 

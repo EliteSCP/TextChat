@@ -1,7 +1,7 @@
 ﻿namespace TextChat.Collections.Chat
 {
-	using System;
-	public class Player
+    using System;
+    public class Player
 	{
 		public string Id { get; set; }
 

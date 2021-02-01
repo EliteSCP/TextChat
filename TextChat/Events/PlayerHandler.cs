@@ -7,7 +7,7 @@
     using System.Linq;
     using static Database;
 
-	internal class PlayerHandler
+    internal class PlayerHandler
 	{
 		public void OnVerified(VerifiedEventArgs ev)
 		{
