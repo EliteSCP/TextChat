@@ -12,7 +12,7 @@
 
         public override string Command { get; } = "mute";
 
-        public override string[] Aliases { get; } = new[] { "mu" };
+        public override string[] Aliases { get; } = new[] { "m", "mu" };
 
         public override void LoadGeneratedCommands()
         {

@@ -5,12 +5,8 @@
 
     public class Room
     {
-        [BsonCtor]
-        public Room(ObjectId id, Message message, ChatRoomType type)
+        public Room()
         {
-            Id = id;
-            Message = message;
-            Type = type;
         }
 
         public Room(Message message, ChatRoomType type)
@@ -20,11 +16,11 @@
             Type = type;
         }
 
-        public ObjectId Id { get; }
+        public ObjectId Id { get; private set; }
 
-        public Message Message { get; }
+        public Message Message { get; private set; }
 
-        public ChatRoomType Type { get; }
+        public ChatRoomType Type { get; private set; }
 
         public void Save() => Database.LiteDatabase.GetCollection<Room>().Insert(this);
     }

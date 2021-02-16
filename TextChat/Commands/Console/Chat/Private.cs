@@ -44,7 +44,7 @@
                 response = Language.CannotSendMessageToThemselvesError;
                 return false;
             }
-            else if (!TextChat.Instance.Config.CanSpectatorSendMessagesToAlive && player.Team == global::Team.RIP && target.Team != global::Team.RIP)
+            else if (!TextChat.Instance.Config.CanSpectatorSendMessagesToAlive && player.IsDead && target.IsAlive)
             {
                 response = Language.CannotSendMessageToAlivePlayersError;
                 return false;

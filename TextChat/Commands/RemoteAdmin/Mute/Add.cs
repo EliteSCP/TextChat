@@ -67,15 +67,7 @@
                 return false;
             }
 
-            LiteDatabase.GetCollection<Collections.Chat.Mute>().Insert(new Collections.Chat.Mute()
-            {
-                Target = chatPlayer,
-                Issuer = player.GetChatPlayer(),
-                Reason = reason,
-                Duration = duration,
-                Timestamp = DateTime.Now,
-                Expire = DateTime.Now.AddMinutes(duration)
-            });
+            new Collections.Chat.Mute(chatPlayer, player.GetChatPlayer(), reason, duration, DateTime.Now, DateTime.Now.AddMinutes(duration)).Save();
 
             if (TextChat.Instance.Config.ChatMutedBroadcast.Show)
             {

@@ -36,7 +36,7 @@
 
             IEnumerable<Player> targets = Player.List.Where(target =>
             {
-                return player != target && (!TextChat.Instance.Config.CanSpectatorSendMessagesToAlive || (TextChat.Instance.Config.CanSpectatorSendMessagesToAlive && player.Team != global::Team.RIP));
+                return player != target && (TextChat.Instance.Config.CanSpectatorSendMessagesToAlive || !Round.IsStarted || (!TextChat.Instance.Config.CanSpectatorSendMessagesToAlive && (player.IsAlive || target.IsDead)));
             });
 
             Collections.Chat.Message message = new Collections.Chat.Message(player.GetChatPlayer(), targets.GetChatPlayers().ToList(), arguments.GetMessage(), DateTime.Now);
@@ -61,7 +61,7 @@
             if (TextChat.Instance.Config.ShouldSaveChatToDatabase)
                 message.Save(ChatRoomType.Team);
 
-            message.Send(targets, player.GetColor());
+            message.Send(targets, TextChat.Instance.Config.PublicChatColor);
 
             response = $"<color={TextChat.Instance.Config.PublicChatColor}>{response}</color>";
             return true;

@@ -54,7 +54,7 @@
 
             message.Send(targets, player.GetColor());
 
-            response = $"<color={player.Team.GetColor()}>{response}</color>";
+            response = $"<color={player.GetColor()}>{response}</color>";
             return true;
         }
     }

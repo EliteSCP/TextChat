@@ -56,7 +56,7 @@
                 return null;
             else if (player.IsHost)
                 return ServerChatPlayer;
-            else if (ChatPlayers.TryGetValue(player, out Collections.Chat.Player chatPlayer))
+            else if (ChatPlayersCache.TryGetValue(player, out Collections.Chat.Player chatPlayer))
                 return chatPlayer;
             else
                 return LiteDatabase.GetCollection<Collections.Chat.Player>().FindById(player.RawUserId);

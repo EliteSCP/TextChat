@@ -7,6 +7,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using static Database;
 
     public class Show : ICommand
@@ -56,7 +57,7 @@
 
         private string GetPlayerMutes(List<Collections.Chat.Mute> playerMutesList)
         {
-            var message = StringBuilderPool.Shared.Rent();
+            StringBuilder message = StringBuilderPool.Shared.Rent();
 
             message.AppendLine().Append('[').Append(Language.MutesList).Append(" (").Append(playerMutesList.Count).Append(")]").AppendLine();
 
@@ -70,7 +71,7 @@
                     .Append(Language.Expire).Append(": ").Append(playerMute.Expire).AppendLine();
             }
 
-            var playerMutesString = message.ToString();
+            string playerMutesString = message.ToString();
 
             StringBuilderPool.Shared.Return(message);
 

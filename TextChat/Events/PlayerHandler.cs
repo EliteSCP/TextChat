@@ -3,6 +3,7 @@
     using Exiled.API.Features;
     using Exiled.Events.EventArgs;
     using Localizations;
+    using System;
     using System.Linq;
     using static Database;
 
@@ -10,12 +11,11 @@
     {
         public void OnVerified(VerifiedEventArgs ev)
         {
-            ChatPlayers.Add(ev.Player, ev.Player.GetChatPlayer() ?? new Collections.Chat.Player()
-            {
-                Id = ev.Player.RawUserId,
-                Authentication = ev.Player.AuthenticationType.ToString().ToLower(),
-                Name = ev.Player.Nickname
-            });
+            ChatPlayersCache.Add(ev.Player, ev.Player.GetChatPlayer() ?? new Collections.Chat.Player(
+                ev.Player.RawUserId,
+                ev.Player.AuthenticationType.ToString().ToLower(),
+                ev.Player.Nickname,
+                DateTime.Now));
 
             ev.Player.SendConsoleMessage(Language.ChatWelcome, "green");
 
@@ -26,9 +26,9 @@
         {
             Player.List.Where(player => player != ev.Player).SendConsoleMessage(string.Format(Language.PlayerHasLeftTheChat, ev.Player.Nickname), "red");
 
-            LiteDatabase.GetCollection<Collections.Chat.Player>().Upsert(ev.Player.GetChatPlayer());
+            ev.Player.GetChatPlayer().Save();
 
-            ChatPlayers.Remove(ev.Player);
+            ChatPlayersCache.Remove(ev.Player);
         }
     }
 }

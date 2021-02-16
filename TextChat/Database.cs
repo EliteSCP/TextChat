@@ -12,15 +12,10 @@
     internal static class Database
     {
         public static LiteDatabase LiteDatabase { get; private set; }
-        public static Dictionary<Exiled.API.Features.Player, Player> ChatPlayers { get; private set; } = new Dictionary<Exiled.API.Features.Player, Player>();
-        public static Player ServerChatPlayer = new Player()
-        {
-            Id = "Server",
-            Authentication = "Server",
-            Name = "Server"
-        };
+        public static Dictionary<Exiled.API.Features.Player, Player> ChatPlayersCache { get; private set; } = new Dictionary<Exiled.API.Features.Player, Player>();
+        public static Player ServerChatPlayer = new Player("Server", "Server", "Server", DateTime.Now);
 
-        public static string Folder => Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Plugins"), Instance.Config.DatabaseName);
+        public static string Folder => Path.Combine(Exiled.API.Features.Paths.Plugins, Instance.Config.DatabaseName);
         public static string FullPath => Path.Combine(Folder, $"{Instance.Config.DatabaseName}.db");
 
         public static void Open()

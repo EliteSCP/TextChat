@@ -1,20 +1,31 @@
 ﻿namespace TextChat.Collections.Chat
 {
+    using LiteDB;
     using System;
-    using static Database;
 
     public class Player
     {
-        public string Id { get; set; }
+        [BsonCtor]
+        public Player(string id, string authentication, string name, DateTime lastMessageSentTimestamp)
+        {
+            Id = id;
+            Authentication = authentication;
+            Name = name;
+            LastMessageSentTimestamp = lastMessageSentTimestamp;
+        }
 
-        public string Authentication { get; set; }
+        public string Id { get; }
 
-        public string Name { get; set; }
+        public string Authentication { get; }
+
+        public string Name { get; }
 
         public DateTime LastMessageSentTimestamp { get; set; }
 
-        public bool IsFlooding(float cooldown) => LastMessageSentTimestamp.AddMilliseconds(cooldown) > DateTime.Now;
+        public bool IsFlooding(float cooldown) => LastMessageSentTimestamp.AddSeconds(cooldown) > DateTime.Now;
 
-        public bool IsChatMuted() => LiteDatabase.GetCollection<Mute>().Exists(mute => mute.Target.Id == Id && mute.Expire > DateTime.Now);
+        public bool IsChatMuted() => Database.LiteDatabase.GetCollection<Mute>().Exists(mute => mute.Target.Id == Id && mute.Expire > DateTime.Now);
+
+        public void Save() => Database.LiteDatabase.GetCollection<Player>().Upsert(this);
     }
 }

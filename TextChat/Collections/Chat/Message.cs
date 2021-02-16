@@ -11,7 +11,10 @@
     {
         private string content;
 
-        [BsonCtor]
+        public Message()
+        {
+        }
+
         public Message(Player sender, List<Player> targets, string content, DateTime timestamp)
         {
             Sender = sender;
@@ -20,17 +23,14 @@
             Timestamp = timestamp;
         }
 
-        public Message(Player sender, Player target, string content, DateTime timestamp)
+        public Message(Player sender, Player target, string content, DateTime timestamp) 
+            : this(sender, new List<Player>() { target }, content, timestamp)
         {
-            Sender = sender;
-            Targets = new List<Player>() { target };
-            Content = content;
-            Timestamp = timestamp;
         }
 
-        public Player Sender { get; }
+        public Player Sender { get; private set; }
 
-        public List<Player> Targets { get; }
+        public List<Player> Targets { get; private set; }
 
         public string Content
         {
@@ -41,7 +41,7 @@
             }
         }
 
-        public DateTime Timestamp { get; }
+        public DateTime Timestamp { get; private set; }
 
         public bool IsValid(out string response)
         {
