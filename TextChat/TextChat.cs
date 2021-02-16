@@ -12,10 +12,10 @@
         {
         }
 
+        public static TextChat Instance => InstanceValue;
+
         internal RoundHandler RoundHandler { get; private set; }
         internal PlayerHandler PlayerHandler { get; private set; }
-
-        public static TextChat Instance => InstanceValue;
 
         public override Version RequiredExiledVersion { get; } = new Version(2, 1, 34);
 
