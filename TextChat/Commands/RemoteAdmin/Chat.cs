@@ -14,10 +14,7 @@
 
         public override string Description { get; } = string.Empty;
 
-        public override void LoadGeneratedCommands()
-        {
-            RegisterCommand(new Mute.Mute());
-        }
+        public override void LoadGeneratedCommands() => RegisterCommand(new Mute.Mute());
 
         protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
