@@ -26,7 +26,7 @@
         {
             Player player = Player.Get(((CommandSender)sender).SenderId);
 
-            if (!sender.CheckPermission("tc.mute"))
+            if (!sender.CheckPermission("tc.mute.add"))
             {
                 response = Language.CommandNotEnoughPermissionsError;
                 return false;

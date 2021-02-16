@@ -22,7 +22,7 @@
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            if (!sender.CheckPermission("tc.deletemutes"))
+            if (!sender.CheckPermission("tc.mute.remove"))
             {
                 response = Language.CommandNotEnoughPermissionsError;
                 return false;

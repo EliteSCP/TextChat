@@ -25,7 +25,7 @@
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            if (!sender.CheckPermission("tc.showmutes"))
+            if (!sender.CheckPermission("tc.mute.show"))
             {
                 response = Language.CommandNotEnoughPermissionsError;
                 return false;
