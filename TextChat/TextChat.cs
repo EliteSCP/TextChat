@@ -6,17 +6,18 @@
 
     public class TextChat : Plugin<Config>
     {
-        private static readonly Lazy<TextChat> LazyInstance = new Lazy<TextChat>(() => new TextChat());
+        private static readonly TextChat InstanceValue = new TextChat();
+
+        private TextChat()
+        {
+        }
 
         internal RoundHandler RoundHandler { get; private set; }
         internal PlayerHandler PlayerHandler { get; private set; }
 
-        public static TextChat Instance => LazyInstance.Value;
+        public static TextChat Instance => InstanceValue;
 
-        private TextChat()
-        {
-
-        }
+        public override Version RequiredExiledVersion { get; } = new Version(2, 1, 34);
 
         public override void OnEnabled()
         {
