@@ -9,9 +9,9 @@
     {
         public Chat() => LoadGeneratedCommands();
 
-        public override string Command { get; } = "chat";
+        public override string Command { get; } = "textchat";
 
-        public override string[] Aliases { get; } = new[] { "c" };
+        public override string[] Aliases { get; } = new[] { "chat", "c", "tc" };
 
         public override string Description { get; } = string.Empty;
 
