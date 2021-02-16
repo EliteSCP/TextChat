@@ -23,7 +23,7 @@
 
         protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            response = string.Format(Language.CommandSpecifySubCommand, "mute");
+            response = string.Format(Language.CommandSpecifySubCommand, "add, remove, show");
             return false;
         }
     }
