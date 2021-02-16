@@ -30,13 +30,13 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | Command | Description | Arguments | Example |
 | --- | --- | --- | --- |
 | .chat public/.c p | Sends a chat message to everyone in the server. | **[Message]** | **.chat Hi all!** |
-| .chat team/.c t | Sends a chat message to your team. | **[Message]** | **.chat_team I love being SCP!** |
-| .chat private/.c pr | Sends a private chat message to a player. | **[Nickname/UserID/PlayerID] [Message]** | **.chat_private iopietro Hello!** | 
+| .chat team/.c t | Sends a chat message to your team. | **[Message]** | **.chat team I love being SCP!** |
+| .chat private/.c pr | Sends a private chat message to a player. | **[Nickname/UserID/PlayerID] [Message]** | **.chat private iopietro Hello!** | 
 
 ### Administrator Commands
 | Command | Description | Arguments | Permission | Example |
 | --- | --- | --- | --- | --- |
-| chat mute add/c m a | Mutes a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute.add | **chat_mute iopietro 600 Spamming** |
+| chat mute add/c m a | Mutes a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute.add | **chat mute iopietro 600 Spamming** |
 | chat unmute remove/c um r | Unmutes a player from the chat by removing its last mute or removes all of its mutes. | **[Nickname/UserID/PlayerID]** | tc.unmute.remove | **chat unmute iopietro** |
 | chat mute show/c m s | Shows all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.mute.show | **chat mute show iopietro/chat mute show** |
 
