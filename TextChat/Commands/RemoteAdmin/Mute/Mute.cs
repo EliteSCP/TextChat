@@ -4,8 +4,6 @@
     using Localizations;
     using System;
 
-    [CommandHandler(typeof(RemoteAdminCommandHandler))]
-    [CommandHandler(typeof(GameConsoleCommandHandler))]
     public class Mute : ParentCommand
     {
         public Mute() => LoadGeneratedCommands();

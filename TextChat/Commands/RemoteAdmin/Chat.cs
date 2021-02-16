@@ -4,6 +4,8 @@
     using Localizations;
     using System;
 
+    [CommandHandler(typeof(RemoteAdminCommandHandler))]
+    [CommandHandler(typeof(GameConsoleCommandHandler))]
     public class Chat : ParentCommand
     {
         public Chat() => LoadGeneratedCommands();
