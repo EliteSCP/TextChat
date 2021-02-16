@@ -3,50 +3,59 @@
     using CommandSystem;
     using Enums;
     using Exiled.API.Features;
-    using Extensions;
     using Localizations;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using static Database;
-    using static TextChat;
 
-    public class Team : Message, ICommand
-	{
-		public Team() : base(ChatRoomType.Team)
-		{ }
+    public class Team : ICommand
+    {
+        public static Team Instance { get; } = new Team();
 
-		public string Description { get; } = Language.TeamChatDescription;
+        public string Description { get; } = Language.TeamChatDescription;
 
         public string Command { get; } = "t";
 
-		public string[] Aliases { get; } = new[] { "team" };
+        public string[] Aliases { get; } = new[] { "team" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-			Player player = Player.Get(((CommandSender)sender).SenderId);
+            Player player = Player.Get(((CommandSender)sender).SenderId);
 
-			if (!CheckValidity(arguments.GetMessage(), player, out response)) return false;
+            if (player == null)
+            {
+                response = Language.CommandError;
+                return false;
+            }
 
-			response = $"[{player.Nickname}][{Language.Team} ({player.Role.ToString().ToUpper()})]: {response}";
+            IEnumerable<Player> targets = Player.List.Where(tempPlayer => tempPlayer != player && tempPlayer.Team == player.Team);
 
-			IEnumerable<Player> targets = Player.List.Where(chatPlayer => chatPlayer != player && chatPlayer.Team == player.Team);
-			List<Collections.Chat.Player> chatTargets = targets.GetChatPlayers().ToList();
+            Collections.Chat.Message message = new Collections.Chat.Message(player.GetChatPlayer(), targets.GetChatPlayers().ToList(), arguments.GetMessage(), DateTime.Now);
 
-			if (chatTargets.Count == 0)
-			{
-				response = Language.NoAvailablePlayersToChatWithError;
-				return false;
-			}
+            if (message.Sender == null)
+            {
+                response = Language.CommandError;
+                return false;
+            }
 
-			color = player.GetColor();
+            if (!message.IsValid(out response))
+                return false;
 
-			if (Instance.Config.ShouldSaveChatToDatabase) SaveMessage(response, player.GetChatPlayer(), chatTargets, type);
+            if (message.Targets.Count == 0)
+            {
+                response = Language.NoAvailablePlayersToChatWithError;
+                return false;
+            }
 
-			Send(ref response, player, targets);
+            message.Content = response = $"[{player.Nickname}][{Language.Team} ({player.Role.ToString().ToUpper()})]: {response}";
 
-			response = $"<color={player?.Team.GetColor()}>{response}</color>";
-			return true;
-		}
-	}
+            if (TextChat.Instance.Config.ShouldSaveChatToDatabase)
+                message.Save(ChatRoomType.Team);
+
+            message.Send(targets, player.GetColor());
+
+            response = $"<color={player.Team.GetColor()}>{response}</color>";
+            return true;
+        }
+    }
 }

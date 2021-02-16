@@ -17,9 +17,9 @@
 
         public override void LoadGeneratedCommands()
         {
-            RegisterCommand(new Public());
-            RegisterCommand(new Private());
-            RegisterCommand(new Team());
+            RegisterCommand(Public.Instance);
+            RegisterCommand(Private.Instance);
+            RegisterCommand(Team.Instance);
         }
 
         protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)

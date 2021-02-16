@@ -3,54 +3,68 @@
     using CommandSystem;
     using Enums;
     using Exiled.API.Features;
-    using Extensions;
     using Localizations;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using static Database;
-    using static TextChat;
 
-    public class Public : Message, ICommand
-	{
-		public Public() : base(ChatRoomType.Public, Instance.Config.PublicChatColor)
-		{ }
+    public class Public : ICommand
+    {
+        private Public()
+        {
+        }
 
-		public string Description { get; } = Language.PublicChatDescription;
+        public static Public Instance { get; } = new Public();
 
-		public string Usage { get; } = Language.PublicChatUsage;
+        public string Description { get; } = Language.PublicChatDescription;
 
-		public string Command { get; } = "public";
+        public string Usage { get; } = Language.PublicChatUsage;
 
-		public string[] Aliases { get; } = new[] { "p" };
+        public string Command { get; } = "public";
+
+        public string[] Aliases { get; } = new[] { "p" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-			Player player = Player.Get(((CommandSender)sender).SenderId);
+            Player player = Player.Get(((CommandSender)sender).SenderId);
 
-			if (!CheckValidity(arguments.GetMessage(), player, out response)) return false;
+            if (player == null)
+            {
+                response = Language.CommandError;
+                return false;
+            }
 
-			response = $"[{player.Nickname}][{Language.Public}]: {response}";
+            IEnumerable<Player> targets = Player.List.Where(target =>
+            {
+                return player != target && (!TextChat.Instance.Config.CanSpectatorSendMessagesToAlive || (TextChat.Instance.Config.CanSpectatorSendMessagesToAlive && player.Team != global::Team.RIP));
+            });
 
-			IEnumerable<Player> targets = Player.List.Where(target =>
-			{
-				return player != target && (Instance.Config.CanSpectatorSendMessagesToAlive || player.Team != global::Team.RIP || target.Team == global::Team.RIP);
-			});
+            Collections.Chat.Message message = new Collections.Chat.Message(player.GetChatPlayer(), targets.GetChatPlayers().ToList(), arguments.GetMessage(), DateTime.Now);
 
-			List<Collections.Chat.Player> chatPlayers = targets.GetChatPlayers().ToList();
+            if (message.Sender == null)
+            {
+                response = Language.CommandError;
+                return false;
+            }
 
-			if (chatPlayers.Count == 0)
-			{
-				response = Language.NoAvailablePlayersToChatWithError;
-				return false;
-			}
+            if (!message.IsValid(out response))
+                return false;
 
-			if (Instance.Config.ShouldSaveChatToDatabase) SaveMessage(response, player.GetChatPlayer(), chatPlayers, type);
+            if (message.Targets.Count == 0)
+            {
+                response = Language.NoAvailablePlayersToChatWithError;
+                return false;
+            }
 
-			Send(ref response, player, targets);
+            message.Content = response = $"[{player.Nickname}][{Language.Public}]: {response}";
 
-			response = $"<color={color}>{response}</color>";
-			return true;
-		}
-	}
+            if (TextChat.Instance.Config.ShouldSaveChatToDatabase)
+                message.Save(ChatRoomType.Team);
+
+            message.Send(targets, player.GetColor());
+
+            response = $"<color={TextChat.Instance.Config.PublicChatColor}>{response}</color>";
+            return true;
+        }
+    }
 }

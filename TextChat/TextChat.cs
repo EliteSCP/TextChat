@@ -6,56 +6,56 @@
 
     public class TextChat : Plugin<Config>
     {
-		private static readonly Lazy<TextChat> LazyInstance = new Lazy<TextChat>(() => new TextChat());
+        private static readonly Lazy<TextChat> LazyInstance = new Lazy<TextChat>(() => new TextChat());
 
-		internal RoundHandler RoundHandler { get; private set; }
-		internal PlayerHandler PlayerHandler { get; private set; }
+        internal RoundHandler RoundHandler { get; private set; }
+        internal PlayerHandler PlayerHandler { get; private set; }
 
-		public static TextChat Instance => LazyInstance.Value;
+        public static TextChat Instance => LazyInstance.Value;
 
-		private TextChat()
+        private TextChat()
         {
 
         }
 
-		public override void OnEnabled()
-		{
-			RegisterEvents();
+        public override void OnEnabled()
+        {
+            RegisterEvents();
 
-			Database.Open();
+            Database.Open();
 
-			base.OnEnabled();
-		}
+            base.OnEnabled();
+        }
 
-		public override void OnDisabled()
-		{
-			UnregisterEvents();
+        public override void OnDisabled()
+        {
+            UnregisterEvents();
 
-			Database.Close();
+            Database.Close();
 
-			base.OnDisabled();
-		}
+            base.OnDisabled();
+        }
 
-		private void RegisterEvents()
-		{
-			RoundHandler = new RoundHandler();
-			PlayerHandler = new PlayerHandler();
+        private void RegisterEvents()
+        {
+            RoundHandler = new RoundHandler();
+            PlayerHandler = new PlayerHandler();
 
-			Exiled.Events.Handlers.Server.RestartingRound += RoundHandler.OnRestartingRound;
+            Exiled.Events.Handlers.Server.RestartingRound += RoundHandler.OnRestartingRound;
 
-			Exiled.Events.Handlers.Player.Verified += PlayerHandler.OnVerified;
-			Exiled.Events.Handlers.Player.Destroying += PlayerHandler.OnDestroying;
-		}
+            Exiled.Events.Handlers.Player.Verified += PlayerHandler.OnVerified;
+            Exiled.Events.Handlers.Player.Destroying += PlayerHandler.OnDestroying;
+        }
 
-		private void UnregisterEvents()
-		{
-			Exiled.Events.Handlers.Server.RestartingRound -= RoundHandler.OnRestartingRound;
+        private void UnregisterEvents()
+        {
+            Exiled.Events.Handlers.Server.RestartingRound -= RoundHandler.OnRestartingRound;
 
-			Exiled.Events.Handlers.Player.Verified -= PlayerHandler.OnVerified;
-			Exiled.Events.Handlers.Player.Destroying -= PlayerHandler.OnDestroying;
+            Exiled.Events.Handlers.Player.Verified -= PlayerHandler.OnVerified;
+            Exiled.Events.Handlers.Player.Destroying -= PlayerHandler.OnDestroying;
 
-			RoundHandler = null;
-			PlayerHandler = null;
-		}
-	}
+            RoundHandler = null;
+            PlayerHandler = null;
+        }
+    }
 }

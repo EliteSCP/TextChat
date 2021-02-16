@@ -2,7 +2,6 @@
 {
     using CommandSystem;
     using Exiled.Permissions.Extensions;
-    using Extensions;
     using Localizations;
     using NorthwoodLib.Pools;
     using System;
@@ -11,65 +10,71 @@
     using static Database;
 
     public class Show : ICommand
-	{
-		public string Description { get; } = Language.ShowMutesCommandDescription;
-
-		public string Command { get; } = "show" ;
-
-		public string[] Aliases { get; } = new[] { "s" };
-
-		public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
+    {
+        private Show()
         {
-			if (!sender.CheckPermission("tc.showmutes"))
-			{
-				response = Language.CommandNotEnoughPermissionsError;
-				return false;
-			}
+        }
 
-			if (arguments.Count == 0)
-			{
-				response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().FindAll().ToList()).ToString();
-				return false;
-			}
-			else if (arguments.Count == 1)
-			{
-				Collections.Chat.Player chatPlayer = arguments.At(0).GetChatPlayer();
+        public static Show Instance { get; } = new Show();
 
-				if (chatPlayer == null)
-				{
-					response = string.Format(Language.PlayerNotFoundError, arguments.At(0));
-					return false;
-				}
+        public string Description { get; } = Language.ShowMutesCommandDescription;
 
-				response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().Find(mute => mute.Target.Id == chatPlayer.Id).ToList()).ToString();
-				return true;
-			}
+        public string Command { get; } = "show";
 
-			response = Language.CommandTooManyArgumentsError;
-			return false;
-		}
+        public string[] Aliases { get; } = new[] { "s" };
 
-		private string GetPlayerMutes(List<Collections.Chat.Mute> playerMutesList)
-		{
-			var message = StringBuilderPool.Shared.Rent();
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        {
+            if (!sender.CheckPermission("tc.showmutes"))
+            {
+                response = Language.CommandNotEnoughPermissionsError;
+                return false;
+            }
 
-			message.AppendLine().Append('[').Append(Language.MutesList).Append(" (").Append(playerMutesList.Count).Append(")]").AppendLine();
+            if (arguments.Count == 0)
+            {
+                response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().FindAll().ToList()).ToString();
+                return false;
+            }
+            else if (arguments.Count == 1)
+            {
+                Collections.Chat.Player chatPlayer = arguments.At(0).GetChatPlayer();
 
-			foreach (Collections.Chat.Mute playerMute in playerMutesList)
-			{
-				message.AppendLine().Append('[').Append(playerMute.Target.Name).Append(" (").Append(playerMute.Target.Id).Append('@').Append(playerMute.Target.Authentication).Append(")]").AppendLine()
-					.Append(Language.Issuer).Append(": ").Append(playerMute.Issuer.Name).Append(" (").Append(playerMute.Issuer.Id).Append('@').Append(playerMute.Issuer.Authentication).Append(')').AppendLine()
-					.Append(Language.Reason).Append(": ").Append(playerMute.Reason).AppendLine()
-					.Append(Language.Duration).Append(": ").Append(playerMute.Duration).Append(' ').Append(Language.Minutes).AppendLine()
-					.Append(Language.Timestamp).Append(": ").Append(playerMute.Timestamp).AppendLine()
-					.Append(Language.Expire).Append(": ").Append(playerMute.Expire).AppendLine();
-			}
+                if (chatPlayer == null)
+                {
+                    response = string.Format(Language.PlayerNotFoundError, arguments.At(0));
+                    return false;
+                }
 
-			var playerMutesString = message.ToString();
+                response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().Find(mute => mute.Target.Id == chatPlayer.Id).ToList()).ToString();
+                return true;
+            }
 
-			StringBuilderPool.Shared.Return(message);
+            response = Language.CommandTooManyArgumentsError;
+            return false;
+        }
 
-			return playerMutesString;
-		}
-	}
+        private string GetPlayerMutes(List<Collections.Chat.Mute> playerMutesList)
+        {
+            var message = StringBuilderPool.Shared.Rent();
+
+            message.AppendLine().Append('[').Append(Language.MutesList).Append(" (").Append(playerMutesList.Count).Append(")]").AppendLine();
+
+            foreach (Collections.Chat.Mute playerMute in playerMutesList)
+            {
+                message.AppendLine().Append('[').Append(playerMute.Target.Name).Append(" (").Append(playerMute.Target.Id).Append('@').Append(playerMute.Target.Authentication).Append(")]").AppendLine()
+                    .Append(Language.Issuer).Append(": ").Append(playerMute.Issuer.Name).Append(" (").Append(playerMute.Issuer.Id).Append('@').Append(playerMute.Issuer.Authentication).Append(')').AppendLine()
+                    .Append(Language.Reason).Append(": ").Append(playerMute.Reason).AppendLine()
+                    .Append(Language.Duration).Append(": ").Append(playerMute.Duration).Append(' ').Append(Language.Minutes).AppendLine()
+                    .Append(Language.Timestamp).Append(": ").Append(playerMute.Timestamp).AppendLine()
+                    .Append(Language.Expire).Append(": ").Append(playerMute.Expire).AppendLine();
+            }
+
+            var playerMutesString = message.ToString();
+
+            StringBuilderPool.Shared.Return(message);
+
+            return playerMutesString;
+        }
+    }
 }

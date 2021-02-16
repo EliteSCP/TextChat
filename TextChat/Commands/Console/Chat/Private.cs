@@ -3,64 +3,73 @@
     using CommandSystem;
     using Enums;
     using Exiled.API.Features;
-    using Extensions;
     using Localizations;
     using System;
-    using System.Collections.Generic;
-    using static Database;
-    using static TextChat;
 
-    public class Private : Message, ICommand
-	{
-		public Private() : base(ChatRoomType.Private, Instance.Config.PrivateChatColor)
-		{ }
+    public class Private : ICommand
+    {
+        private Private()
+        {
+        }
 
-		public string Description { get; } = Language.PrivateChatDescription;
+        public static Private Instance { get; } = new Private();
 
-		public string Usage { get; } = Language.PrivateChatUsage;
+        public string Description { get; } = Language.PrivateChatDescription;
 
-		public string Command { get; } = "private";
+        public string Usage { get; } = Language.PrivateChatUsage;
 
-		public string[] Aliases { get; } = new[] { "pr" };
+        public string Command { get; } = "private";
+
+        public string[] Aliases { get; } = new[] { "pr" };
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-			Player player = Player.Get(((CommandSender)sender).SenderId);
+            Player player = Player.Get(((CommandSender)sender).SenderId);
 
-			if (!CheckValidity(arguments.GetMessage(1), player, out response)) return false;
+            if (player == null)
+            {
+                response = Language.CommandError;
+                return false;
+            }
 
-			response = $"[{player.Nickname}][{Language.Private}]: {response}";
+            Player target = Player.Get(arguments.At(0));
 
-			Player target = Player.Get(arguments.At(0));
+            if (target == null)
+            {
+                response = string.Format(Language.PlayerNotFoundError, arguments.At(0));
+                return false;
+            }
+            else if (player == target)
+            {
+                response = Language.CannotSendMessageToThemselvesError;
+                return false;
+            }
+            else if (!TextChat.Instance.Config.CanSpectatorSendMessagesToAlive && player.Team == global::Team.RIP && target.Team != global::Team.RIP)
+            {
+                response = Language.CannotSendMessageToAlivePlayersError;
+                return false;
+            }
 
-			if (target == null)
-			{
-				response = string.Format(Language.PlayerNotFoundError, arguments.At(0));
-				return false;
-			}
-			else if (player == target)
-			{
-				response = Language.CannotSendMessageToThemselvesError;
-				return false;
-			}
-			else if (!Instance.Config.CanSpectatorSendMessagesToAlive && player.Team == global::Team.RIP && target.Team != global::Team.RIP)
-			{
-				response = Language.CannotSendMessageToAlivePlayersError;
-				return false;
-			}
+            Collections.Chat.Message message = new Collections.Chat.Message(player.GetChatPlayer(), target.GetChatPlayer(), arguments.GetMessage(1), DateTime.Now);
 
-			if (Instance.Config.ShouldSaveChatToDatabase) SaveMessage(response, player.GetChatPlayer(), new List<Collections.Chat.Player>() { target.GetChatPlayer() }, type);
+            if (!message.IsValid(out response))
+                return false;
 
-			Send(ref response, player, new List<Player>() { target });
+            response = $"[{player.Nickname}][{Language.Private}]: {response}";
 
-			if (Instance.Config.PrivateMessageNotificationBroadcast.Show)
-			{
-				target?.ClearBroadcasts();
-				target?.Broadcast(Instance.Config.PrivateMessageNotificationBroadcast.Duration, Instance.Config.PrivateMessageNotificationBroadcast.Content, Instance.Config.PrivateMessageNotificationBroadcast.Type);
-			}
+            if (TextChat.Instance.Config.ShouldSaveChatToDatabase)
+                message.Save(ChatRoomType.Private);
 
-			response = $"<color={color}>{response}</color>";
-			return true;
-		}
-	}
+            message.Send(target, TextChat.Instance.Config.PrivateChatColor);
+
+            if (TextChat.Instance.Config.PrivateMessageNotificationBroadcast.Show)
+            {
+                target?.ClearBroadcasts();
+                target?.Broadcast(TextChat.Instance.Config.PrivateMessageNotificationBroadcast.Duration, TextChat.Instance.Config.PrivateMessageNotificationBroadcast.Content, TextChat.Instance.Config.PrivateMessageNotificationBroadcast.Type);
+            }
+
+            response = $"<color={TextChat.Instance.Config.PrivateChatColor}>{response}</color>";
+            return true;
+        }
+    }
 }

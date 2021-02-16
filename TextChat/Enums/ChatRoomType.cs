@@ -1,9 +1,9 @@
 ﻿namespace TextChat.Enums
 {
     public enum ChatRoomType
-	{
-		Public,
-		Team,
-		Private
-	}
+    {
+        Public,
+        Team,
+        Private
+    }
 }

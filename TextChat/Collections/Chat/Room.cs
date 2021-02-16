@@ -2,12 +2,30 @@
 {
     using Enums;
     using LiteDB;
+
     public class Room
-	{
-		public ObjectId Id { get; set; }
+    {
+        [BsonCtor]
+        public Room(ObjectId id, Message message, ChatRoomType type)
+        {
+            Id = id;
+            Message = message;
+            Type = type;
+        }
 
-		public Message Message { get; set; }
+        public Room(Message message, ChatRoomType type)
+        {
+            Id = ObjectId.NewObjectId();
+            Message = message;
+            Type = type;
+        }
 
-		public ChatRoomType Type { get; set; }
-	}
+        public ObjectId Id { get; }
+
+        public Message Message { get; }
+
+        public ChatRoomType Type { get; }
+
+        public void Save() => Database.LiteDatabase.GetCollection<Room>().Insert(this);
+    }
 }
