@@ -2,7 +2,7 @@
 An in-game TextChat plugin for SCP:SL.
 
 ## Minimum requirements
-[EXILED](https://github.com/galaxy119/EXILED) **2.1.8.1+**
+[EXILED](https://github.com/galaxy119/EXILED) **2.1.34+**
 
 [LiteDB](https://github.com/mbdavid/LiteDB) **5.0.9+**
 
@@ -29,16 +29,16 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 ### Player Commands
 | Command | Description | Arguments | Example |
 | --- | --- | --- | --- |
-| .chat public | Sends a chat message to everyone in the server. | **[Message]** | **.chat Hi all!** |
-| .chat team | Sends a chat message to your team. | **[Message]** | **.chat_team I love being SCP!** |
-| .chat private | Sends a private chat message to a player. | **[Nickname/UserID/PlayerID] [Message]** | **.chat_private iopietro Hello!** | 
+| .chat public/.c p | Sends a chat message to everyone in the server. | **[Message]** | **.chat Hi all!** |
+| .chat team/.c t | Sends a chat message to your team. | **[Message]** | **.chat team I love being SCP!** |
+| .chat private/.c pr | Sends a private chat message to a player. | **[Nickname/UserID/PlayerID] [Message]** | **.chat private iopietro Hello!** | 
 
 ### Administrator Commands
 | Command | Description | Arguments | Permission | Example |
 | --- | --- | --- | --- | --- |
-| chat mute add | Mutes a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute | **chat_mute iopietro 600 Spamming** |
-| chat mute remove | Unmutes a player from the chat by removing its last mute or removes all of its mutes. | **[Nickname/UserID/PlayerID]** | tc.unmute | **chat_unmute iopietro** |
-| chat mute show | Shows all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.showmutes | **chat_show_mutes/chat_show_mutes iopietro** |
+| chat mute add/c m a | Mutes a player from the chat. | **[Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]** | tc.mute.add | **chat mute iopietro 600 Spamming** |
+| chat unmute remove/c um r | Unmutes a player from the chat by removing its last mute or removes all of its mutes. | **[Nickname/UserID/PlayerID]** | tc.unmute.remove | **chat unmute iopietro** |
+| chat mute show/c m s | Shows all mutes stored in the database or mutes of a specific player. | **None/[Nickname/UserID/PlayerID]** | tc.mute.show | **chat mute show iopietro/chat mute show** |
 
 ### List of available languages
 | Name | Config Value |
@@ -48,6 +48,7 @@ Press **ò** or **\`** on your keyboard to open the in-game console, with that, 
 | Portuguese | pt |
 | Korean | ko |
 | German | de |
+| Russian | ru |
 
 ### List of available colors
 | Name |
