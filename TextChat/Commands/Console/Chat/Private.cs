@@ -55,7 +55,7 @@
             if (!message.IsValid(out response))
                 return false;
 
-            response = $"[{player.Nickname}][{Language.Private}]: {response}";
+            message.Content = response = $"[{player.Nickname}][{Language.Private}]: {response}";
 
             if (TextChat.Instance.Config.ShouldSaveChatToDatabase)
                 message.Save(ChatRoomType.Private);
