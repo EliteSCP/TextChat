@@ -18,7 +18,7 @@
 
         public string Authentication { get; }
 
-        public string Name { get; }
+        public string Name { get; internal set; }
 
         public DateTime LastMessageSentTimestamp { get; set; }
 

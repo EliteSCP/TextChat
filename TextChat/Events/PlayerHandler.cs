@@ -11,11 +11,19 @@
     {
         public void OnVerified(VerifiedEventArgs ev)
         {
-            ChatPlayersCache.Add(ev.Player, ev.Player.GetChatPlayer() ?? new Collections.Chat.Player(
+            var chatPlayer = ev.Player.GetChatPlayer() ?? new Collections.Chat.Player(
                 ev.Player.RawUserId,
                 ev.Player.AuthenticationType.ToString().ToLower(),
                 ev.Player.Nickname,
-                DateTime.Now));
+                DateTime.Now);
+
+            ChatPlayersCache.Add(ev.Player, chatPlayer);
+
+            if (chatPlayer.Name != ev.Player.Nickname)
+            {
+                chatPlayer.Name = ev.Player.Nickname;
+                chatPlayer.Save();
+            }
 
             ev.Player.SendConsoleMessage(Language.ChatWelcome, "green");
 
