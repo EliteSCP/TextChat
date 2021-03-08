@@ -34,7 +34,7 @@
 
             if (arguments.Count < 2)
             {
-                response = string.Format(Language.CommandNotEnoughParametersError, 2, Language.AddMuteCommandUsage);
+                response = string.Format(Language.CommandNotEnoughParametersError, 3, Language.AddMuteCommandUsage);
                 return false;
             }
 
