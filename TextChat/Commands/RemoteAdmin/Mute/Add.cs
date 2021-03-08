@@ -24,8 +24,6 @@
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            Player player = Player.Get(((CommandSender)sender).SenderId);
-
             if (!sender.CheckPermission("tc.mute.add"))
             {
                 response = Language.CommandNotEnoughPermissionsError;
@@ -40,6 +38,7 @@
 
             Player target = Player.Get(arguments.At(0));
             Collections.Chat.Player chatPlayer = arguments.At(0).GetChatPlayer();
+            Collections.Chat.Player issuer = ((CommandSender)sender).GetStaffer();
 
             if (chatPlayer == null)
             {
@@ -67,7 +66,7 @@
                 return false;
             }
 
-            new Collections.Chat.Mute(chatPlayer, player.GetChatPlayer(), reason, duration, DateTime.Now, DateTime.Now.AddMinutes(duration)).Save();
+            new Collections.Chat.Mute(chatPlayer, issuer, reason, duration, DateTime.Now, DateTime.Now.AddMinutes(duration)).Save();
 
             if (TextChat.Instance.Config.ChatMutedBroadcast.Show)
             {

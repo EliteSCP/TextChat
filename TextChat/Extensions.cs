@@ -62,10 +62,19 @@
                 return LiteDatabase.GetCollection<Collections.Chat.Player>().FindById(player.RawUserId);
         }
 
+        public static Collections.Chat.Player GetStaffer(this CommandSender sender) => new Collections.Chat.Player
+        (
+            sender?.SenderId?.GetRawUserId() ?? "Server",
+            sender?.SenderId?.GetAuthentication() ?? "Server",
+            sender?.Nickname ?? "Server",
+            DateTime.MinValue
+        );
+
         public static IEnumerable<Collections.Chat.Player> GetChatPlayers(this IEnumerable<Player> players)
         {
             return players.Select(player => player?.GetChatPlayer()).Where(player => player != null);
         }
+        public static string GetAuthentication(this string userId) => userId.Substring(userId.LastIndexOf('@') + 1);
 
         public static string GetRawUserId(this string userId)
         {
