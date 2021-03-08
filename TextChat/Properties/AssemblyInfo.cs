@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TextChat")]
 [assembly: AssemblyDescription("An in-game TextChat plugin for SCP:SL.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("iopietro")]
 [assembly: AssemblyProduct("TextChat")]
 [assembly: AssemblyCopyright("Copyright © iopietro 2020")]
 [assembly: AssemblyTrademark("")]

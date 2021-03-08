@@ -34,7 +34,7 @@
 
             if (arguments.Count == 0)
             {
-                response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().FindAll().ToList()).ToString();
+                response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().FindAll().ToList());
                 return false;
             }
             else if (arguments.Count == 1)
@@ -47,7 +47,7 @@
                     return false;
                 }
 
-                response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().Find(mute => mute.Target.Id == chatPlayer.Id).ToList()).ToString();
+                response = GetPlayerMutes(LiteDatabase.GetCollection<Collections.Chat.Mute>().Find(mute => mute.Target.Id == chatPlayer.Id).ToList());
                 return true;
             }
 
@@ -71,11 +71,7 @@
                     .Append(Language.Expire).Append(": ").Append(playerMute.Expire).AppendLine();
             }
 
-            string playerMutesString = message.ToString();
-
-            StringBuilderPool.Shared.Return(message);
-
-            return playerMutesString;
+            return StringBuilderPool.Shared.ToStringReturn(message);
         }
     }
 }
