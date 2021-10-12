@@ -177,12 +177,6 @@
   <data name="CommandTooManyArgumentsError" xml:space="preserve">
     <value>Too many arguments!</value>
   </data>
-  <data name="HelpCommandDescription" xml:space="preserve">
-    <value>Gets a list of commands or the description of a single command.</value>
-  </data>
-  <data name="HelpCommandUsage" xml:space="preserve">
-    <value>.chat_help/.chat_help [Command Name]</value>
-  </data>
   <data name="InvalidDurationError" xml:space="preserve">
     <value>{0} is an invalid duration!</value>
   </data>
@@ -199,7 +193,7 @@
     <value>You have been muted from the chat for {0} minute(s)! Reason: {1}</value>
   </data>
   <data name="AddMuteCommandUsage" xml:space="preserve">
-    <value>chat_mute [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]</value>
+    <value>textchat mute add [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason]</value>
   </data>
   <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
     <value>There are no available players to chat with!</value>
@@ -229,7 +223,7 @@
     <value>Sends a private chat message to a player.</value>
   </data>
   <data name="PrivateChatUsage" xml:space="preserve">
-    <value>.chat_private [Nickname/UserID/PlayerID] [Message]</value>
+    <value>.chat private [Nickname/UserID/PlayerID] [Message]</value>
   </data>
   <data name="Public" xml:space="preserve">
     <value>PUBLIC</value>
@@ -238,7 +232,7 @@
     <value>Sends a chat message to everyone in the server.</value>
   </data>
   <data name="PublicChatUsage" xml:space="preserve">
-    <value>.chat [Message]</value>
+    <value>.chat public [Message]</value>
   </data>
   <data name="ReasonCannotBeEmptyError" xml:space="preserve">
     <value>The reason cannot be empty!</value>
@@ -250,7 +244,7 @@
     <value>Sends a chat message to your team.</value>
   </data>
   <data name="TeamChatUsage" xml:space="preserve">
-    <value>.chat_team [Message]</value>
+    <value>.chat team [Message]</value>
   </data>
   <data name="UnmuteCommandDescription" xml:space="preserve">
     <value>Unmute a player from the chat.</value>
@@ -262,7 +256,7 @@
     <value>You have been unmuted from the chat!</value>
   </data>
   <data name="UnmuteCommandUsage" xml:space="preserve">
-    <value>chat_unmute [Nickname/UserID/PlayerID]</value>
+    <value>textchat mute remove [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="PlayerHasBeenChatMuted" xml:space="preserve">
     <value>You have been muted from the chat for {0} minutes, reason: {1}</value>
@@ -277,7 +271,7 @@
     <value>Deletes all mutes in the database, or mutes of a specified player.</value>
   </data>
   <data name="RemoveMutesCommandUsage" xml:space="preserve">
-    <value>chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID]</value>
+    <value>textchat mute remove [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="RemoveMutesSuccess" xml:space="preserve">
     <value>{0} mutes of "{1}" have been sucessfully deleted!</value>
@@ -307,7 +301,7 @@
     <value>Shows all mutes in the database, or mutes of a specified player.</value>
   </data>
   <data name="ShowMutesCommandUsage" xml:space="preserve">
-    <value>chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID]</value>
+    <value>textchat mute show [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="Timestamp" xml:space="preserve">
     <value>Timestamp</value>

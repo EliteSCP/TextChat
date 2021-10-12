@@ -177,12 +177,6 @@
   <data name="CommandTooManyArgumentsError" xml:space="preserve">
     <value>명령어 뒤에 글자가 너무 많습니다!</value>
   </data>
-  <data name="HelpCommandDescription" xml:space="preserve">
-    <value>한 명령어의 사용법을 불러옵니다.</value>
-  </data>
-  <data name="HelpCommandUsage" xml:space="preserve">
-    <value>.chat_help/.chat_help [명령어 이름]</value>
-  </data>
   <data name="InvalidDurationError" xml:space="preserve">
     <value>{0} 는 사용가능한 시간이 아닙니다!</value>
   </data>
@@ -199,7 +193,7 @@
     <value>당신은 {0} 분동안 채팅에서 음소거 되었습니다! 이유: {1}"</value>
   </data>
   <data name="AddMuteCommandUsage" xml:space="preserve">
-    <value>chat_mute [닉네임/유저ID] [시간 (분)] [이유]</value>
+    <value>textchat mute add [닉네임/유저ID] [시간 (분)] [이유]</value>
   </data>
   <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
     <value>같이 채팅할 사람이 없습니다!</value>
@@ -229,7 +223,7 @@
     <value>플레이어에게 개인 메세지를 보냅니다.</value>
   </data>
   <data name="PrivateChatUsage" xml:space="preserve">
-    <value>.chat_private [닉네임] [메세지]</value>
+    <value>.chat private [닉네임] [메세지]</value>
   </data>
   <data name="Public" xml:space="preserve">
     <value>공개</value>
@@ -238,7 +232,7 @@
     <value>서버에 있는 모든 사람한테 채팅을 보냅니다.</value>
   </data>
   <data name="PublicChatUsage" xml:space="preserve">
-    <value>.chat [메세지]</value>
+    <value>.chat public [메세지]</value>
   </data>
   <data name="ReasonCannotBeEmptyError" xml:space="preserve">
     <value>이유란은 비어 있을수 없습니다!</value>
@@ -250,7 +244,7 @@
     <value>팀한테 메세지를 보냅니다.</value>
   </data>
   <data name="TeamChatUsage" xml:space="preserve">
-    <value>.chat_team [메세지]</value>
+    <value>.chat team [메세지]</value>
   </data>
   <data name="UnmuteCommandDescription" xml:space="preserve">
     <value>플레이어를 채팅에서 음소거 해제합니다.</value>
@@ -262,7 +256,7 @@
     <value>당신은 음소거가 풀렸습니다!</value>
   </data>
   <data name="UnmuteCommandUsage" xml:space="preserve">
-    <value>chat_unmute [닉네임/유저ID]</value>
+    <value>textchat mute remove [닉네임/유저ID]</value>
   </data>
   <data name="PlayerHasBeenChatMuted" xml:space="preserve">
     <value>당신은 개인 메세지를 받으셨습니다!</value>
@@ -277,7 +271,7 @@
     <value>Deletes all mutes in the database, or mutes of a specified player.</value>
   </data>
   <data name="RemoveMutesCommandUsage" xml:space="preserve">
-    <value>chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID]</value>
+    <value>textchat mute remove [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="RemoveMutesSuccess" xml:space="preserve">
     <value>{0} mutes of "{1}" have been sucessfully deleted!</value>
@@ -307,7 +301,7 @@
     <value>Shows all mutes in the database, or mutes of a specified player.</value>
   </data>
   <data name="ShowMutesCommandUsage" xml:space="preserve">
-    <value>chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID]</value>
+    <value>textchat mute show [Nickname/UserID/PlayerID]</value>
   </data>
   <data name="Timestamp" xml:space="preserve">
     <value>Timestamp</value>

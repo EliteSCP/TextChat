@@ -88,7 +88,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a chat_mute [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason].
+        ///   Cerca una stringa localizzata simile a textchat mute add [Nickname/UserID/PlayerID] [Duration (Minutes)] [Reason].
         /// </summary>
         internal static string AddMuteCommandUsage {
             get {
@@ -264,24 +264,6 @@ namespace TextChat.Localizations {
         internal static string Expire {
             get {
                 return ResourceManager.GetString("Expire", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a Gets a list of commands or the description of a single command..
-        /// </summary>
-        internal static string HelpCommandDescription {
-            get {
-                return ResourceManager.GetString("HelpCommandDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a .chat_help/.chat_help [Command Name].
-        /// </summary>
-        internal static string HelpCommandUsage {
-            get {
-                return ResourceManager.GetString("HelpCommandUsage", resourceCulture);
             }
         }
         
@@ -484,7 +466,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a .chat_private [Nickname/UserID/PlayerID] [Message].
+        ///   Cerca una stringa localizzata simile a .chat private [Nickname/UserID/PlayerID] [Message].
         /// </summary>
         internal static string PrivateChatUsage {
             get {
@@ -511,7 +493,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a .chat [Message].
+        ///   Cerca una stringa localizzata simile a .chat public [Message].
         /// </summary>
         internal static string PublicChatUsage {
             get {
@@ -556,7 +538,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a chat_delete_mutes/chat_delete_mutes [Nickname/UserID/PlayerID].
+        ///   Cerca una stringa localizzata simile a textchat mute remove [Nickname/UserID/PlayerID].
         /// </summary>
         internal static string RemoveMutesCommandUsage {
             get {
@@ -583,7 +565,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a chat_show_mutes/chat_show_mutes [Nickname/UserID/PlayerID].
+        ///   Cerca una stringa localizzata simile a textchat mute show [Nickname/UserID/PlayerID].
         /// </summary>
         internal static string ShowMutesCommandUsage {
             get {
@@ -610,7 +592,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a .chat_team [Message].
+        ///   Cerca una stringa localizzata simile a .chat team [Message].
         /// </summary>
         internal static string TeamChatUsage {
             get {
@@ -655,7 +637,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a chat_unmute [Nickname/UserID/PlayerID].
+        ///   Cerca una stringa localizzata simile a textchat mute remove [Nickname/UserID/PlayerID].
         /// </summary>
         internal static string UnmuteCommandUsage {
             get {

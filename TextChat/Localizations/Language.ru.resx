@@ -177,12 +177,6 @@
   <data name="CommandTooManyArgumentsError" xml:space="preserve">
     <value>Слишком много аргументов!</value>
   </data>
-  <data name="HelpCommandDescription" xml:space="preserve">
-    <value>Выведение списка команд или описания конкретной команды.</value>
-  </data>
-  <data name="HelpCommandUsage" xml:space="preserve">
-    <value>.chat_help/.chat_help [Название команды]</value>
-  </data>
   <data name="InvalidDurationError" xml:space="preserve">
     <value>{0} недопустимая продолжительность!</value>
   </data>
@@ -199,7 +193,7 @@
     <value>Вы были заглушены в чате на {0} минут(у)(ы)! Причина: {1}</value>
   </data>
   <data name="MuteCommandUsage" xml:space="preserve">
-    <value>chat_mute [Ник/UserID/PlayerID] [Продолжительность (Минуты)] [Причина]</value>
+    <value>textchat mute add [Ник/UserID/PlayerID] [Продолжительность (Минуты)] [Причина]</value>
   </data>
   <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
     <value>Нет доступных игроков для чата!</value>
@@ -229,7 +223,7 @@
     <value>Отправляет личное сообщение в чат игроку.</value>
   </data>
   <data name="PrivateChatUsage" xml:space="preserve">
-    <value>.chat_private [Ник/UserID/PlayerID] [Сообщение]</value>
+    <value>.chat private [Ник/UserID/PlayerID] [Сообщение]</value>
   </data>
   <data name="Public" xml:space="preserve">
     <value>ПУБЛИЧНЫЙ</value>
@@ -238,7 +232,7 @@
     <value>Отправляет сообщение в чат всем на сервере.</value>
   </data>
   <data name="PublicChatUsage" xml:space="preserve">
-    <value>.chat [Сообщение]</value>
+    <value>.chat public [Сообщение]</value>
   </data>
   <data name="ReasonCannotBeEmptyError" xml:space="preserve">
     <value>Причина не может быть пустой!</value>
@@ -250,7 +244,7 @@
     <value>Отправляет сообщение в чат команды.</value>
   </data>
   <data name="TeamChatUsage" xml:space="preserve">
-    <value>.chat_team [Сообщение]</value>
+    <value>.chat team [Сообщение]</value>
   </data>
   <data name="UnmuteCommandDescription" xml:space="preserve">
     <value>Снять заглушку с игрока в чате.</value>
@@ -262,7 +256,7 @@
     <value>С вас сняли заглушку в чате!</value>
   </data>
   <data name="UnmuteCommandUsage" xml:space="preserve">
-    <value>chat_unmute [Ник/UserID/PlayerID]</value>
+    <value>textchat mute remove [Ник/UserID/PlayerID]</value>
   </data>
   <data name="PlayerHasBeenChatMuted" xml:space="preserve">
     <value>Вы были заглушены в чате на {0} минут, причина: {1}</value>
@@ -307,7 +301,7 @@
     <value>Показывает все заглушки из базы данных или заглушки указанного игрока.</value>
   </data>
   <data name="ShowMutesCommandUsage" xml:space="preserve">
-    <value>chat_show_mutes/chat_show_mutes [Ник/UserID/PlayerID]</value>
+    <value>textchat mute show [Ник/UserID/PlayerID]</value>
   </data>
   <data name="Timestamp" xml:space="preserve">
     <value>Отметка времени</value>
