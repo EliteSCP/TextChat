@@ -15,6 +15,7 @@
         public static TextChat Instance => InstanceValue;
 
         internal RoundHandler RoundHandler { get; private set; }
+
         internal PlayerHandler PlayerHandler { get; private set; }
 
         public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
