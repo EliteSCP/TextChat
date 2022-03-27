@@ -28,7 +28,7 @@
                 return false;
             }
 
-            IEnumerable<Player> targets = Player.List.Where(tempPlayer => tempPlayer != player && tempPlayer.Team == player.Team);
+            IEnumerable<Player> targets = Player.List.Where(tempPlayer => tempPlayer != player && tempPlayer.Role.Team == player.Role.Team);
 
             Collections.Chat.Message message = new Collections.Chat.Message(player.GetChatPlayer(), targets.GetChatPlayers().ToList(), arguments.GetMessage(), DateTime.Now);
 

@@ -15,7 +15,7 @@
                 target.SendConsoleMessage(message, color);
         }
 
-        public static string GetColor(this Player player) => player.Team.GetColor();
+        public static string GetColor(this Player player) => player.Role.Team.GetColor();
 
         public static string GetColor(this Team team)
         {
