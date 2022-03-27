@@ -17,7 +17,7 @@
         internal RoundHandler RoundHandler { get; private set; }
         internal PlayerHandler PlayerHandler { get; private set; }
 
-        public override Version RequiredExiledVersion { get; } = new Version(2, 1, 34);
+        public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
 
         public override void OnEnabled()
         {
