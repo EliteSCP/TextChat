@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <OutputType>Library</OutputType>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <OutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>  
+    <Authors>iopietro</Authors>
+    <Version>1.4.3</Version>
+    <Copyright>Copyright © iopietro 2020-2022</Copyright>
+    <RepositoryType>Git</RepositoryType>
+    <RepositoryUrl>https://github.com/EliteSCP/TextChat</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/EliteSCP/TextChat</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <DebugType>Portable</DebugType>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+  </PropertyGroup>
+</Project>

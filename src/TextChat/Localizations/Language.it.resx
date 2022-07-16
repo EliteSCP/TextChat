@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ChatWelcome" xml:space="preserve">
+    <value>Benvenuto nella chat!</value>
+  </data>
+  <data name="CommandError" xml:space="preserve">
+    <value>Si è verificato un errore durante l'esecuzione del comando!</value>
+  </data>
+  <data name="CommandException" xml:space="preserve">
+    <value>Errore del comando {0}: {1}</value>
+  </data>
+  <data name="CommandNotAllowedForConsoleError" xml:space="preserve">
+    <value>Non puoi eseguire questo comando dalla console del server!</value>
+  </data>
+  <data name="DatabaseClosed" xml:space="preserve">
+    <value>Il database è stato chiuso con successo!</value>
+  </data>
+  <data name="DatabaseCloseError" xml:space="preserve">
+    <value>Si è verificato un errore durante la chiusura del database: {0}</value>
+  </data>
+  <data name="DatabaseLoaded" xml:space="preserve">
+    <value>Il database è stato caricato con successo!</value>
+  </data>
+  <data name="DatabaseLoadError" xml:space="preserve">
+    <value>Si è verificato un errore durante l'apertura del database: {0}</value>
+  </data>
+  <data name="PlayerHasLeftTheChat" xml:space="preserve">
+    <value>{0} è uscito dalla chat!</value>
+  </data>
+  <data name="PluginDisabled" xml:space="preserve">
+    <value>{0} è stato Disabilitato!</value>
+  </data>
+  <data name="PluginEnabled" xml:space="preserve">
+    <value>{0} è stato Abilitato!</value>
+  </data>
+  <data name="PluginReloaded" xml:space="preserve">
+    <value>{0} è stato Ricaricato!</value>
+  </data>
+  <data name="CannotSendMessageToAlivePlayersError" xml:space="preserve">
+    <value>Non puoi inviare un messaggio ai giocatori in vita!</value>
+  </data>
+  <data name="CannotSendMessageToThemselvesError" xml:space="preserve">
+    <value>Non puoi inviare un messaggio a te stesso!</value>
+  </data>
+  <data name="ChatMessageCannotBeEmptyError" xml:space="preserve">
+    <value>Non puoi inviare un messaggio vuoto!</value>
+  </data>
+  <data name="ChatMessageTooLongError" xml:space="preserve">
+    <value>Il messaggio è troppo lungo! Lunghezza massima: {0}</value>
+  </data>
+  <data name="CommandNotEnoughParametersError" xml:space="preserve">
+    <value>Devi fornire {0} parametri/o! {1}</value>
+  </data>
+  <data name="CommandNotEnoughPermissionsError" xml:space="preserve">
+    <value>Non hai il permesso di eseguire questo comando!</value>
+  </data>
+  <data name="CommandNotFoundError" xml:space="preserve">
+    <value>Il comando "{0}" non è stato trovato!</value>
+  </data>
+  <data name="CommandTooManyArgumentsError" xml:space="preserve">
+    <value>Hai fornito troppi argomenti!</value>
+  </data>
+  <data name="InvalidDurationError" xml:space="preserve">
+    <value>"{0}" non è una durata valida!</value>
+  </data>
+  <data name="ListOfCommands" xml:space="preserve">
+    <value>LISTA DEI COMANDI ({0})</value>
+  </data>
+  <data name="AddMuteCommandDescription" xml:space="preserve">
+    <value>Muta un player dalla chat.</value>
+  </data>
+  <data name="AddMuteCommandSuccessModerator" xml:space="preserve">
+    <value>"{0}" è stato mutato dalla chat per {1} minuti/o, motivazione: {2}</value>
+  </data>
+  <data name="AddMuteCommandSuccessPlayer" xml:space="preserve">
+    <value>Sei stato mutato dalla chat per {0} minuti/o! Motivazione: {1}</value>
+  </data>
+  <data name="AddMuteCommandUsage" xml:space="preserve">
+    <value>textchat mute add [Nickname/UserID/PlayerID] [Durata (Minuti)] [Motivazione]</value>
+  </data>
+  <data name="NoAvailablePlayersToChatWithError" xml:space="preserve">
+    <value>Non ci sono giocatori disponibili con cui chattare!</value>
+  </data>
+  <data name="NoCommandsToShowError" xml:space="preserve">
+    <value>Non è presente alcun comando!</value>
+  </data>
+  <data name="PlayerIsAlreadyMutedError" xml:space="preserve">
+    <value>"{0}" è già mutato!</value>
+  </data>
+  <data name="PlayerIsFloodingError" xml:space="preserve">
+    <value>Stai mandando messaggi troppo velocemente!</value>
+  </data>
+  <data name="PlayerIsMutedError" xml:space="preserve">
+    <value>Sei mutato dalla chat room!</value>
+  </data>
+  <data name="PlayerIsNotMutedError" xml:space="preserve">
+    <value>"{0}" non è mutato!</value>
+  </data>
+  <data name="PlayerNotFoundError" xml:space="preserve">
+    <value>Il giocatore "{0}" non è stato trovato!</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>PRIVATA</value>
+  </data>
+  <data name="PrivateChatDescription" xml:space="preserve">
+    <value>Invia un messaggio privato ad un altro giocatore.</value>
+  </data>
+  <data name="PrivateChatUsage" xml:space="preserve">
+    <value>.chat private [Nickname/UserID/PlayerID] [Messaggio]</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>PUBBLICA</value>
+  </data>
+  <data name="PublicChatDescription" xml:space="preserve">
+    <value>Invia un messaggio a tutti i giocatori presenti nel server.</value>
+  </data>
+  <data name="PublicChatUsage" xml:space="preserve">
+    <value>.chat public [Messaggio]</value>
+  </data>
+  <data name="ReasonCannotBeEmptyError" xml:space="preserve">
+    <value>Devi fornire una motivazione!</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>SQUADRA</value>
+  </data>
+  <data name="TeamChatDescription" xml:space="preserve">
+    <value>Invia un messaggio alla tua squadra.</value>
+  </data>
+  <data name="TeamChatUsage" xml:space="preserve">
+    <value>.chat team [Messaggio]</value>
+  </data>
+  <data name="UnmuteCommandDescription" xml:space="preserve">
+    <value>Smuta un player dalla chat.</value>
+  </data>
+  <data name="UnmuteCommandSuccessModerator" xml:space="preserve">
+    <value>"{0}" è stato smutato dalla chat!</value>
+  </data>
+  <data name="UnmuteCommandSuccessPlayer" xml:space="preserve">
+    <value>Sei stato smutato dalla chat!</value>
+  </data>
+  <data name="UnmuteCommandUsage" xml:space="preserve">
+    <value>textchat mute remove [Nickname/UserID/PlayerID]</value>
+  </data>
+  <data name="PlayerHasBeenChatMuted" xml:space="preserve">
+    <value>Sei stato mutato dalla chat per {0} minuti/o, motivazione: {1}</value>
+  </data>
+  <data name="PlayerReceivedPrivateMessage" xml:space="preserve">
+    <value>Hai ricevuto un messaggio privato!</value>
+  </data>
+  <data name="RemoveAllMutesSuccess" xml:space="preserve">
+    <value>Sono stati eliminati con successo {0} mute!</value>
+  </data>
+  <data name="RemoveMutesCommandDescription" xml:space="preserve">
+    <value>Elimina tutti i mute presenti nel database, oppure quelli di un giocatore specifico.</value>
+  </data>
+  <data name="RemoveMutesCommandUsage" xml:space="preserve">
+    <value>textchat mute remove [Nickname/UserID/PlayerID]</value>
+  </data>
+  <data name="RemoveMutesSuccess" xml:space="preserve">
+    <value>Sono stati eliminati con successo {0} mute di "{1}"!</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Durata</value>
+  </data>
+  <data name="Expire" xml:space="preserve">
+    <value>Scadenza</value>
+  </data>
+  <data name="Issuer" xml:space="preserve">
+    <value>Emittente</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minuti/o</value>
+  </data>
+  <data name="MutesList" xml:space="preserve">
+    <value>LISTA DEI MUTE</value>
+  </data>
+  <data name="PlayerHasJoinedTheChat" xml:space="preserve">
+    <value>{0} è entrato in chat!</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Motivazione</value>
+  </data>
+  <data name="ShowMutesCommandDescription" xml:space="preserve">
+    <value>Mostra tutti i mute presenti nel database, oppure quelli di un giocatore specifico.</value>
+  </data>
+  <data name="ShowMutesCommandUsage" xml:space="preserve">
+    <value>textchat mute show [Nickname/UserID/PlayerID]</value>
+  </data>
+  <data name="Timestamp" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="OutdatedVersionError" xml:space="preserve">
+    <value>Stai utilizzando una vecchia versione di EXILED ({0}), il plugin potrebbe non essere compatibile con essa! Versione raccomandata: {1}</value>
+  </data>
+  <data name="CommandSpecifySubCommand" xml:space="preserve">
+    <value>Per favore, specifica un sottocomando! Disponibili: {0}</value>
+  </data>
+</root>
