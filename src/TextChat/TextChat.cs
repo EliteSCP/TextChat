@@ -1,4 +1,4 @@
-﻿namespace TextChat
+namespace TextChat
 {
     using Events;
     using Exiled.API.Features;
@@ -18,7 +18,7 @@
 
         internal PlayerHandler PlayerHandler { get; private set; }
 
-        public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
+        public override Version RequiredExiledVersion { get; } = new Version(5, 3, 0);
 
         public override void OnEnabled()
         {
