@@ -3,9 +3,11 @@ namespace TextChat
     using Enums;
     using Exiled.API.Features;
     using Exiled.API.Interfaces;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Globalization;
+    using System.Linq;
 
     public class Config : IConfig
     {
@@ -51,12 +53,7 @@ namespace TextChat
         public bool IsSlowModeEnabled { get; private set; } = true;
 
         [Description("The list of enabled chat types")]
-        public List<ChatRoomType> EnabledChatTypes { get; private set; } = new List<ChatRoomType>()
-        {
-            ChatRoomType.Private,
-            ChatRoomType.Public,
-            ChatRoomType.Team
-        };
+        public List<ChatRoomType> EnabledChatTypes { get; private set; } = Enum.GetValues(typeof(ChatRoomType)).ToArray<ChatRoomType>().ToList();
 
         [Description("The slowmode cooldown, in seconds")]
         public float SlowModeCooldown { get; private set; } = 0.75f;
