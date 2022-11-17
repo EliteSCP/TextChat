@@ -2,7 +2,7 @@
 An in-game TextChat plugin for SCP:SL.
 
 ## Minimum requirements
-[EXILED](https://github.com/Exiled-Team/EXILED/releases/tag/5.3.1) **5.3.1+**
+[EXILED](https://github.com/Exiled-Team/EXILED/releases/5.3.0) **5.3.0+**
 
 [LiteDB](https://github.com/mbdavid/LiteDB) **5.0.9+**
 
