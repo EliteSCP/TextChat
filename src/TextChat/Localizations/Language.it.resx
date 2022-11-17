@@ -312,4 +312,7 @@
   <data name="CommandSpecifySubCommand" xml:space="preserve">
     <value>Per favore, specifica un sottocomando! Disponibili: {0}</value>
   </data>
+  <data name="ChatTypeIsCurrentlyDisabledError" xml:space="preserve">
+    <value>Errore: la chat "{0}" è attualmente disabilitata!</value>
+  </data>
 </root>

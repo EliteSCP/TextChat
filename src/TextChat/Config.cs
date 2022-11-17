@@ -1,5 +1,6 @@
-﻿namespace TextChat
+namespace TextChat
 {
+    using Enums;
     using Exiled.API.Features;
     using Exiled.API.Interfaces;
     using System.Collections.Generic;
@@ -48,6 +49,14 @@
 
         [Description("Indicates whether the slow mode is enabled or not")]
         public bool IsSlowModeEnabled { get; private set; } = true;
+
+        [Description("The list of enabled chat types")]
+        public List<ChatRoomType> EnabledChatTypes { get; private set; } = new List<ChatRoomType>()
+        {
+            ChatRoomType.Private,
+            ChatRoomType.Public,
+            ChatRoomType.Team
+        };
 
         [Description("The slowmode cooldown, in seconds")]
         public float SlowModeCooldown { get; private set; } = 0.75f;

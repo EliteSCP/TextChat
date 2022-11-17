@@ -19,7 +19,7 @@ namespace TextChat.Localizations {
     // tramite uno strumento quale ResGen o Visual Studio.
     // Per aggiungere o rimuovere un membro, modificare il file con estensione ResX ed eseguire nuovamente ResGen
     // con l'opzione /str oppure ricompilare il progetto VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Language {
@@ -129,6 +129,15 @@ namespace TextChat.Localizations {
         internal static string ChatMessageTooLongError {
             get {
                 return ResourceManager.GetString("ChatMessageTooLongError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Error: &quot;{0}&quot; chat is currently disabled!.
+        /// </summary>
+        internal static string ChatTypeIsCurrentlyDisabledError {
+            get {
+                return ResourceManager.GetString("ChatTypeIsCurrentlyDisabledError", resourceCulture);
             }
         }
         

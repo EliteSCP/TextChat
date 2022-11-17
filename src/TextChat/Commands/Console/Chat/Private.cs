@@ -1,4 +1,4 @@
-﻿namespace TextChat.Commands.Console.Chat
+namespace TextChat.Commands.Console.Chat
 {
     using CommandSystem;
     using Enums;
@@ -24,6 +24,12 @@
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
+            if (!TextChat.Instance.Config.EnabledChatTypes?.Contains(ChatRoomType.Private) ?? false)
+            {
+                response = string.Format(Language.ChatTypeIsCurrentlyDisabledError, Language.Private);
+                return false;
+            }
+
             Player player = Player.Get(((CommandSender)sender).SenderId);
 
             if (player == null)
