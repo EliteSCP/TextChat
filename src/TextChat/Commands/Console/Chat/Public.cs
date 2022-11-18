@@ -28,7 +28,7 @@ namespace TextChat.Commands.Console.Chat
         {
             if (!TextChat.Instance.Config.EnabledChatTypes?.Contains(ChatRoomType.Public) ?? false)
             {
-                response = string.Format(Language.ChatTypeIsCurrentlyDisabledError, Language.Public);
+                response = $"<color=red>{string.Format(Language.ChatTypeIsCurrentlyDisabledError, Language.Public)}</color>";
                 return false;
             }
 

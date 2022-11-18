@@ -133,7 +133,7 @@ namespace TextChat.Localizations {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Error: &quot;{0}&quot; chat is currently disabled!.
+        ///   Cerca una stringa localizzata simile a &quot;{0}&quot; chat is currently disabled!.
         /// </summary>
         internal static string ChatTypeIsCurrentlyDisabledError {
             get {

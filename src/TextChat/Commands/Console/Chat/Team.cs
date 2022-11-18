@@ -22,7 +22,7 @@ namespace TextChat.Commands.Console.Chat
         {
             if (!TextChat.Instance.Config.EnabledChatTypes?.Contains(ChatRoomType.Team) ?? false)
             {
-                response = string.Format(Language.ChatTypeIsCurrentlyDisabledError, Language.Team);
+                response = $"<color=red>{string.Format(Language.ChatTypeIsCurrentlyDisabledError, Language.Team)}</color>";
                 return false;
             }
 

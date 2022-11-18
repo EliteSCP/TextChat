@@ -313,6 +313,6 @@
     <value>Please, specify a subcommand! Available: {0}</value>
   </data>
   <data name="ChatTypeIsCurrentlyDisabledError" xml:space="preserve">
-    <value>Error: "{0}" chat is currently disabled!</value>
+    <value>"{0}" chat is currently disabled!</value>
   </data>
 </root>
