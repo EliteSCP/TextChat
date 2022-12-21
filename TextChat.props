@@ -10,7 +10,7 @@
 
   <PropertyGroup>  
     <Authors>iopietro</Authors>
-    <Version>1.4.6</Version>
+    <Version>1.4.7</Version>
     <Copyright>Copyright © iopietro 2020-$([System.DateTime]::Now.Year)</Copyright>
     <RepositoryType>Git</RepositoryType>
     <RepositoryUrl>https://github.com/EliteSCP/TextChat</RepositoryUrl>
