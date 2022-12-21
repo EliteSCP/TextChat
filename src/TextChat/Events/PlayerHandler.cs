@@ -1,7 +1,7 @@
-﻿namespace TextChat.Events
+namespace TextChat.Events
 {
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs;
+    using Exiled.Events.EventArgs.Player;
     using Localizations;
     using System;
     using System.Linq;

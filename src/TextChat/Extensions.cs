@@ -1,6 +1,7 @@
-﻿namespace TextChat
+namespace TextChat
 {
     using Exiled.API.Features;
+    using PlayerRoles;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -21,19 +22,19 @@
         {
             switch (team)
             {
-                case Team.SCP:
+                case Team.SCPs:
                     return "red";
-                case Team.MTF:
+                case Team.FoundationForces:
                     return "blue";
-                case Team.CHI:
+                case Team.ChaosInsurgency:
                     return "green";
-                case Team.RSC:
+                case Team.Scientists:
                     return "yellow";
-                case Team.CDP:
+                case Team.ClassD:
                     return "yellow";
-                case Team.TUT:
+                case Team.OtherAlive:
                     return "green";
-                case Team.RIP:
+                case Team.Dead:
                 default:
                     return "white";
             }

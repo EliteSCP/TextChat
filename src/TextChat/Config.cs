@@ -16,6 +16,9 @@ namespace TextChat
         [Description("Indicates whether the plugin is enabled or not")]
         public bool IsEnabled { get; set; } = true;
 
+        [Description("Indicates whether the plugin debug is enabled or not")]
+        public bool Debug { get; set; }
+
         [Description("The database name")]
         public string DatabaseName { get; private set; } = "TextChat";
 
