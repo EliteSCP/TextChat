@@ -53,7 +53,7 @@ namespace TextChat.Commands.Console.Chat
                 return false;
             }
 
-            message.Content = response = $"[{player.Nickname}][{Language.Team} ({player.Role.ToString().ToUpper()})]: {response}";
+            message.Content = response = $"[{player.Nickname}][{Language.Team} ({player.Role.Type.ToString().ToUpper()})]: {response}";
 
             if (TextChat.Instance.Config.ShouldSaveChatToDatabase)
                 message.Save(ChatRoomType.Team);
