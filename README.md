@@ -1,3 +1,4 @@
+# THIS PLUGIN WON'T BE UPDATED
 # TextChat
 An in-game TextChat plugin for SCP:SL.
 
